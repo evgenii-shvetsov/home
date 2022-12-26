@@ -11,6 +11,7 @@ function LoginFormPage() {
   const [password, setPassword] = useState('');
   const [errors, setErrors] = useState([]);
 
+
   if (sessionUser) return <Redirect to="/" />;
 
   const handleSubmit = (e) => {
@@ -29,33 +30,44 @@ function LoginFormPage() {
         else if (data) setErrors([data]);
         else setErrors([res.statusText]);
       });
+
   }
 
+
   return (
-    <form onSubmit={handleSubmit}>
-      <ul>
-        {errors.map(error => <li key={error}>{error}</li>)}
-      </ul>
-      <label>
-        Username or Email
-        <input
-          type="text"
-          value={credential}
-          onChange={(e) => setCredential(e.target.value)}
-          required
-        />
-      </label>
-      <label>
-        Password
-        <input
-          type="password"
-          value={password}
-          onChange={(e) => setPassword(e.target.value)}
-          required
-        />
-      </label>
-      <button type="submit">Log In</button>
-    </form>
+    <>
+      <form onSubmit={handleSubmit}>
+        <ul>
+          {errors.map(error => <li key={error}>{error}</li>)}
+        </ul>
+        <label>
+          Username or Email
+          <input
+            type="text"
+            value={credential}
+            onChange={(e) => setCredential(e.target.value)}
+            required
+          />
+        </label>
+        <label>
+          Password
+          <input
+            type="password"
+            value={password}
+            onChange={(e) => setPassword(e.target.value)}
+            required
+          />
+        </label>
+        
+        <button type="submit">Log In</button>
+        <button onClick={(e) => {
+          e.preventDefault();
+          dispatch(sessionActions.login({ credential: "evgenii", password:"password" }))
+        }}>Demo Login</button>
+      </form>
+
+    
+  </>
   );
 }
 
