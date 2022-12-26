@@ -1,0 +1,36 @@
+a {
+    text-decoration: none;
+    color: black;
+    padding: 10px;
+    font-size: 20px;
+}
+
+a:hover{
+    color: grey;
+}
+
+
+ul li {
+    display: flex;
+    justify-content: space-between;
+    text-decoration: none;
+}
+
+li a #sign_buttons{
+    color: red
+}
+
+/* .profile-dropdown{
+    display: flex;
+    flex-direction: column;
+} */
+
+#dropdown{
+    display: flex;
+    flex-direction: column;
+    width: 130px;
+}
+#dropdown ul{
+    width: 100px;
+    padding: 0px;
+}
