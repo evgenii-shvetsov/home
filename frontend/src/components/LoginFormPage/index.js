@@ -62,7 +62,7 @@ function LoginFormPage() {
         <button type="submit">Log In</button>
         <button onClick={(e) => {
           e.preventDefault();
-          dispatch(sessionActions.login({ credential: "evgenii", password:"password" }))
+          dispatch(sessionActions.login({ credential: "demo-user", password:"demo-password" }))
         }}>Demo Login</button>
       </form>
 
