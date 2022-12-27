@@ -4,6 +4,7 @@ import { useSelector } from 'react-redux';
 import ProfileButton from './ProfileButton';
 import LoginFormModal from '../LoginFormModal'; // new LOGIN FEATURE
 import SignupFormModal from '../SignupFormModal'; // new SIGNUP FEATURE
+import logo from '../../assets/home-logo.jpg';
 import './Navigation.css';
 
 function Navigation() {
@@ -27,12 +28,24 @@ function Navigation() {
 
   return (
     <header>
-      <ul>
+    
+          <nav>
+          <NavLink exact to="/listings/for_sale">Buy</NavLink>
+          <NavLink exact to="/listings/for_rent">Rent</NavLink>
+          </nav>
+        
+          <NavLink exact to="/"><img src={logo} alt="company logo" width="80px" /></NavLink>
+          {<span>{sessionLinks}</span>}
+
+
+      {/* <ul>
         <li>
+          <NavLink exact to="/">Buy</NavLink>
+          <NavLink exact to="/listings/for_rent">Rent</NavLink>
           <NavLink exact to="/">Home</NavLink>
           {<span>{sessionLinks}</span>}
         </li>
-      </ul>
+      </ul> */}
     </header>
   );
 }

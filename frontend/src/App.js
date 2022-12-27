@@ -13,6 +13,11 @@ function App() {
     <Navigation />
     <Switch>
       <Route exact path="/" component={Homepage} />
+
+      {/* <Route exact path="/listings/for_rent" component={RentListings}/>
+      <Route exact path="/listings/for_sale" component={SaleListings}/>
+      <Route exact path="/myhome/account" component={UserProfile} /> */}
+
       <Route path="/error" component={Page404}/>
       <Redirect to="/error"/>
     </Switch>

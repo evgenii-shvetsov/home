@@ -1,24 +1,31 @@
+
 header{
-    background-color: aliceblue;
+    max-width: 1280px;
+    border-bottom: 1px solid rgb(216, 216, 216);
+    background-color: #f9f9fb;
+    min-height: 79px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 }
 
-a {
-    text-decoration: none;
-    color: black;
+/* a {
+    /* text-decoration: none; */
+    /* color: black;
     padding: 10px;
-    font-size: 20px;
-}
+    font-size: 20px; */
+/* } */
 
-a:hover{
+/* a:hover{
     color: grey;
-}
+} */
 
 
-ul li {
+/* ul li {
     display: flex;
     justify-content: space-between;
     text-decoration: none;
-}
+}  */
 
 
 
