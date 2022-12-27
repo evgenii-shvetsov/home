@@ -2,6 +2,8 @@ import React from 'react';
 import { NavLink } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import ProfileButton from './ProfileButton';
+import LoginFormModal from '../LoginFormModal'; // new LOGIN FEATURE
+import SignupFormModal from '../SignupFormModal'; // new SIGNUP FEATURE
 import './Navigation.css';
 
 function Navigation() {
@@ -15,8 +17,10 @@ function Navigation() {
   } else {
     sessionLinks = (
       <>
-        <NavLink to="/login">Log In</NavLink>
-        <NavLink to="/signup">Sign Up</NavLink>
+        {/* <NavLink to="/login">Log In</NavLink> */}
+        <LoginFormModal/>
+        {/* <NavLink to="/signup">Sign Up</NavLink> */}
+        <SignupFormModal/>
       </>
     );
   }
