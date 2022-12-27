@@ -28,15 +28,15 @@ function Navigation() {
 
   return (
     <header>
-    
+      <div className='header-wrapper'>
           <nav>
           <NavLink exact to="/listings/for_sale">Buy</NavLink>
           <NavLink exact to="/listings/for_rent">Rent</NavLink>
           </nav>
         
-          <NavLink exact to="/"><img src={logo} alt="company logo" width="80px" /></NavLink>
-          {<span>{sessionLinks}</span>}
-
+          <NavLink exact to="/"><img id="logo" src={logo} alt="company logo" /></NavLink>
+          {<span id="sesseion-links">{sessionLinks}</span>}
+      </div>
 
       {/* <ul>
         <li>
