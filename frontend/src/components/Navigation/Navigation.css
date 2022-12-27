@@ -16,21 +16,22 @@ ul li {
     text-decoration: none;
 }
 
-li a #sign_buttons{
-    color: red
-}
 
-/* .profile-dropdown{
-    display: flex;
-    flex-direction: column;
-} */
 
 #dropdown{
     display: flex;
     flex-direction: column;
-    width: 130px;
+    width: 100px;
+    position: relative;
+    margin-right: 40px;
+}
+.profile-dropdown{
+
+    position: absolute;
+    top: 30px;
+    left: 0px;
 }
 #dropdown ul{
-    width: 100px;
+    width: 150px;
     padding: 0px;
 }
