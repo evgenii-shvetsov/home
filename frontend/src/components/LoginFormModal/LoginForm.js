@@ -17,7 +17,9 @@ function LoginForm() {
     e.preventDefault();
     setErrors([]);
     return dispatch(sessionActions.login({ credential, password }))
+ 
       .catch(async (res) => {
+        console.log("inside catch block")
         let data;
         try {
           // .clone() essentially allows you to read the response body twice
@@ -25,17 +27,28 @@ function LoginForm() {
         } catch {
           data = await res.text(); // Will hit this case if the server is down
         }
-        if (data?.errors) setErrors(data.errors);
-        else if (data) setErrors([data]);
-        else setErrors([res.statusText]);
+        if (data?.errors) {
+          setErrors(data.errors)
+          console.log(data.errors,"inside if block")
+        }
+        else if (data) {
+          setErrors([data])
+          console.log("inside if else block")
+        }
+        else {
+          setErrors([res.statusText])
+          console.log("inside else block")
+        }
       });
   };
 
   return (
     <form onSubmit={handleSubmit}>
-      <ul>
+
+      <ul className="errors-ul">
         {errors.map(error => <li key={error}>{error}</li>)}
       </ul>
+
       <label>
         Username or Email
         <input
