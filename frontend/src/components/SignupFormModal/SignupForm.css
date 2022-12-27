@@ -20,7 +20,7 @@ form > button{
     
     text-transform: none;
     font-family: "Ivar Headline", "Ivar Headline Subset", "Adjusted Times", "Adjusted Times New Roman", "Times New Roman", serif;
-    /* font-weight: 700; */
+    font-weight: bold;
     font-size: 24px;
     line-height: 32px;
     margin: 0px 0px 0px;
@@ -114,3 +114,24 @@ form > button{
     color: rgb(255, 255, 255);
 }
 
+.signup-form button{
+    margin-top: 20px;
+}
+
+.signup-errors-list {
+    max-width: 95%;
+    margin: 0 auto;
+    margin-top: 15px;
+    line-height: 20px;
+    /* list-style: circle; */
+}
+
+.signup-errors-list li {
+    text-transform: none;
+    font-family: "Open Sans", "Adjusted Arial", Tahoma, Geneva, sans-serif;
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 16px;
+    color: rgb(163, 0, 11);
+    margin: 8px;
+}

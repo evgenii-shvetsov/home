@@ -68,7 +68,7 @@ function LoginForm() {
           />
         </label>
 
-        <ul className="errors-ul">
+        <ul className="login-errors-list">
           {errors.map(error => <li key={error}>{error}</li>)}
         </ul>
         <button type="submit">Log In</button>

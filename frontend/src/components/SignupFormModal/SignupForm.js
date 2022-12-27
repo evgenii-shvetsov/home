@@ -85,7 +85,7 @@ function SignupFormPage() {
           />
         </label>
 
-        <ul>
+        <ul className="signup-errors-list">
           {errors.map(error => <li key={error}>{error}</li>)}
         </ul>
 
