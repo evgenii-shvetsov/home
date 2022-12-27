@@ -33,12 +33,12 @@ export const login = ({ credential, password }) => async dispatch => {
     body: JSON.stringify({ credential, password })
   });
 
-  if(response.ok){
+  // if(response.ok){
     const data = await response.json();
     storeCurrentUser(data.user);
     dispatch(setCurrentUser(data.user));
     return response;
-  }
+  // }
 };
 
 export const signup = (user) => async (dispatch) => {
