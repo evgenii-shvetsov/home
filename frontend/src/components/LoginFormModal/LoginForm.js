@@ -19,7 +19,6 @@ function LoginForm() {
     return dispatch(sessionActions.login({ credential, password }))
  
       .catch(async (res) => {
-        console.log("inside catch block")
         let data;
         try {
           // .clone() essentially allows you to read the response body twice
@@ -29,50 +28,57 @@ function LoginForm() {
         }
         if (data?.errors) {
           setErrors(data.errors)
-          console.log(data.errors,"inside if block")
+
         }
         else if (data) {
           setErrors([data])
-          console.log("inside if else block")
+
         }
         else {
           setErrors([res.statusText])
-          console.log("inside else block")
+
         }
       });
   };
 
   return (
-    <form onSubmit={handleSubmit}>
 
-      <ul className="errors-ul">
-        {errors.map(error => <li key={error}>{error}</li>)}
-      </ul>
+    <div className="login-form">
+      <h3>Welcome Home</h3>
+      <form onSubmit={handleSubmit}>
 
-      <label>
-        Username or Email
-        <input
-          type="text"
-          value={credential}
-          onChange={(e) => setCredential(e.target.value)}
-          required
-        />
-      </label>
-      <label>
-        Password
-        <input
-          type="password"
-          value={password}
-          onChange={(e) => setPassword(e.target.value)}
-          required
-        />
-      </label>
-      <button type="submit">Log In</button>
-      <button onClick={(e) => {
-          e.preventDefault();
-          dispatch(sessionActions.login({ credential: "demo-user", password:"demo-password" }))
-        }}>Demo Login</button>
-    </form>
+        <label>
+          Username or Email
+          <input
+            type="text"
+            value={credential}
+            onChange={(e) => setCredential(e.target.value)}
+            placeholder="Enter username or email"
+            required
+          />
+        </label>
+        <label>
+          Password
+          <input
+            type="password"
+            value={password}
+            onChange={(e) => setPassword(e.target.value)}
+            placeholder="Enter password"
+            required
+          />
+        </label>
+
+        <ul className="errors-ul">
+          {errors.map(error => <li key={error}>{error}</li>)}
+        </ul>
+        <button type="submit">Log In</button>
+        
+        <button id="demo-login-btn" onClick={(e) => {
+            e.preventDefault();
+            dispatch(sessionActions.login({ credential: "demo-user", password:"demo-password" }))
+          }}>Demo Login</button>
+      </form>
+    </div>
   );
 }
 

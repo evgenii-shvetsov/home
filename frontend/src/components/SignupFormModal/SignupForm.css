@@ -1,8 +1,8 @@
-form{
+.signup-form form{
     margin: 0 auto;
     display: flex;
     flex-direction: column;
-    width: 150px
+    width: 250px
 }
 
 
@@ -11,3 +11,106 @@ form > button{
     margin: 0 auto;
     margin-top: 10px;
 }
+
+
+.signup-form h3{
+    text-align: center;
+    padding-top: 30px;
+    color: rgb(42, 42, 51);
+    
+    text-transform: none;
+    font-family: "Ivar Headline", "Ivar Headline Subset", "Adjusted Times", "Adjusted Times New Roman", "Times New Roman", serif;
+    /* font-weight: 700; */
+    font-size: 24px;
+    line-height: 32px;
+    margin: 0px 0px 0px;
+}
+
+.signup-form h4 {
+    text-align: center;
+    padding-top: 10px;
+    padding-top: 10px;
+    color: rgb(42, 42, 51);
+    
+    text-transform: none;
+    font-family: "Ivar Headline", "Ivar Headline Subset", "Adjusted Times", "Adjusted Times New Roman", "Times New Roman", serif;
+    font-weight: 300;
+    font-size: 18px;
+    margin: 0px 0px 0px;
+}
+
+.signup-form input {
+    /* appearance: none; */
+    width: 100%;
+    margin: 0px;
+    padding: 9px 16px;
+    background-color: rgb(246, 246, 250);
+    border: 1px solid rgb(209, 209, 213);
+    border-radius: 4px;
+    box-sizing: border-box;
+    caret-color: rgb(0, 106, 255);
+    cursor: text;
+    outline: none;
+    box-shadow: none;
+    color: rgb(42, 42, 51);
+    -webkit-font-smoothing: antialiased;
+    text-transform: none;
+    font-family: "Open Sans", "Adjusted Arial", Tahoma, Geneva, sans-serif;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 24px;
+    height: auto;
+    margin-top: 10px;
+}
+
+.signup-form label{
+    font-weight: bold;
+    margin-top: 10px;
+}
+.signup-form input:hover{
+    border-color: rgb(0, 106, 255);
+}
+
+
+
+.signup-form button {
+    cursor: pointer;
+    text-decoration: none;
+    text-align: center;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    box-sizing: border-box;
+    border: 1px solid;
+    border-radius: 4px;
+    user-select: none;
+    padding: 9px 16px;
+    margin: 0px;
+    appearance: none;
+    /* transition-property: background-color, border-color, color;
+    transition-duration: 0.2s;
+    transition-timing-function: ease; */
+    outline: none;
+    box-shadow: none;
+    width: auto;
+    position: relative;
+    color: rgb(42, 42, 51);
+    /* -webkit-font-smoothing: antialiased; */
+    text-transform: none;
+    font-family: "Open Sans", "Adjusted Arial", Tahoma, Geneva, sans-serif;
+    font-weight: 300;
+    font-size: 16px;
+    line-height: 24px;
+    height: auto;
+    background-color: rgb(0, 106, 255);
+    border-color: rgb(0, 106, 255);
+    color: rgb(255, 255, 255);
+
+}
+
+.signup-form button:hover{
+    background-color: rgb(13, 69, 153);
+    border-color: rgb(13, 69, 153);
+    color: rgb(255, 255, 255);
+}
+
