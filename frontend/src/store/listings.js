@@ -33,7 +33,7 @@ export const fetchListing = (listingId) => async (dispatch) =>{
     }
 };
 
-export const createBench = (listingData) => async (dispatch) =>{
+export const createListing = (listingData) => async (dispatch) =>{
     const res = await csrfFetch("/api/listings", {
         method: "POST",
         body: JSON.stringify(listingData),
