@@ -15,19 +15,19 @@ const ListingIndexPage = () => {
 
     useEffect(()=>{
         dispatch(fetchListings());
-    })
+    },[dispatch])
     
   return (
-    <div>
-        <h1>Listing Index Page</h1>
-        <button onClick={() => history.push("/listings/new")}>
+    <div >
+        {/* <h1>Listing Index Page</h1> */}
+        {/* <button onClick={() => history.push("/listings/new")}>
         <Link
           to="/listings/new"
           style={{ textDecoration: "none", color: "black" }}
         >
           Create Listing
         </Link>
-      </button>
+      </button> */}
       <ListingList listings={listings} />
     </div>
   )

@@ -3,7 +3,7 @@ import ListingListItem from './ListingListItem'
 
 const ListingList = ( {listings} ) => {
   return (
-    <div>
+    <div className='listings-main'>
         <h1>Homes For You</h1>
         <section className='listings-output'>
 

@@ -1,8 +1,17 @@
+.listings-main{
+    margin-top: 20px;
+}
+.listings-main h1{
+    padding-left: 20px;
+}
+
 .listing-container{
     box-sizing: border-box;
     overflow: hidden;
+    
     width:302px;
     height: 299px;
+    
     font-size: 12px;
     border: 1px solid black;
     border-radius: px;
@@ -11,12 +20,27 @@
     cursor: pointer;
     
 }
+.listing-wrapper{
+    text-align: center;
+}
 
 .listings-output{
     display: flex;
+
+    justify-content: center;
 }
 
+/* .listing-img{
+    display: block;
+    align-items: center;
+} */
 #home-logo{
     height: 70px;
 
+}
+
+.listing-detail{
+    margin-top: 20px;
+    line-height: 25px;
+    font-size: 16px;
 }
