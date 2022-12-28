@@ -21,7 +21,7 @@ const ListingShowPage = () => {
     if(!listing) return null;
 
   return (
-    <div>
+    <main>
         <h1>{listing.deal_type}</h1>
         <button onClick={() => history.push("/")}>
         <Link to="/" style={{ textDecoration: "none", color: "black" }}>
@@ -34,7 +34,7 @@ const ListingShowPage = () => {
         <h4>Address: {listing.address}</h4>
         <h4>Size: {listing.size} sq.ft.</h4>
         <h4>Price: {listing.price}</h4>
-    </div>
+    </main>
   )
 }
 
