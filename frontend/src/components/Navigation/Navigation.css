@@ -68,15 +68,46 @@ button:hover {
     flex-direction: column;
     width: 100px;
     position: relative;
-    margin-right: 40px;
-}
-.profile-dropdown{
-
-    position: absolute;
-    top: 30px;
-    left: 0px;
+    
+    /* margin-right: 40px; */
 }
 #dropdown ul{
-    width: 150px;
-    padding: 0px;
+    min-width: 200px;
+    /* padding: 0px; */
+}
+.profile-dropdown{
+    box-sizing: border-box;
+    color: rgb(42,42,51);
+    box-shadow: rgb(0 0 0 / 30%) 0px 8px 12px 0px;
+    font-family: 'Open Sans',Gotham,gotham,Tahoma,Geneva,sans-serif;
+    font-size: 15px;
+    border-radius: 3px;
+    max-width: 360px;
+    max-height: 400px;
+    line-height: 40px;
+    background-color: rgba(255,255,255,1);
+    position: absolute;
+    top: 60px;
+    left: -30px;
+    text-align: center;
+}
+
+.profile-dropdown li {
+    border-bottom: 1px solid rgba(0, 0, 0, 0.133);
+}
+.profile-dropdown li:hover{
+    color: rgb(0, 106, 255)
+}
+.profile-dropdown li button{
+    font-size: 15px;
+    margin-left: -8px;
+}
+
+#logout-btn{
+    font-weight: bold;
+}
+
+.font-awesome-login{
+    font-size: 30px;
+    /* color: red; */
 }
