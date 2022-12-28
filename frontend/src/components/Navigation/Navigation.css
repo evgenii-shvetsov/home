@@ -37,7 +37,8 @@ nav a:hover{
 }
 #logo:hover{
     /* box-shadow: 1px 1px 1px 1px rgb(211, 203, 203); */
-    box-shadow: 0.5px 0.5px 1px 1px rgb(13, 69, 153);
+    /* box-shadow: 0.5px 0.5px 1px 1px rgb(13, 69, 153); */
+    border: 0.1px solid rgb(13, 69, 153);
 }
 button{
     background: none;

@@ -1,0 +1,25 @@
+.footer-info{
+    display: flex;
+    min-height: 200px;
+    align-items: center;
+    justify-content: center;
+}
+.footer-info p {
+    margin-left: 20px;
+}
+#footer-logo{
+    width:80px;
+    border-radius: 10px;
+    cursor: pointer;
+}
+#footer-logo:hover{
+    /* box-shadow: 1px 1px 1px 1px rgb(211, 203, 203); */
+    /* box-shadow: 0.5px 0.5px 1px 1px rgb(13, 69, 153); */
+    border: 0.1px solid rgb(13, 69, 153);
+}
+.footer-big-logo{
+    height: 160px;
+    background-image: url('../../assets/footer.svg');
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+}
