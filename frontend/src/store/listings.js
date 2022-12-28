@@ -53,7 +53,7 @@ export const createListing = (listingData) => async (dispatch) =>{
 //add thunk for EDIT AND DESTROY
 ////////////////
 
-const listingReducer = (state = {}, action) => {
+const listingsReducer = (state = {}, action) => {
     switch (action.type) {
         case SET_LISTINGS:
             return {...state, ...action.payload};
@@ -64,4 +64,4 @@ const listingReducer = (state = {}, action) => {
     }
 };
 
-export default listingReducer;
+export default listingsReducer;
