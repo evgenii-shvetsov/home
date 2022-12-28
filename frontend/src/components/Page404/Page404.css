@@ -1,0 +1,52 @@
+.error404-style{
+    height: 405px;
+    background-image: url('../../assets/error404.svg');
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+.error-text{
+    padding-top: 50px;
+    padding-left: 100px;
+    /* text-align: center; */
+    
+    box-sizing: border-box;
+    color: rgb(13,69,153);
+    font-family: "Times New Roman", serif;
+    font-weight: bold;
+    font-size: 60px;
+    line-height: 75px;
+}
+
+.error-text p{
+    font-size: 30px;
+    line-height: 50px;
+}
+
+.error-text button{
+    margin: 32px 0px 0px;
+    font-family: Tahoma, Geneva, sans-serif;
+    font-weight: 600;
+    font-size: 14px;
+    letter-spacing: 0px;
+    text-transform: none;
+    text-align: center;
+    box-sizing: border-box;
+    width: auto;
+    border: 1px solid rgb(0, 106, 255);
+    border-radius: 3px;
+    transition: all 0.2s ease 0s;
+    padding: 9px 20px;
+    cursor: pointer;
+    height: 42px;
+    line-height: 22px;
+    color: rgb(255, 255, 255);
+    background-color: rgb(0, 106, 255);
+    display: inline-block;
+    text-decoration: none;
+}
+
+.error-text button:hover {
+    background-color: rgb(255, 255, 255);
+    color: rgb(0, 106, 255);
+
+}
