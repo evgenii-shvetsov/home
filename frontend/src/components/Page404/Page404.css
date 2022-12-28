@@ -1,4 +1,9 @@
+section{
+    flex:1;
+    flex-wrap: wrap;
+}
 .error404-style{
+    
     height: 405px;
     background-image: url('../../assets/error404.svg');
     background-size: cover;
