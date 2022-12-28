@@ -1,0 +1,22 @@
+.listing-container{
+    box-sizing: border-box;
+    overflow: hidden;
+    width:302px;
+    height: 299px;
+    font-size: 12px;
+    border: 1px solid black;
+    border-radius: px;
+    margin: 5px 2px;
+    padding: 20px;
+    cursor: pointer;
+    
+}
+
+.listings-output{
+    display: flex;
+}
+
+#home-logo{
+    height: 70px;
+
+}
