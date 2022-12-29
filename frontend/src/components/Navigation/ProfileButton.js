@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import { useDispatch } from 'react-redux';
 import * as sessionActions from '../../store/session';
 import './Navigation.css';
+import { NavLink } from 'react-router-dom';
 
 function ProfileButton({ user }) {
   const dispatch = useDispatch();
@@ -40,6 +41,7 @@ function ProfileButton({ user }) {
         <ul className="profile-dropdown">
           <li>{user.username}</li>
           <li>{user.email}</li>
+          <NavLink exact to='/listings/new'><li><button>Add New Listing</button></li></NavLink>
           <li><button>Saved Homes</button></li>
           <li>
             <button id="logout-btn" onClick={logout}>Log Out</button>
