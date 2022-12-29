@@ -14,3 +14,6 @@ json.extract! listing,
                         :year_built, 
                         :lat,
                         :lng
+
+
+
