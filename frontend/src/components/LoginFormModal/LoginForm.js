@@ -36,7 +36,6 @@ function LoginForm() {
         }
         else {
           setErrors([res.statusText])
-
         }
       });
   };

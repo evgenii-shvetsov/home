@@ -27,7 +27,7 @@ const ListingFormPage = () => {
     const [listing_type, setListingType] = useState("");
 
     const handleSubmit = (e) => {
-        e.preventDafault();
+        e.preventDefault();
         const listingData = {
             status,
             deal_type, 
@@ -49,16 +49,25 @@ const ListingFormPage = () => {
         return dispatch(createListing(listingData))
             .then(() => history.push("/"))
             .catch(async (res) => {
-            let data;
-            try {
-                data = await res.clone().json();
-            } catch {
-                data = await res.text();
-            }
-            if (data?.errors) setErrors(data.errors);
-            else if (data) setErrors([data]);
-            else setErrors([res.statusText]);
-        });
+                let data;
+                try {
+                  // .clone() essentially allows you to read the response body twice
+                  data = await res.clone().json();
+                } catch {
+                  data = await res.text(); // Will hit this case if the server is down
+                }
+                if (data?.errors) {
+                  setErrors(data.errors)
+        
+                }
+                else if (data) {
+                  setErrors([data])
+        
+                }
+                else {
+                  setErrors([res.statusText])
+                }
+              });
     };
 
 
@@ -178,12 +187,12 @@ const ListingFormPage = () => {
                     onChange={e => setListingType(e.target.value)}/>
                 </label>
 
-                <button>Submit</button>
-
-
                 <ul className="listing-form-errors" >
                     {errors?.map(error => <li key={error}>{error}</li>)}
                 </ul>
+
+                <button type="submit">Submit</button>
+
             </form>
         </main>
 
