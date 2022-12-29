@@ -3,6 +3,8 @@ import { useDispatch } from "react-redux";
 import { useHistory } from 'react-router-dom';
 import { createListing } from "../../store/listings";
 
+import "./ListingFormPage.css"
+
 const ListingFormPage = () => {
     const history = useHistory();
     const dispatch = useDispatch();
@@ -24,7 +26,7 @@ const ListingFormPage = () => {
     const [price, setPrice] = useState("");
     const [listing_type, setListingType] = useState("");
 
-    const handleSubmit = async (e) => {
+    const handleSubmit = (e) => {
         e.preventDafault();
         const listingData = {
             status,
@@ -61,7 +63,7 @@ const ListingFormPage = () => {
 
 
     return (
-        <>
+        <main className="listing-form">
             <form onSubmit={handleSubmit}>
                 <h1>Create New Listing</h1>
 
@@ -179,11 +181,11 @@ const ListingFormPage = () => {
                 <button>Submit</button>
 
 
-                <ul>
+                <ul className="listing-form-errors" >
                     {errors?.map(error => <li key={error}>{error}</li>)}
                 </ul>
             </form>
-        </>
+        </main>
 
 
     )
