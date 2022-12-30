@@ -1,16 +1,26 @@
 import React from 'react'
-import ListingListItem from './ListingListItem'
+import ListingListItem from './ListingListItem';
+import Carousel from 'react-elastic-carousel';
+
+
+const breakPoints = [
+  {width:1, itemsToShow: 1},
+  {width:550, itemsToShow: 2},
+  {width:768, itemsToShow: 3},
+  {width:1200, itemsToShow: 4},
+];
 
 const ListingList = ( {listings} ) => {
   return (
     <div className='listings-main'>
         <h1>Homes For You</h1>
-        <section className='listings-output'>
-
-        {listings?.map((listing, idx) => (
-            <ListingListItem listing={listing} key ={idx}/>
-        ))}
-        </section>
+          
+          <section className='listings-output' >
+                <Carousel breakPoints={breakPoints}>
+              {listings?.map((listing, idx) => ( <ListingListItem listing={listing} key ={idx}/>) )}
+            </Carousel>
+          </section>
+          
     </div>
   )
 }
