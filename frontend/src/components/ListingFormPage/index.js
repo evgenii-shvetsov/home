@@ -78,8 +78,8 @@ const ListingFormPage = () => {
 
     return (
         <main className="listing-form">
-            <h1>{!sessionUser && "Log In to create a new listing "}</h1>
-            {sessionUser && 
+            {/* <h1>{!sessionUser && "Log In to create a new listing "}</h1> */}
+            {!sessionUser ? <h1>Log In To Modify The Listing</h1> : 
                 <form onSubmit={handleSubmit}>
                     <h1>Create New Listing</h1>
                     
