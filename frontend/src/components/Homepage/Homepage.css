@@ -39,7 +39,7 @@ main .search-bar{
     border: 0px solid rgb(209, 209, 213);
     background-color: rgb(255, 255, 255);
     border-radius: 4px;
-    cursor: pointer;
+    /* cursor: pointer; */
     box-shadow: rgb(0 0 0 / 30%) 0px 2px 4px 0px;
     display: flex;
     flex-direction: column;
@@ -47,8 +47,33 @@ main .search-bar{
 }
 
 .deal-type-card:hover{
+    transition-duration: 0.4s;
     box-shadow: rgb(0 0 0 / 30%) 0px 4px 8px 0px;
+    scale: 1.05;
 }
+
+.deal-type-card h3{
+    margin: 0 auto;
+    margin-top: 20px;
+    font-family: "Ivar Headline", "Ivar Headline Subset", "Adjusted Times", "Adjusted Times New Roman", "Times New Roman", serif;
+    font-weight: 700;
+    font-size: 24px;
+    line-height: 32px;
+}
+
+.deal-type-card p{
+    /* margin: 0 auto;
+    display: block; */
+    text-align: center;
+    font-family: "Open Sans", "Adjusted Arial", Tahoma, Geneva, sans-serif;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 24px;
+    margin: 16px 0px 0px;
+}
+
+
+
 
 .deal-type-button{
     font-family: Tahoma, Geneva, sans-serif;
