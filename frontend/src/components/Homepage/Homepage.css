@@ -3,6 +3,10 @@ main{
     flex-wrap: wrap;
 }
 
+/* .main-homepage{
+    margin-top: 20px;
+} */
+
 main .search-bar{
     
     max-width: 100%;
@@ -11,5 +15,69 @@ main .search-bar{
     background-size: 100% 100%;
     /* background-size: cover; */
     background-repeat: no-repeat;
-    
+}
+
+.deal-types{
+    min-height: 664px;
+    width: 100%;
+    background-color: #f9f9fb;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 40px;
+}
+
+.deal-type-card{
+    font-family: "Open Sans", "Adjusted Arial", Tahoma, Geneva, sans-serif;
+    box-sizing: border-box;
+    overflow: hidden;
+    width: 384px;
+    height: 536px;
+    padding: 20px;
+    margin: 20px;
+    background-color: #fff;
+    border: 0px solid rgb(209, 209, 213);
+    background-color: rgb(255, 255, 255);
+    border-radius: 4px;
+    cursor: pointer;
+    box-shadow: rgb(0 0 0 / 30%) 0px 2px 4px 0px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.deal-type-card:hover{
+    box-shadow: rgb(0 0 0 / 30%) 0px 4px 8px 0px;
+}
+
+.deal-type-button{
+    font-family: Tahoma, Geneva, sans-serif;
+
+    margin: 0 auto;
+    margin-top: 30px;
+    font-weight: 600;
+    font-size: 14px;
+    letter-spacing: 0px;
+    text-transform: none;
+    text-align: center;
+    box-sizing: border-box;
+    /* width: auto; */
+    width: 150px;
+    /* width: 100%; */
+    border: 1px solid rgb(0, 106, 255);
+    border-radius: 3px;
+    transition: all 0.2s ease 0s;
+    padding: 9px 20px;
+    cursor: pointer;
+    height: 42px;
+    line-height: 22px;
+    background-color: rgb(255, 255, 255);
+    color: rgb(0, 106, 255);
+    display: inline-block;
+    text-decoration: none;
+}
+
+.deal-type-button:hover{
+    color: rgb(255, 255, 255);
+    background-color: rgb(0, 106, 255);
 }
