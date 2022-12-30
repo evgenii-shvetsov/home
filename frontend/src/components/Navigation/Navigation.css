@@ -15,12 +15,12 @@ header{
     justify-content: space-between;
     align-items: center;
 }
+/* <button tabindex="0" class="sc-bcXHqe kXteup rec rec-arrow rec rec-arrow-right" type="button">❯</button> */
 nav a{
     font-family: "Open Sans", Gotham, gotham, Tahoma, Geneva, sans-serif;
     margin-left: 40px;
     color: rgb(42,42,51);
     cursor: pointer;
-
     font-weight: 300;
     line-height: 28px;
     text-size-adjust: 100%;
@@ -34,6 +34,7 @@ nav a:hover{
     /* margin-left: -40px; */
     width:80px;
     border-radius: 10px;
+    margin: 0 auto;
 }
 #logo:hover{
     /* box-shadow: 1px 1px 1px 1px rgb(211, 203, 203); */
@@ -69,7 +70,7 @@ button:hover {
     width: 100px;
     position: relative;
     
-    /* margin-right: 40px; */
+    
 }
 #dropdown ul{
     min-width: 200px;
@@ -90,6 +91,7 @@ button:hover {
     top: 60px;
     left: -30px;
     text-align: center;
+    
 }
 
 .profile-dropdown li {
@@ -109,5 +111,6 @@ button:hover {
 
 .font-awesome-login{
     font-size: 30px;
+    /* padding-right: 30px; */
     /* color: red; */
 }

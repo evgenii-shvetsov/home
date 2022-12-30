@@ -1,5 +1,7 @@
 .listings-main{
-    margin-top: 20px;
+    margin: 0 auto;
+    margin-top: 30px;
+    max-width: 1200px; 
 }
 .listings-main h1{
     padding-left: 20px;
@@ -26,8 +28,9 @@
 
 .listings-output{
     display: flex;
-
+    
     justify-content: center;
+   
 }
 
 /* .listing-img{
@@ -43,4 +46,25 @@
     margin-top: 20px;
     line-height: 25px;
     font-size: 16px;
+}
+.rec.rec-arrow{
+    background-color: rgba(128, 128, 128, 0.086);
+}
+
+.rec.rec-arrow:hover:enabled{
+    background-color: rgba(46, 118, 235, 0.643);
+} 
+.rec.rec-arrow:focus:enabled{
+    background-color: rgba(46, 118, 235, 0.643);
+}
+.rec.rec-arrow-right{
+    margin-left: 0px;
+    margin-right: 20px;
+}
+.rec.rec-arrow-left{
+    margin-left: 20px;
+}
+
+.rec.rec-dot_active{
+    background-color: rgba(46, 118, 235, 0.643);
 }
