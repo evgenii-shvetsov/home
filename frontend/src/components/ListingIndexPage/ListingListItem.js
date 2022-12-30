@@ -64,7 +64,7 @@ const ListingListItem = ( {listing} ) => {
                 {sessionUserId === listing.owner_id &&
                     <button className="listing-card-delete"
                         onClick={()=> dispatch(deleteListing(listing.id))}>
-                            Delete listing <i className="fa-solid fa-trash"></i>
+                            <i className="fa-solid fa-trash"></i>
                     </button>
                 }
 
