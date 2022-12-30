@@ -3,6 +3,7 @@ import "./Homepage.css"
 import ListingIndexPage from '../ListingIndexPage'
 import buyLogo from "../../assets/buy-home.jpg"
 import rentLogo from "../../assets/rent-home.jpg"
+import {Link} from 'react-router-dom'
 
 const Homepage = () => {
   return (
@@ -18,14 +19,18 @@ const Homepage = () => {
           <img src={buyLogo} alt="buy home logo" />
           <h3>Buy a home</h3>
           <p>Find your place with an immersive photo experience and the most listings, including things you won’t find anywhere else.</p>
-          <button className='deal-type-button'>Browse homes</button>
+          <Link className='deal-type-link' to="/listings/for_sale">
+            <button className='deal-type-button'>Browse homes</button>
+          </Link>
         </div>
 
         <div className='deal-type-card'>
           <img src={rentLogo} alt="rent home logo" />
           <h3>Rent a home</h3>
           <p>Whether you’re looking for a single-family home, high-rise apartment, or something in between, we’ll help you find it.</p>
-          <button className='deal-type-button'>Find rentals</button>
+          <Link className='deal-type-link' to="/listings/for_rent"> 
+            <button className='deal-type-button'>Find rentals</button>
+          </Link>
         </div>
 
       </section>

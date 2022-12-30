@@ -72,7 +72,9 @@ main .search-bar{
     margin: 16px 0px 0px;
 }
 
-
+.deal-type-link{
+    margin: 0 auto;
+}
 
 
 .deal-type-button{
