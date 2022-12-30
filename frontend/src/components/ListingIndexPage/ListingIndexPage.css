@@ -34,8 +34,9 @@
     border-radius: 4px;
     margin: 5px 2px;
     padding: 20px;
-    cursor: pointer;
+    /* cursor: pointer; */
     box-shadow: rgb(0 0 0 / 30%) 0px 2px 4px 0px;
+    
 }
 
 .listing-container:hover{
@@ -43,6 +44,7 @@
 }
 .listing-wrapper{
     text-align: center;
+    position: relative;
 }
 
 .listings-output{
@@ -58,13 +60,27 @@
 } */
 #home-logo{
     height: 70px;
+    cursor: pointer;
+}
 
+.font-awesome-favorite{
+    font-size: 30px;
+    position: absolute;
+    top: 0;
+    right:0;
+    
+
+}
+
+.font-awesome-favorite .fa-solid {
+    color:blue
 }
 
 .listing-detail{
     margin-top: 20px;
     line-height: 25px;
     font-size: 16px;
+    cursor: pointer;
 }
 .rec.rec-arrow{
     background-color: rgba(128, 128, 128, 0.086);

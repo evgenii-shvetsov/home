@@ -1,5 +1,6 @@
 import React from "react";
 import { useHistory } from 'react-router-dom';
+import { useState } from "react";
 import logo from "../../assets/home-logo.png";
 
 // import { useSelector } from 'react-redux';
@@ -11,22 +12,35 @@ const ListingListItem = ( {listing} ) => {
     // console.log(listing.owner_id)
     const history = useHistory();
     
+    const [heart, setHeart] = useState(false)
+
+
     const handleClick = (e) => {
         e.preventDefault();
         history.push(`/listings/${listing.id}`)
+    }
+    const heartClick = () =>{
+        setHeart(!heart)
     }
 
     return (
         // <>
         
         //  {sessionUserId === listing.owner_id &&
-        <div onClick={handleClick} className="listing-container">
+        <div /*onClick={handleClick}*/ className="listing-container">
             <section className="listing-wrapper">
+
+                <button className="font-awesome-favorite" onClick={heartClick}>
+                    {!heart ? <i class="fa-regular fa-heart"></i> : <i class="fa-solid fa-heart"></i> }
+                </button>
+
                 <section className="listing-img">
-                    <img id="home-logo" src={logo} alt="home logo" />
+                    <img onClick={handleClick} id="home-logo" src={logo} alt="home logo" />
                 </section>
+
+                
              
-                <section className="listing-detail">
+                <section onClick={handleClick} className="listing-detail">
                    <h2>${listing.price}</h2>
 
                    <div>
@@ -43,13 +57,10 @@ const ListingListItem = ( {listing} ) => {
                         {listing.zip}
     
                     </div>
-                    {/* <h2>Listing type : {listing.listing_type}</h2>
-                    <h2>Address: {listing.address}</h2>
-                    <h2>Size: {listing.size} sq.ft.</h2>
-                    <h2>Price: {listing.price}</h2> */}
+
                 </section>
-                </section>
-                </div>
+            </section>
+        </div>
         // }
         // </>
     )
