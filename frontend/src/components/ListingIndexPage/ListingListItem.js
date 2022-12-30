@@ -27,11 +27,26 @@ const ListingListItem = ( {listing} ) => {
                 </section>
              
                 <section className="listing-detail">
-                   
-                    <h2>Listing type : {listing.listing_type}</h2>
+                   <h2>${listing.price}</h2>
+
+                   <div>
+                        {listing.bedroom} bds | &nbsp;
+                        {listing.bathroom} ba | &nbsp;
+                        {listing.size} sqft | &nbsp;
+                        Listing for {listing.deal_type}
+                   </div>
+
+                    <div>
+                        {listing.address}, &nbsp;
+                        {listing.city}, &nbsp;
+                        {listing.state}&nbsp;
+                        {listing.zip}
+    
+                    </div>
+                    {/* <h2>Listing type : {listing.listing_type}</h2>
                     <h2>Address: {listing.address}</h2>
                     <h2>Size: {listing.size} sq.ft.</h2>
-                    <h2>Price: {listing.price}</h2>
+                    <h2>Price: {listing.price}</h2> */}
                 </section>
                 </section>
                 </div>
