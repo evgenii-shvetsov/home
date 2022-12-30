@@ -33,7 +33,7 @@ const ListingListItem = ( {listing} ) => {
                         {listing.bedroom} bds | &nbsp;
                         {listing.bathroom} ba | &nbsp;
                         {listing.size} sqft | &nbsp;
-                        Listing for {listing.deal_type}
+                        For {listing.deal_type}
                    </div>
 
                     <div>

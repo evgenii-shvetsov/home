@@ -21,6 +21,7 @@
 }
 
 .listing-container{
+    font-family: "Open Sans", "Adjusted Arial", Tahoma, Geneva, sans-serif;
     box-sizing: border-box;
     overflow: hidden;
     
@@ -28,12 +29,17 @@
     height: 299px;
     /* padding: 8px; */
     font-size: 12px;
-    border: 1px solid black;
-    border-radius: 10px;
+    border: 0px solid rgb(209, 209, 213);
+    background-color: rgb(255, 255, 255);
+    border-radius: 4px;
     margin: 5px 2px;
     padding: 20px;
     cursor: pointer;
-    
+    box-shadow: rgb(0 0 0 / 30%) 0px 2px 4px 0px;
+}
+
+.listing-container:hover{
+    box-shadow: rgb(0 0 0 / 30%) 0px 4px 8px 0px;
 }
 .listing-wrapper{
     text-align: center;
