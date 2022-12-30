@@ -33,7 +33,7 @@ function Navigation() {
           </nav>
         
           <NavLink exact to="/"><img id="logo" src={logo} alt="company logo" /></NavLink>
-          {<span id="sesseion-links">{sessionLinks}</span>}
+          {<span id="session-links">{sessionLinks}</span>}
       </div>
 
       {/* <ul>

@@ -4,7 +4,11 @@
     max-width: 1200px; 
 }
 .listings-main h1{
-    padding-left: 20px;
+    padding-left: 30px;
+    color: rgb(42, 42, 51);
+    font-family: "Open Sans", "Adjusted Arial", Tahoma, Geneva, sans-serif;
+    font-size: 20px;
+    line-height: 24px;
 }
 
 .listing-container{
@@ -16,7 +20,7 @@
     
     font-size: 12px;
     border: 1px solid black;
-    border-radius: px;
+    border-radius: 10px;
     margin: 5px 2px;
     padding: 20px;
     cursor: pointer;
@@ -28,8 +32,8 @@
 
 .listings-output{
     display: flex;
-    
     justify-content: center;
+    margin-top: 20px;
    
 }
 

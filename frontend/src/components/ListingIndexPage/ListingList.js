@@ -13,7 +13,7 @@ const breakPoints = [
 const ListingList = ( {listings} ) => {
   return (
     <div className='listings-main'>
-        <h1>Homes For You</h1>
+        <h1>Homes For You in San Francisco, CA</h1>
           
           <section className='listings-output' >
                 <Carousel breakPoints={breakPoints} enableAutoPlay autoPlaySpeed={2000}>
