@@ -14,7 +14,7 @@ const ListingList = ( {listings} ) => {
   return (
     <div className='listings-main'>
         <h1>Homes For You in San Francisco, CA</h1>
-          
+        <hr id="hr" />
           <section className='listings-output' >
                 <Carousel breakPoints={breakPoints} enableAutoPlay autoPlaySpeed={2000}>
               {listings?.map((listing, idx) => ( <ListingListItem listing={listing} key ={idx}/>) )}
