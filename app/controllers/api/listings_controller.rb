@@ -35,8 +35,6 @@ class Api::ListingsController < ApplicationController
         if (@listing.owner_id === current_user.id) && @listing.destroy
             head :no_content
         end
-        #use the same logic
-        # if (@listing.owner_id === current_user.id) && @listing.update
     end
 
     private 

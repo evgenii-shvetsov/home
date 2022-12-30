@@ -5,12 +5,12 @@ import logo from "../../assets/home-logo.png";
 
 import {useDispatch} from 'react-redux';
 import { deleteListing } from "../../store/listings";
-// import { useSelector } from 'react-redux';
+import { useSelector } from 'react-redux';
 
 //commented code is for showing listings for specific user
 
 const ListingListItem = ( {listing} ) => {
-    // const sessionUserId = useSelector(state => state.session.user.id);
+    const sessionUserId = useSelector(state => state.session.user.id);
     // console.log(listing.owner_id)
     const dispatch = useDispatch()
 
@@ -44,7 +44,7 @@ const ListingListItem = ( {listing} ) => {
 
                 
              
-                <section /*onClick={handleClick} */className="listing-detail">
+                <section onClick={handleClick} className="listing-detail">
                    <h2>${listing.price}</h2>
 
                    <div>
@@ -61,7 +61,13 @@ const ListingListItem = ( {listing} ) => {
                         {listing.zip}
                     </div>
 
-                <button onClick={()=> dispatch(deleteListing(listing.id))}>Delete listing</button>
+                {sessionUserId === listing.owner_id &&
+                    <button className="listing-card-delete"
+                        onClick={()=> dispatch(deleteListing(listing.id))}>
+                            Delete listing <i className="fa-solid fa-trash"></i>
+                    </button>
+                }
+
                 </section>
             </section>
         </div>
