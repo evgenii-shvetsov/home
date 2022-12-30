@@ -1,5 +1,6 @@
 json.extract! listing, 
                         :id,
+                        :owner_id,
                         :listing_type,
                         :deal_type, 
                         :price, 
