@@ -32,6 +32,9 @@ class Api::ListingsController < ApplicationController
     def destroy
         #we need to find specific object
         @listing = Listing.find(params[:id])
+        if (@listing.owner_id === current_user.id) && @listing.destroy
+            head :no_content
+        end
         #use the same logic
         # if (@listing.owner_id === current_user.id) && @listing.update
     end
