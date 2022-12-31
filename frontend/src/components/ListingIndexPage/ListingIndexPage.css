@@ -82,7 +82,15 @@
     font-size: 16px;
     cursor: pointer;
 }
-
+.listing-card-update{
+    position: absolute;
+    font-size: 30px;
+    /* left: 50px;
+    bottom: -70px; */
+    /* width: 300px; */
+    top: 20px;
+    left: -20px;
+}
 
 .listing-card-delete{
     position: absolute;

@@ -10,7 +10,7 @@ import { useSelector } from 'react-redux';
 //commented code is for showing listings for specific user
 
 const ListingListItem = ( {listing} ) => {
-    const sessionUserId = useSelector(state => state.session.user.id);
+    const sessionUser = useSelector(state => state.session.user);
     // console.log(listing.owner_id)
     const dispatch = useDispatch()
 
@@ -33,6 +33,7 @@ const ListingListItem = ( {listing} ) => {
         //  {sessionUserId === listing.owner_id &&
         <div /*onClick={handleClick}*/ className="listing-container">
             <section className="listing-wrapper">
+                
 
                 <button className="font-awesome-favorite" onClick={heartClick}>
                     {!heart ? <i className="fa-regular fa-heart"></i> : <i className="fa-solid fa-heart"></i> }
@@ -44,7 +45,7 @@ const ListingListItem = ( {listing} ) => {
 
                 
              
-                <section onClick={handleClick} className="listing-detail">
+                <section /*onClick={handleClick}*/ className="listing-detail">
                    <h2>${listing.price}</h2>
 
                    <div>
@@ -61,11 +62,17 @@ const ListingListItem = ( {listing} ) => {
                         {listing.zip}
                     </div>
 
-                {sessionUserId === listing.owner_id &&
+                {sessionUser?.id === listing.owner_id &&
+                <>
+                    <button className="listing-card-update">
+                        <i className="fa-solid fa-pen"></i>
+                    </button>
+
                     <button className="listing-card-delete"
                         onClick={()=> dispatch(deleteListing(listing.id))}>
                             <i className="fa-solid fa-trash"></i>
                     </button>
+                </>
                 }
 
                 </section>
