@@ -1,9 +1,8 @@
-import { useState } from "react";
-import { useDispatch } from "react-redux";
+import { useState, useEffect } from "react";
+import { useParams } from 'react-router-dom';
+import { useDispatch, useSelector  } from "react-redux";
 import { useHistory } from 'react-router-dom';
-import { createListing } from "../../store/listings";
-
-import { useSelector } from 'react-redux';
+import { fetchListing, updateListing, createListing } from "../../store/listings";
 
 import "./ListingFormPage.css"
 
@@ -11,47 +10,81 @@ const ListingFormPage = () => {
 
     const sessionUser = useSelector(state => state.session.user);
 
+    const { listingId } = useParams();
+    const formType = listingId ? "Update Listing" : "Create Listing";
+    let listing = useSelector((store) => store.listings[listingId]);
+
     const history = useHistory();
     const dispatch = useDispatch();
     const [errors, setErrors] = useState([]);
 
-    const [status, setStatus] = useState("");
-    const [deal_type, setDealType] = useState("");
-    const [description, setDescription] = useState("");
-    const [zip, setZip] = useState("");
-    const [state, setState] = useState("");
-    const [city, setCity] = useState("");
-    const [address, setAddress] = useState("");
-    const [lat, setLat] = useState("");
-    const [lng, setLng] = useState("");
-    const [bedroom, setBedroom] = useState("");
-    const [bathroom, setBathroom] = useState("");
-    const [size, setSize] = useState("");
-    const [year_built, setYearBuilt] = useState("");
-    const [price, setPrice] = useState("");
-    const [listing_type, setListingType] = useState("");
+    if(formType === "Create Listing"){
+        listing = {
+            status: "",
+            deal_type: "",
+            description: "",
+            zip: "",
+            state: "",
+            city: "",
+            address: "",
+            lat: "",
+            lng: "",
+            bedroom: "",
+            bathroom: "",
+            size: "",
+            year_built: "",
+            price: "",
+            listing_type: ""
+        }
+    }
+
+    const [status, setStatus] = useState(listing.status);
+    const [deal_type, setDealType] = useState(listing.deal_type);
+    const [description, setDescription] = useState(listing.description);
+    const [zip, setZip] = useState(listing.zip);
+    const [state, setState] = useState(listing.state);
+    const [city, setCity] = useState(listing.city);
+    const [address, setAddress] = useState(listing.address);
+    const [lat, setLat] = useState(listing.lat);
+    const [lng, setLng] = useState(listing.lng);
+    const [bedroom, setBedroom] = useState(listing.bedroom);
+    const [bathroom, setBathroom] = useState(listing.bathroom);
+    const [size, setSize] = useState(listing.size);
+    const [year_built, setYearBuilt] = useState(listing.year_built);
+    const [price, setPrice] = useState(listing.price);
+    const [listing_type, setListingType] = useState(listing.listing_type);
+
+    useEffect(() => {
+        if(listingId){
+            dispatch(fetchListing(listingId))
+        }
+    },[listingId])
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        const listingData = {
-            status,
-            deal_type, 
-            description, 
-            zip, 
-            state,
-            city, 
-            address, 
-            lat, 
-            lng, 
-            bedroom, 
-            bathroom, 
-            size, 
-            year_built, 
-            price, 
-            listing_type
-        };
+        // const listingData = {
+        //     status,
+        //     deal_type, 
+        //     description, 
+        //     zip, 
+        //     state,
+        //     city, 
+        //     address, 
+        //     lat, 
+        //     lng, 
+        //     bedroom, 
+        //     bathroom, 
+        //     size, 
+        //     year_built, 
+        //     price, 
+        //     listing_type
+        // };
         setErrors([]);
-        return dispatch(createListing(listingData))
+
+        listing = {...listing, status, deal_type, description, zip, state,city,address,lat, lng,  bedroom,  bathroom,  size, year_built,  price, listing_type }
+
+        if(formType === "Create Listing"){
+            return dispatch(createListing(listing))
             .then(() => history.push("/"))
             .catch(async (res) => {
                 let data;
@@ -73,6 +106,53 @@ const ListingFormPage = () => {
                   setErrors([res.statusText])
                 }
               });
+        } else {
+             dispatch(updateListing(listing))
+            .then(() => history.push(`/listings/${listingId}`))
+            // .then(() => history.push("/"))
+            .catch(async (res) => {
+                let data;
+                try {
+                  // .clone() essentially allows you to read the response body twice
+                  data = await res.clone().json();
+                } catch {
+                  data = await res.text(); // Will hit this case if the server is down
+                }
+                if (data?.errors) {
+                  setErrors(data.errors)
+        
+                }
+                else if (data) {
+                  setErrors([data])
+        
+                }
+                else {
+                  setErrors([res.statusText])
+                }
+              });
+        }
+        // return dispatch(createListing(listingData))
+        //     .then(() => history.push("/"))
+        //     .catch(async (res) => {
+        //         let data;
+        //         try {
+        //           // .clone() essentially allows you to read the response body twice
+        //           data = await res.clone().json();
+        //         } catch {
+        //           data = await res.text(); // Will hit this case if the server is down
+        //         }
+        //         if (data?.errors) {
+        //           setErrors(data.errors)
+        
+        //         }
+        //         else if (data) {
+        //           setErrors([data])
+        
+        //         }
+        //         else {
+        //           setErrors([res.statusText])
+        //         }
+        //       });
     };
 
 
@@ -81,7 +161,7 @@ const ListingFormPage = () => {
             {/* <h1>{!sessionUser && "Log In to create a new listing "}</h1> */}
             {!sessionUser ? <h1>Log In To Modify The Listing</h1> : 
                 <form onSubmit={handleSubmit}>
-                    <h1>Create New Listing</h1>
+                    <h1>{formType}</h1>
                     
                     <label> Status: 
                         <input 
@@ -198,7 +278,7 @@ const ListingFormPage = () => {
                         {errors?.map(error => <li key={error}>{error}</li>)}
                     </ul>
 
-                    <button type="submit">Submit</button>
+                    <button type="submit">{formType}</button>
                 
                 </form>
             }

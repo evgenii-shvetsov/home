@@ -6,6 +6,7 @@ import logo from "../../assets/home-logo.png";
 import {useDispatch} from 'react-redux';
 import { deleteListing } from "../../store/listings";
 import { useSelector } from 'react-redux';
+import { Link } from 'react-router-dom';
 
 //commented code is for showing listings for specific user
 
@@ -64,9 +65,10 @@ const ListingListItem = ( {listing} ) => {
 
                 {sessionUser?.id === listing.owner_id &&
                 <>
-                    <button className="listing-card-update">
+                    <Link to={`listings/${listing.id}/edit`}> <button className="listing-card-update">
                         <i className="fa-solid fa-pen"></i>
                     </button>
+                    </Link>
 
                     <button className="listing-card-delete"
                         onClick={()=> dispatch(deleteListing(listing.id))}>

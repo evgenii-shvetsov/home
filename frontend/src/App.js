@@ -16,6 +16,7 @@ function App() {
         <Switch>
           <Route exact path="/" component={Homepage} />
           <Route path ='/listings/new' component={ListingFormPage}/>
+          <Route path ='/listings/:listingId/edit' component={ListingFormPage}/>
           <Route path ='/listings/:listingId' component={ListingShowPage} />
           
           {/* <Route exact path="/listings/for_rent" component={RentListings}/>

@@ -2,7 +2,7 @@ import csrfFetch from './csrf';
 
 //Action constants
 const SET_LISTINGS = "listings/setListings";
-const ADD_LISTING = "listings/addListings";
+const ADD_LISTING = "listings/addListing";
 const REMOVE_LISTING = "listings/removeListing"
 
 //Action creators
@@ -39,10 +39,10 @@ export const fetchListing = (listingId) => async (dispatch) =>{
     }
 };
 
-export const createListing = (listingData) => async (dispatch) =>{
+export const createListing = (listing) => async (dispatch) =>{
     const res = await csrfFetch("/api/listings", {
         method: "POST",
-        body: JSON.stringify(listingData),
+        body: JSON.stringify(listing),
         headers: {
             "Content-Type": "application/json",
             "Accept": "application/json"
@@ -58,10 +58,11 @@ export const createListing = (listingData) => async (dispatch) =>{
 //add thunk for EDIT AND DESTROY
 ////////////////
 
-export const updateListing = (listing) => async (dispatch) => {
-    const res = await csrfFetch(`/api/listings/${listing.id}`, {
+export const updateListing = (listingData) => async (dispatch) => {
+    const res = await csrfFetch(`/api/listings/${listingData.id}`, {
         method: "PATCH",
-        body: JSON.stringify(listing),
+        body: JSON.stringify(listingData),
+        // body: JSON.stringify({listing: listingData}),
         headers: {
             "Content-Type": "application/json",
             "Accept": "application/json"

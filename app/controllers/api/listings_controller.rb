@@ -21,11 +21,18 @@ class Api::ListingsController < ApplicationController
 
     def update
         @listing = Listing.find(params[:id])
-        if (@listing.owner_id === current_user.id) && @listing.update # add update logic
+        if (@listing.owner_id === current_user.id) && @listing.update(listing_params) # add update logic
             render :show
             return 
         end
+
         render json: {errors: @listing.errors.full_messages}, status: 422
+
+        # if @listing.update(listing_params)
+        #     render :show
+        #   else
+        #     render json: @listing.errors.full_messages, status: :unprocessable_entity
+        #   end
     end
     
 
