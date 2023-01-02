@@ -11,6 +11,12 @@
     padding-right: 40px;
 }
 
+.listing-gallery{
+    margin-bottom: 50px;
+}
+
+
+
 .listing-details-page section{
     margin-right: 20px;
 }
@@ -30,9 +36,23 @@
 
 .listing-detailed-info-header {
     position: relative;
+    display: flex;
+    /* justify-content: center; */
+    justify-content: flex-end;
+
+}
+
+.listing-detailed-info-header button{
+    margin-left: 0px;
+    margin-right: 30px;
 }
 
 
+.show-page-font-awesome-favorite i span{
+    font-family: "Open Sans", "Adjusted Arial", Tahoma, Geneva, sans-serif;
+    color: black;
+    font-weight: 100;
+}
 .show-page-font-awesome-favorite .fa-solid{
     color:blue
 }
@@ -65,9 +85,7 @@
         color: rgb(0, 106, 255);
     
     }
-#listing-features div{
-    margin-bottom: 20px;
-}
+
 
 /* #listing-short-description #listing-price {
     margin-bottom: 60px;
@@ -83,8 +101,25 @@
 }
 
 #listing-deal-type h4{
+    margin-top: 30px;
     font-weight: bold;
     font-size: 22px;
+}
+
+
+#listing-features{
+    margin-top: 40px;
+}
+#listing-features div{
+    margin-bottom: 20px;
+}
+#listing-features i{
+    font-size: 26px;
+    color: rgb(36, 125, 250);
+}
+
+#listing-overview {
+    margin-top: 50px;
 }
 
 
@@ -98,6 +133,11 @@
     font-weight: 400;
     font-size: 16px;
     line-height: 24px;
+}
+
+#listing-map{
+    height: 400px;
+    width: 100%;
 }
 
 #listing-map h4 {

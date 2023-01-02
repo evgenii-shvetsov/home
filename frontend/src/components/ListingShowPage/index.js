@@ -29,9 +29,15 @@ const ListingShowPage = () => {
       setHeart(!heart)
   }
 
-    // const initMap = () {
-
-    // }
+  //   const initMap = () => {
+  //     // The location of Uluru
+  //     const uluru = { lat: listing.lat, lng: listing.lng };
+  //     // The map, centered at Uluru
+  //   const map = new google.maps.Map(document.getElementById("map"), {
+  //   zoom: 4,
+  //   center: uluru,
+  // });
+  //   }
     
     if(!listing) return null;
 
@@ -49,13 +55,13 @@ const ListingShowPage = () => {
         <section className='listing-detailed-info-header'>
 
           <button className="show-page-font-awesome-favorite" onClick={heartClick}>
-                      {!heart ? <i className="fa-regular fa-heart"></i> : <i className="fa-solid fa-heart"></i> }
+                      {!heart ? <i className="fa-regular fa-heart"><span> Save</span></i> : <i className="fa-solid fa-heart"><span> Saved</span></i> }
           </button>
 
           {sessionUser?.id === listing.owner_id &&
                   <>
                       <Link to={`/listings/${listing.id}/edit`}> <button /*className="listing-card-update"*/>
-                          <i className="fa-solid fa-pen"></i>
+                          <i className="fa-solid fa-pen"></i> Edit
                       </button>
                       </Link>
 
@@ -64,7 +70,7 @@ const ListingShowPage = () => {
                             dispatch(deleteListing(listing.id))
                             history.push("/")
                           }}>
-                              <i className="fa-solid fa-trash"></i>
+                              <i className="fa-solid fa-trash"></i> Delete
                       </button>
                   </>
           }
@@ -95,11 +101,11 @@ const ListingShowPage = () => {
         
 
         <section id='listing-features'>
-          <div> <i className="fa-regular fa-building"></i> {listing.listing_type}</div>
-          <div><i className="fa-regular fa-calendar-days"></i> Built in {listing.year_built}</div>
-          <div><i className="fa-solid fa-arrows-left-right"></i> {listing.size} sqft</div>
-          <div><i className="fa-solid fa-bed"></i> {listing.bedroom} bedroom</div>
-          <div><i className="fa-solid fa-bath"></i> {listing.bathroom} bathroom</div>
+          <div> <i className="fa-regular fa-building"></i>&nbsp; {listing.listing_type}</div>
+          <div><i className="fa-regular fa-calendar-days"></i>&nbsp; built in {listing.year_built}</div>
+          <div><i className="fa-solid fa-arrows-left-right"></i>&nbsp; {listing.size} sqft</div>
+          <div><i className="fa-solid fa-bed"></i>&nbsp; {listing.bedroom} bedroom</div>
+          <div><i className="fa-solid fa-bath"></i>&nbsp; {listing.bathroom} bathroom</div>
         </section>
 
         <section id='listing-overview' >
