@@ -260,7 +260,7 @@ const ListingFormPage = () => {
                         >
                                 <option value="" disabled>Select Listing Type...</option>
                                 <option key={"House"}>house</option>
-                                <option key={"Apartment"}>Apartment</option>
+                                <option key={"Apartment"}>apartment</option>
                         </select>    
                     </label>
 

@@ -77,9 +77,62 @@
     margin-top: 10px;
 }
 
+.listing-form textarea:hover {
+    border-color: rgb(0, 106, 255);
+}
+
 .listing-form label{
     font-weight: bold;
     margin-top: 10px;
+}
+
+.listing-form select{
+    margin: 0;      
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+
+    width: 100%;
+    margin: 0px;
+    padding: 9px 16px;
+    /* padding-right: 20px; */
+    background-color: rgb(246, 246, 250);
+    border: 1px solid rgb(209, 209, 213);
+    border-radius: 4px;
+    box-sizing: border-box;
+    caret-color: rgb(0, 106, 255);
+    cursor: text;
+    outline: none;
+    box-shadow: none;
+    color: rgb(42, 42, 51);
+    -webkit-font-smoothing: antialiased;
+    text-transform: none;
+    font-family: "Open Sans", "Adjusted Arial", Tahoma, Geneva, sans-serif;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 24px;
+    height: auto;
+    margin-top: 10px;
+
+    background-image:
+        linear-gradient(45deg, transparent 50%, gray 50%),
+        linear-gradient(135deg, gray 50%, transparent 50%),
+        linear-gradient(to right, #ccc, #ccc);
+    background-position:
+        calc(100% - 20px) calc(1em + 2px),
+        calc(100% - 15px) calc(1em + 2px),
+        calc(100% - 2.5em) 0.5em;
+    background-size:
+        5px 5px,
+        5px 5px,
+        1px 1.5em;
+    background-repeat: no-repeat;
+    cursor:pointer;
+}
+.listing-form select:hover{
+    border-color: rgb(0, 106, 255);
 }
 
 .listing-form input:hover{
