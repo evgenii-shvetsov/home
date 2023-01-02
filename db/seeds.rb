@@ -287,7 +287,7 @@ ApplicationRecord.transaction do
       listing_type: "apartment",
     })
     
-
+      #13
 
 
 
