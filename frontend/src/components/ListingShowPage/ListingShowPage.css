@@ -1,8 +1,30 @@
 .listing-details-page{
     display: flex;
-    margin: 50px;
+    max-width: 1100px;
+    margin: 0 auto;
+    margin-top: 50px;
+    padding-left: 40px;
+    padding-right: 40px;
+
 }
 
 .listing-gallery img{
     width: 200px;
+}
+
+
+
+.listing-detailed-info section{
+    margin-top: 20px;
+}
+
+
+
+
+.listing-detailed-info-header {
+    position: relative;
+}
+
+.show-page-font-awesome-favorite .fa-solid{
+    color:blue
 }

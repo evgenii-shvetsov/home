@@ -1,41 +1,71 @@
 import React from 'react';
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import { Link, useHistory, useParams} from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 import { fetchListing } from '../../store/listings';
 import "./ListingShowPage.css";
 import logo from "../../assets/home-logo.png"
-
+import { deleteListing } from "../../store/listings";
 
 const ListingShowPage = () => {
 
     const { listingId } = useParams();
+    const sessionUser = useSelector(state => state.session.user);
     const listing = useSelector((store) => store.listings[listingId]);
     const dispatch = useDispatch();
     const history = useHistory();
 
+    const [heart, setHeart] = useState(false)
+
     useEffect(()=>{
         dispatch(fetchListing(listingId))
     }, [dispatch, listingId])
+
+    const handleClick = (e) => {
+      e.preventDefault();
+      history.push(`/listings/${listing.id}`)
+  }
+    const heartClick = () =>{
+      setHeart(!heart)
+  }
     
     if(!listing) return null;
 
   return (
     <main className='listing-details-page'>
-        
-        {/* <button onClick={() => history.push("/")}>
-        <Link to="/" style={{ textDecoration: "none", color: "black" }}>
-          Back
-        </Link>
-      </button> */}
+
       <section className='listing-gallery'>
-        {/* <h1>Gallery </h1> */}
-        <br />
         <img src={logo} alt="" />
       </section>
 
+
+
       <section className='listing-detailed-info'>
-        {/* <h4>Listing Details</h4> */}
+
+        <section className='listing-detailed-info-header'>
+
+          <button className="show-page-font-awesome-favorite" onClick={heartClick}>
+                      {!heart ? <i className="fa-regular fa-heart"></i> : <i className="fa-solid fa-heart"></i> }
+          </button>
+
+          {sessionUser?.id === listing.owner_id &&
+                  <>
+                      <Link to={`/listings/${listing.id}/edit`}> <button /*className="listing-card-update"*/>
+                          <i className="fa-solid fa-pen"></i>
+                      </button>
+                      </Link>
+
+                      <button /*className="listing-card-delete"*/
+                          onClick={()=> {
+                            dispatch(deleteListing(listing.id))
+                            history.push("/")
+                          }}>
+                              <i className="fa-solid fa-trash"></i>
+                      </button>
+                  </>
+          }
+        </section>
+
 
         <section>
             ${listing.price} &nbsp; &nbsp;
