@@ -4,7 +4,7 @@ import { Link, useHistory, useParams} from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 import { fetchListing } from '../../store/listings';
 import "./ListingShowPage.css";
-
+import logo from "../../assets/home-logo.png"
 
 
 const ListingShowPage = () => {
@@ -21,16 +21,62 @@ const ListingShowPage = () => {
     if(!listing) return null;
 
   return (
-    <main>
+    <main className='listing-details-page'>
         
         {/* <button onClick={() => history.push("/")}>
         <Link to="/" style={{ textDecoration: "none", color: "black" }}>
           Back
         </Link>
       </button> */}
-
-        <h4>Listing Details</h4>
+      <section className='listing-gallery'>
+        {/* <h1>Gallery </h1> */}
         <br />
+        <img src={logo} alt="" />
+      </section>
+
+      <section className='listing-detailed-info'>
+        {/* <h4>Listing Details</h4> */}
+
+        <section>
+            ${listing.price} &nbsp; &nbsp;
+            {listing.bedroom} bds | &nbsp;
+            {listing.bathroom} ba | &nbsp;
+            {listing.size} sqft
+        </section>
+
+        <section>
+            {listing.address}, &nbsp;
+            {listing.city}, &nbsp;
+            {listing.state}&nbsp;
+            {listing.zip}
+        </section>
+
+        <h4>For {listing.deal_type}</h4>
+
+        <button>CONTACT AGENT</button>
+
+        <section className='listing-features'>
+          <div> <i className="fa-regular fa-building"></i> {listing.listing_type}</div>
+          <div><i className="fa-regular fa-calendar-days"></i> Built in {listing.year_built}</div>
+          <div><i className="fa-solid fa-arrows-left-right"></i> {listing.size} sqft</div>
+          <div><i className="fa-solid fa-bed"></i> {listing.bedroom} bedroom</div>
+          <div><i className="fa-solid fa-bath"></i> {listing.bathroom} bathroom</div>
+        </section>
+
+        <section>
+          <h4>Overview</h4>
+          <p>{listing.description}</p>
+        </section>
+
+        <section>
+          <h4>MAP</h4>
+        </section>
+
+
+        
+
+
+        {/* <br />
 
         <h4>Listing type: {listing.listing_type}</h4>
         <h4>Deal type: {listing.deal_type}</h4>
@@ -50,7 +96,10 @@ const ListingShowPage = () => {
         <h4>Built in: {listing.year_built}</h4>
         <br />
         
-        <p>Description: {listing.description}</p>
+        <p>Description: {listing.description}</p> */}
+      </section>
+
+        
     </main>
   )
 }

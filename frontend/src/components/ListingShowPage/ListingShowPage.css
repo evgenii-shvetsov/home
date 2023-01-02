@@ -1,0 +1,8 @@
+.listing-details-page{
+    display: flex;
+    margin: 50px;
+}
+
+.listing-gallery img{
+    width: 200px;
+}
