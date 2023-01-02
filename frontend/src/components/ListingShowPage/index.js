@@ -21,10 +21,10 @@ const ListingShowPage = () => {
         dispatch(fetchListing(listingId))
     }, [dispatch, listingId])
 
-    const handleClick = (e) => {
-      e.preventDefault();
-      history.push(`/listings/${listing.id}`)
-  }
+  //   const handleClick = (e) => {
+  //     e.preventDefault();
+  //     history.push(`/listings/${listing.id}`)
+  // }
     const heartClick = () =>{
       setHeart(!heart)
   }
@@ -68,7 +68,7 @@ const ListingShowPage = () => {
 
 
         <section id='listing-short-description'>
-            ${listing.price} &nbsp; &nbsp;
+            <span id='listing-price'>${listing.price.toLocaleString()} &nbsp; &nbsp;</span>
             {listing.bedroom} bds | &nbsp;
             {listing.bathroom} ba | &nbsp;
             {listing.size} sqft

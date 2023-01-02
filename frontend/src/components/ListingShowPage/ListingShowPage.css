@@ -15,7 +15,7 @@
 
 .listing-detailed-info{
     min-width: 350px;
-    max-width: 500px;
+    max-width: 600px;
 }
 
 .listing-detailed-info section{
@@ -61,6 +61,13 @@
     }
 #listing-features div{
     margin-bottom: 20px;
+}
+
+#listing-price{
+    font-family: "Open Sans", "Adjusted Arial", Tahoma, Geneva, sans-serif;
+    font-weight: 700;
+    font-size: 36px;
+    line-height: 40px;
 }
 
 #listing-overview p{
