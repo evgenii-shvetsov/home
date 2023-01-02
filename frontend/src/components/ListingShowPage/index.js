@@ -67,25 +67,30 @@ const ListingShowPage = () => {
         </section>
 
 
-        <section>
+        <section id='listing-short-description'>
             ${listing.price} &nbsp; &nbsp;
             {listing.bedroom} bds | &nbsp;
             {listing.bathroom} ba | &nbsp;
             {listing.size} sqft
         </section>
 
-        <section>
+        <section id='listing-location'>
             {listing.address}, &nbsp;
             {listing.city}, &nbsp;
             {listing.state}&nbsp;
             {listing.zip}
         </section>
 
-        <h4>For {listing.deal_type}</h4>
+        <section id='listing-deal-typ'>
+          <h4>For {listing.deal_type}</h4>
+        </section>
 
-        <button>CONTACT AGENT</button>
+        <section id='contact-agent'>
+          <button id='contact-agent-btn'>CONTACT AGENT</button>
+        </section>
+        
 
-        <section className='listing-features'>
+        <section id='listing-features'>
           <div> <i className="fa-regular fa-building"></i> {listing.listing_type}</div>
           <div><i className="fa-regular fa-calendar-days"></i> Built in {listing.year_built}</div>
           <div><i className="fa-solid fa-arrows-left-right"></i> {listing.size} sqft</div>
@@ -93,12 +98,12 @@ const ListingShowPage = () => {
           <div><i className="fa-solid fa-bath"></i> {listing.bathroom} bathroom</div>
         </section>
 
-        <section>
+        <section id='listing-overview' >
           <h4>Overview</h4>
           <p>{listing.description}</p>
         </section>
 
-        <section>
+        <section id='listing-map'>
           <h4>MAP</h4>
         </section>
 

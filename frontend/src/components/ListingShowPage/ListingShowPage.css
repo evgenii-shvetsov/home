@@ -1,5 +1,6 @@
 .listing-details-page{
     display: flex;
+    flex-wrap: wrap;
     max-width: 1100px;
     margin: 0 auto;
     margin-top: 50px;
@@ -12,19 +13,56 @@
     width: 200px;
 }
 
-
-
-.listing-detailed-info section{
-    margin-top: 20px;
+.listing-detailed-info{
+    min-width: 350px;
+    max-width: 500px;
 }
 
-
-
+.listing-detailed-info section{
+    margin-bottom: 20px;
+}
 
 .listing-detailed-info-header {
     position: relative;
 }
 
+
 .show-page-font-awesome-favorite .fa-solid{
     color:blue
+}
+
+#contact-agent-btn{
+        margin: 0px 0px 0px;
+        font-family: Tahoma, Geneva, sans-serif;
+        font-weight: 600;
+        font-size: 14px;
+        letter-spacing: 0px;
+        text-transform: none;
+        text-align: center;
+        box-sizing: border-box;
+        width: auto;
+        border: 1px solid rgb(0, 106, 255);
+        border-radius: 3px;
+        transition: all 0.2s ease 0s;
+        padding: 9px 20px;
+        cursor: pointer;
+        height: 42px;
+        line-height: 22px;
+        color: rgb(255, 255, 255);
+        background-color: rgb(0, 106, 255);
+        display: inline-block;
+        text-decoration: none;
+}
+    
+#contact-agent-btn:hover{
+        background-color: rgb(255, 255, 255);
+        color: rgb(0, 106, 255);
+    
+    }
+#listing-features div{
+    margin-bottom: 20px;
+}
+
+#listing-overview p{
+    margin-top: 20px;
 }
