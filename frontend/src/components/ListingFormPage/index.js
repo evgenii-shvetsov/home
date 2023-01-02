@@ -62,23 +62,6 @@ const ListingFormPage = () => {
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        // const listingData = {
-        //     status,
-        //     deal_type, 
-        //     description, 
-        //     zip, 
-        //     state,
-        //     city, 
-        //     address, 
-        //     lat, 
-        //     lng, 
-        //     bedroom, 
-        //     bathroom, 
-        //     size, 
-        //     year_built, 
-        //     price, 
-        //     listing_type
-        // };
         setErrors([]);
 
         listing = {...listing, status, deal_type, description, zip, state,city,address,lat, lng,  bedroom,  bathroom,  size, year_built,  price, listing_type }
@@ -86,6 +69,7 @@ const ListingFormPage = () => {
         if(formType === "Create Listing"){
             return dispatch(createListing(listing))
             .then(() => history.push("/"))
+            // .then(() => history.push(`/listings/${listingId}`))
             .catch(async (res) => {
                 let data;
                 try {
@@ -109,7 +93,6 @@ const ListingFormPage = () => {
         } else {
              dispatch(updateListing(listing))
             .then(() => history.push(`/listings/${listingId}`))
-            // .then(() => history.push("/"))
             .catch(async (res) => {
                 let data;
                 try {
@@ -131,28 +114,6 @@ const ListingFormPage = () => {
                 }
               });
         }
-        // return dispatch(createListing(listingData))
-        //     .then(() => history.push("/"))
-        //     .catch(async (res) => {
-        //         let data;
-        //         try {
-        //           // .clone() essentially allows you to read the response body twice
-        //           data = await res.clone().json();
-        //         } catch {
-        //           data = await res.text(); // Will hit this case if the server is down
-        //         }
-        //         if (data?.errors) {
-        //           setErrors(data.errors)
-        
-        //         }
-        //         else if (data) {
-        //           setErrors([data])
-        
-        //         }
-        //         else {
-        //           setErrors([res.statusText])
-        //         }
-        //       });
     };
 
 
@@ -164,7 +125,7 @@ const ListingFormPage = () => {
                     <h1>{formType}</h1>
                     
                     <label> Status: 
-                        <input 
+                        <input required
                         type="text" 
                         placeholder="Status" 
                         value={status} 
@@ -172,7 +133,7 @@ const ListingFormPage = () => {
                     </label>
 
                     <label> Deal Type: 
-                        <input 
+                        <input required
                         type="text" 
                         placeholder="Deal type" 
                         value={deal_type} 
@@ -180,21 +141,21 @@ const ListingFormPage = () => {
                     </label>
 
                     <label> Description: 
-                        <textarea
+                        <textarea required
                         placeholder="Description" 
                         value={description} 
                         onChange={e => setDescription(e.target.value)}/>
                     </label>
 
                     <label> ZIP:
-                        <input type="number"
+                        <input type="number" required
                         placeholder="ZIP"
                         value={zip}
                         onChange={e=>setZip(e.target.value)} />
                     </label>
 
                     <label> State: 
-                        <input 
+                        <input required
                         type="text" 
                         placeholder="State" 
                         value={state} 
@@ -202,7 +163,7 @@ const ListingFormPage = () => {
                     </label>         
 
                     <label> City: 
-                        <input 
+                        <input required
                         type="text" 
                         placeholder="City" 
                         value={city} 
@@ -210,7 +171,7 @@ const ListingFormPage = () => {
                     </label>   
 
                     <label> Address: 
-                        <input 
+                        <input required
                         type="text" 
                         placeholder="Address" 
                         value={address} 
@@ -218,58 +179,58 @@ const ListingFormPage = () => {
                     </label>
 
                     <label> Latitude:
-                        <input type="number"
+                        <input type="number" required
                         placeholder="Latitude"
                         value={lat}
                         onChange={e=>setLat(e.target.value)} />
                     </label> 
 
                     <label> Longitude:
-                        <input type="number"
+                        <input type="number" required
                         placeholder="Longitude"
                         value={lng}
                         onChange={e=>setLng(e.target.value)} />
                     </label>
 
                     <label> Bedroom:
-                        <input type="number"
+                        <input type="number" required
                         placeholder="Bedroom"
                         value={bedroom}
                         onChange={e=>setBedroom(e.target.value)} />
                     </label>
 
                     <label> Bathroom:
-                        <input type="number"
+                        <input type="number" required
                         placeholder="Bathroom"
                         value={bathroom}
                         onChange={e=>setBathroom(e.target.value)} />
                     </label>
 
                     <label> Size:
-                        <input type="number"
+                        <input type="number" required
                         placeholder="Size"
                         value={size}
                         onChange={e=>setSize(e.target.value)} />
                     </label>
 
                     <label> Built in:
-                        <input type="number"
+                        <input type="number" required
                         placeholder="Built in"
                         value={year_built}
                         onChange={e=>setYearBuilt(e.target.value)} />
                     </label>
 
                     <label> Price:
-                        <input type="number"
+                        <input type="number" required
                         placeholder="Price"
                         value={price}
                         onChange={e=>setPrice(e.target.value)} />
                     </label>
 
                     <label> Listing Type: 
-                        <input 
+                        <input required
                         type="text" 
-                        placeholder="Listing Type" 
+                        placeholder="Listing Type"  
                         value={listing_type} 
                         onChange={e => setListingType(e.target.value)}/>
                     </label>
