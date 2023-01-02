@@ -28,6 +28,10 @@ const ListingShowPage = () => {
     const heartClick = () =>{
       setHeart(!heart)
   }
+
+    // const initMap = () {
+
+    // }
     
     if(!listing) return null;
 
@@ -68,10 +72,10 @@ const ListingShowPage = () => {
 
 
         <section id='listing-short-description'>
-            <span id='listing-price'>${listing.price.toLocaleString()} &nbsp; &nbsp;</span>
-            {listing.bedroom} bds | &nbsp;
-            {listing.bathroom} ba | &nbsp;
-            {listing.size} sqft
+            <span id='listing-price'>${listing.price.toLocaleString()} </span>
+            <span className='bold-numbers'>{listing.bedroom}</span> bds | &nbsp;
+            <span className='bold-numbers'>{listing.bathroom}</span> ba | &nbsp;
+            <span className='bold-numbers'>{listing.size}</span> sqft
         </section>
 
         <section id='listing-location'>
@@ -81,7 +85,7 @@ const ListingShowPage = () => {
             {listing.zip}
         </section>
 
-        <section id='listing-deal-typ'>
+        <section id='listing-deal-type'>
           <h4>For {listing.deal_type}</h4>
         </section>
 
@@ -104,7 +108,7 @@ const ListingShowPage = () => {
         </section>
 
         <section id='listing-map'>
-          <h4>MAP</h4>
+          <h4>Map</h4>
         </section>
 
 

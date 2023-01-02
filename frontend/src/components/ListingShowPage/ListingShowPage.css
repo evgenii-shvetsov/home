@@ -1,4 +1,7 @@
 .listing-details-page{
+
+    font-family: "Open Sans", "Adjusted Arial", Tahoma, Geneva, sans-serif;
+    
     display: flex;
     flex-wrap: wrap;
     max-width: 1100px;
@@ -6,7 +9,10 @@
     margin-top: 50px;
     padding-left: 40px;
     padding-right: 40px;
+}
 
+.listing-details-page section{
+    margin-right: 20px;
 }
 
 .listing-gallery img{
@@ -15,7 +21,7 @@
 
 .listing-detailed-info{
     min-width: 350px;
-    max-width: 600px;
+    max-width: 650px;
 }
 
 .listing-detailed-info section{
@@ -63,13 +69,38 @@
     margin-bottom: 20px;
 }
 
-#listing-price{
+/* #listing-short-description #listing-price {
+    margin-bottom: 60px;
+} */
+#listing-short-description #listing-price{
     font-family: "Open Sans", "Adjusted Arial", Tahoma, Geneva, sans-serif;
     font-weight: 700;
-    font-size: 36px;
+    font-size: 26px;
     line-height: 40px;
+}
+#listing-short-description .bold-numbers{
+    font-weight: bold;
+}
+
+#listing-deal-type h4{
+    font-weight: bold;
+    font-size: 22px;
+}
+
+
+#listing-overview h4{
+    font-weight: bold;
+    font-size: 22px;
 }
 
 #listing-overview p{
     margin-top: 20px;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 24px;
+}
+
+#listing-map h4 {
+    font-weight: bold;
+    font-size: 22px;
 }
