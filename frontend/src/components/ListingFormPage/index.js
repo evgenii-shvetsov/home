@@ -125,19 +125,39 @@ const ListingFormPage = () => {
                     <h1>{formType}</h1>
                     
                     <label> Status: 
-                        <input required
+                        {/* <input required
                         type="text" 
                         placeholder="Status" 
                         value={status} 
-                        onChange={e => setStatus(e.target.value)}/>
+                        onChange={e => setStatus(e.target.value)}/> */}
+                        <select required
+                            name="status"
+                            value={status}
+                            onChange={e => setStatus(e.target.value)}
+                        >
+                                <option value="" disabled>Select Status...</option>
+                                <option key={"Active"}>active</option>
+                                <option key={"Archive"}>archive</option>
+                        </select>
+                        
                     </label>
 
                     <label> Deal Type: 
-                        <input required
+                        {/* <input required
                         type="text" 
                         placeholder="Deal type" 
                         value={deal_type} 
-                        onChange={e => setDealType(e.target.value)}/>
+                        onChange={e => setDealType(e.target.value)}/> */}
+                        <select required
+                            name="deal_type" 
+                            value={deal_type} 
+                            onChange={e => setDealType(e.target.value)}
+                        >
+                            <option value="" disabled>Select Deal Type...</option>
+                            <option key={"Sale"}>sale</option>
+                            <option key={"Rent"}>rent</option>
+
+                        </select>
                     </label>
 
                     <label> Description: 
@@ -228,11 +248,20 @@ const ListingFormPage = () => {
                     </label>
 
                     <label> Listing Type: 
-                        <input required
+                        {/* <input required
                         type="text" 
                         placeholder="Listing Type"  
                         value={listing_type} 
-                        onChange={e => setListingType(e.target.value)}/>
+                        onChange={e => setListingType(e.target.value)}/> */}
+                         <select required
+                            name="listing_type"
+                            value={listing_type}
+                            onChange={e => setListingType(e.target.value)}
+                        >
+                                <option value="" disabled>Select Listing Type...</option>
+                                <option key={"House"}>house</option>
+                                <option key={"Apartment"}>Apartment</option>
+                        </select>    
                     </label>
 
                     <ul className="listing-form-errors" >
