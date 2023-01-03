@@ -2,11 +2,13 @@ import { createStore, combineReducers, applyMiddleware, compose } from 'redux';
 import thunk from 'redux-thunk';
 import listingsReducer from './listings';
 import sessionReducer from './session';
+import favoritesReducer from './favorites';
 
 
 const rootReducer = combineReducers({
   session: sessionReducer,
-  listings: listingsReducer
+  listings: listingsReducer,
+  favorites: favoritesReducer
 });
 
 let enhancer;

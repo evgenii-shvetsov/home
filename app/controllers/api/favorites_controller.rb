@@ -11,7 +11,7 @@ class Api::FavoritesController < ApplicationController
 
 
     def create
-        @favorite = Favorite.new(listing_id: params[:listingId])
+        @favorite = Favorite.new(owner_id: current_user.id, listing_id: params[:listingId])
         @favorite.owner_id = current_user.id
 
         if @favorite.save
