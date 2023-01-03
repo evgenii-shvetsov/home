@@ -38,25 +38,63 @@ const ListingFormPage = () => {
         }
     }
 
-    const [status, setStatus] = useState(listing.status);
-    const [deal_type, setDealType] = useState(listing.deal_type);
-    const [description, setDescription] = useState(listing.description);
-    const [zip, setZip] = useState(listing.zip);
-    const [state, setState] = useState(listing.state);
-    const [city, setCity] = useState(listing.city);
-    const [address, setAddress] = useState(listing.address);
-    const [lat, setLat] = useState(listing.lat);
-    const [lng, setLng] = useState(listing.lng);
-    const [bedroom, setBedroom] = useState(listing.bedroom);
-    const [bathroom, setBathroom] = useState(listing.bathroom);
-    const [size, setSize] = useState(listing.size);
-    const [year_built, setYearBuilt] = useState(listing.year_built);
-    const [price, setPrice] = useState(listing.price);
-    const [listing_type, setListingType] = useState(listing.listing_type);
+    const [status, setStatus] = useState(listing?.status);
+    const [deal_type, setDealType] = useState(listing?.deal_type);
+    const [description, setDescription] = useState(listing?.description);
+    const [zip, setZip] = useState(listing?.zip);
+    const [state, setState] = useState(listing?.state);
+    const [city, setCity] = useState(listing?.city);
+    const [address, setAddress] = useState(listing?.address);
+    const [lat, setLat] = useState(listing?.lat);
+    const [lng, setLng] = useState(listing?.lng);
+    const [bedroom, setBedroom] = useState(listing?.bedroom);
+    const [bathroom, setBathroom] = useState(listing?.bathroom);
+    const [size, setSize] = useState(listing?.size);
+    const [year_built, setYearBuilt] = useState(listing?.year_built);
+    const [price, setPrice] = useState(listing?.price);
+    const [listing_type, setListingType] = useState(listing?.listing_type);
+
+    // const [status, setStatus] = useState("");
+    // const [deal_type, setDealType] = useState("");
+    // const [description, setDescription] = useState("");
+    // const [zip, setZip] = useState("");
+    // const [state, setState] = useState("");
+    // const [city, setCity] = useState("");
+    // const [address, setAddress] = useState("");
+    // const [lat, setLat] = useState("");
+    // const [lng, setLng] = useState("");
+    // const [bedroom, setBedroom] = useState("");
+    // const [bathroom, setBathroom] = useState("");
+    // const [size, setSize] = useState("");
+    // const [year_built, setYearBuilt] = useState("");
+    // const [price, setPrice] = useState("");
+    // const [listing_type, setListingType] = useState("");
 
     useEffect(() => {
         if(listingId){
             dispatch(fetchListing(listingId))
+            /*.then((listing)=>{*/
+                // console.log(listing)
+                // setStatus(listing.status)
+                // setDealType(listing.deal_type)
+                // setDescription(listing.description)
+                // setZip(listing.zip)
+                // setState(listing.state)
+                // setCity(listing.city)
+                // setAddress(listing.address)
+                // setLat(listing.lat)
+                // setLng(listing.lng)
+                // setBedroom(listing.bedroom)
+                // setBathroom(listing.bathroom)
+                // setSize(listing.size)
+                // setYearBuilt(listing.year_built)
+                // setPrice(listing.price)
+                // setListingType(listing.listing_type)
+            
+
+        
+
+
         }
     },[listingId])
 
@@ -116,6 +154,7 @@ const ListingFormPage = () => {
         }
     };
 
+    if(!listing) return null;
 
     return (
         <main className="listing-form">

@@ -83,6 +83,7 @@ body {
     color: black;
     background: rgb(255, 255, 255);
     font-family: "Open Sans", "Adjusted Arial", Tahoma, Geneva, sans-serif;
+    /* font-family: "Ivar Headline", "Ivar Headline Subset", "Adjusted Times", "Adjusted Times New Roman", "Times New Roman", serif; */
 }
 
  #root {

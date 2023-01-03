@@ -30,15 +30,6 @@ const ListingShowPage = () => {
       setHeart(!heart)
   }
 
-  //   const initMap = () => {
-  //     // The location of Uluru
-  //     const uluru = { lat: listing.lat, lng: listing.lng };
-  //     // The map, centered at Uluru
-  //   const map = new google.maps.Map(document.getElementById("map"), {
-  //   zoom: 4,
-  //   center: uluru,
-  // });
-  //   }
     
     if(!listing) return null;
 

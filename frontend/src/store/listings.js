@@ -36,6 +36,7 @@ export const fetchListing = (listingId) => async (dispatch) =>{
     if(res.ok){
         const listing = await res.json();
         dispatch(addListing(listing));
+        // return listing
     }
 };
 
