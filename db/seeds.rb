@@ -38,6 +38,18 @@ ApplicationRecord.transaction do
       email: 'evgenii@mail.com', 
       password: 'password'
     )
+
+    User.create!(
+      username: 'bob', 
+      email: 'bob@gmail.com', 
+      password: 'bob-password'
+    )
+
+    User.create!(
+      username: 'john', 
+      email: 'john@gmail.com', 
+      password: 'john-password'
+    )
   
     # More users
     10.times do 
@@ -287,9 +299,165 @@ ApplicationRecord.transaction do
       listing_type: "apartment",
     })
     
-      #13
+    #13
+    Listing.create!({
+      owner_id: 3,
+      status: "active",
+      deal_type: "sale",
+      description:  "One Steuart Lane was designed by world-renown architects Skidmore, Owings & Merrill. The community is designed as a timeless connection between the city and the water. ",
+      zip: 94105,
+      state: "CA",
+      city: "San Francisco",
+      address: "1 Steuart St",
+      lat: 37.79182289078685,
+      lng: -122.39156254354381,
+      bedroom: 2,
+      bathroom: 3,
+      size: 1979,  
+      year_built: 2021,  
+      price: 3995000,
+      listing_type: "apartment",
+    })
+  
+    #14
+    Listing.create!({
+      owner_id: 4,
+      status: "active",
+      deal_type: "sale",
+      description:  "Unique and rare custom build home in one of SF best neighborhoods. Build and carried for by one family since 1999. Perfect for an entertainment, quality lifestyle, extended families.",
+      zip: 94121,
+      state: "CA",
+      city: "San Francisco",
+      address: "261 17th Ave",
+      lat: 37.78324374974115, 
+      lng: -122.47663385703603,
+      bedroom: 5,
+      bathroom: 4,
+      size: 3560,  
+      year_built: 1998,  
+      price: 3495000,
+      listing_type: "house",
+    })
+    
+    #15
+    Listing.create!({
+      owner_id: 3,
+      status: "active",
+      deal_type: "rent",
+      description:  "Welcome to your sixteenth floor two bedroom two bathroom apartment of dreams! Complete with beautiful fully fitted kitchen, marble bathrooms, and to top it off a full range of services that Ritz Carlton do so very very splendidly well. ",
+      zip: 94104,
+      state: "CA",
+      city: "San Francisco",
+      address: "690 Market St",
+      lat: 37.78855046412792, 
+      lng: -122.403234885872,
+      bedroom: 2,
+      bathroom: 2,
+      size: 1200,  
+      year_built: 2008,  
+      price: 7475,
+      listing_type: "apartment",
+    })
 
+    #16
+    Listing.create!({
+      owner_id: 4,
+      status: "active",
+      deal_type: "rent",
+      description:  "Luxurious Blu in SoMaSoFi! The Blu is a boutique building located near Downtown, Yerba Buena and South Beach. Designer Finishes, Amenities, SF Views & Location! ",
+      zip: 94107,
+      state: "CA",
+      city: "San Francisco",
+      address: "631 Folsom St",
+      lat: 37.784899763475686, 
+      lng: -122.39687193005173,
+      bedroom: 2,
+      bathroom: 2,
+      size: 1070,  
+      year_built: 2015,  
+      price: 4600,
+      listing_type: "apartment",
+    })
 
+    #17
+    Listing.create!({
+      owner_id: 3,
+      status: "active",
+      deal_type: "sale",
+      description:  "Welcome to your urban sanctuary! This quiet and spacious 2 bed, 2 bath condo is located at the intersection of Mission Bay and the vibrant SOMA district. Original and historic brick and timber elements give NYC loft vibes",
+      zip: 94107,
+      state: "CA",
+      city: "San Francisco",
+      address: "310 Townsend St",
+      lat: 37.77704618549261, 
+      lng: -122.3956233933019,
+      bedroom: 2,
+      bathroom: 2,
+      size: 1070,  
+      year_built: 2006,  
+      price: 960000,
+      listing_type: "apartment",
+    })
+
+    #18
+    Listing.create!({
+      owner_id: 4,
+      status: "active",
+      deal_type: "sale",
+      description:  "Perched atop Telegraph Hill's north slope, this three-story residence offers 4 private outdoor spaces, 3 bedrooms, 3.5 baths, gated 2-car parking, and an extra storage room.",
+      zip: 94133,
+      state: "CA",
+      city: "San Francisco",
+      address: "165 Francisco St",
+      lat: 37.8052924240977, 
+      lng: -122.40755639010536,
+      bedroom: 3,
+      bathroom: 3,
+      size: 2090,  
+      year_built: 1988,  
+      price: 960000,
+      listing_type: "apartment",
+    })
+
+    #19
+    Listing.create!({
+      owner_id: 3,
+      status: "active",
+      deal_type: "rent",
+      description:  "Two stories 3 BR 2 BA penthouse apartment with views, right on the edge of the Financial District and Chinatown. Located in a well-maintained mixed-use building. First floor has kitchen and living room area.",
+      zip: 94108,
+      state: "CA",
+      city: "San Francisco",
+      address: "883 Sacramento St",
+      lat: 37.79320914026504, 
+      lng: -122.40718251470767,
+      bedroom: 3,
+      bathroom: 2,
+      size: 1500,  
+      year_built: 1990,  
+      price: 6650,
+      listing_type: "apartment",
+    })
+
+    #20
+    Listing.create!({
+      owner_id: 4,
+      status: "active",
+      deal_type: "rent",
+      description:  "This newly renovated apartment has 2 bedrooms, 2 bathroom and an extra large walk-in closet / home office space. Situated right on Polk and Cedar Street.",
+      zip: 94109,
+      state: "CA",
+      city: "San Francisco",
+      address: "1037 Polk St",
+      lat: 37.78670419902299, 
+      lng: -122.42011386816822,
+      bedroom: 2,
+      bathroom: 2,
+      size: 2100,  
+      year_built: 1950,  
+      price: 6400,
+      listing_type: "apartment",
+    })
 
     puts "Done!"
   end

@@ -24,10 +24,11 @@ export default function SimpleMap({latitude, longitude}){
         bootstrapURLKeys={{ key: process.env.REACT_APP_MAPS_API_KEY }}
         defaultCenter={defaultProps.center}
         defaultZoom={defaultProps.zoom}
+        
         // onChildMouseEnter={onChildMouseEnter}
         // onChildMouseLeave={onChildMouseLeave}
         // onGoogleApiLoaded={({map, maps}) => console.log(map, maps)}
-        yesIWantToUseGoogleMapApiInternals
+        // yesIWantToUseGoogleMapApiInternals
       >
         <AnyReactComponent
 
