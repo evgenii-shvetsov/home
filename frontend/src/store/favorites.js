@@ -1,3 +1,5 @@
+import csrfFetch from './csrf';
+
 //Action constants
 const SET_FAVORITES = 'favorites/setFavorites';
 const ADD_FAVORITE = 'favorites/addFavorite';
@@ -24,7 +26,7 @@ const removeFavorite = (listingId) => ({
 //Thunk action creators
 
 export const fetchFavorites = () => async (dispatch) =>{
-    const res = await fetch("/api/favorites");
+    const res = await csrfFetch("/api/favorites");
     if(res.ok){
         const favorites = await res.json();
         dispatch(setFavorites(favorites));
@@ -32,7 +34,7 @@ export const fetchFavorites = () => async (dispatch) =>{
 };
 
 export const createFavorite = ({ownerId, listingId }) => async (dispatch) =>{
-    const res = await fetch('/api/favorites', {
+    const res = await csrfFetch('/api/favorites', {
         method: "POST",
         body: JSON.stringify({ownerId, listingId}),
         headers: {
@@ -48,7 +50,7 @@ export const createFavorite = ({ownerId, listingId }) => async (dispatch) =>{
 
 
 export const deleteFavorite = (listingId) => async (dispatch) =>{
-    const res = await fetch(`/api/favorites/${listingId}`, {
+    const res = await csrfFetch(`/api/favorites/${listingId}`, {
         method: "DELETE"
     })
     if(res.ok){

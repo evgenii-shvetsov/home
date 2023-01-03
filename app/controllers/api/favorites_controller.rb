@@ -1,17 +1,17 @@
 class Api::FavoritesController < ApplicationController
+
+    wrap_parameters include: Favorite.attribute_names
+
     def index
         if current_user
-            @favorites = Favorite.all.where(owner_id: current_user.id)
-            render :index #optional
-        else
-            @favorites = {}
-            render :index #optional
-        end
+            @favorites = Favorite.where(owner_id: current_user.id)
+            render :index
+
     end
 
 
     def create
-        @favorite = Favorite.new(owner_id: current_user.id, listing_id: params[:listingId])
+        @favorite = Favorite.new(favorite_params)
         @favorite.owner_id = current_user.id
 
         if @favorite.save
@@ -23,15 +23,19 @@ class Api::FavoritesController < ApplicationController
     end
 
     def destroy
-        # @favorite = Favorite.find_by(params[:id])
-        @favorite = Favorite.find_by(listing_id: params[:id])
-        if(@favorite.owner_id = current_user.id) && @favorite.destroy
-            render json: [@favorite.listing_id]
-        # if @favorite.destroy
-        #     render json: [@favorite.listing_id]
+
+        @favorite = Favorite.find(params[:id])
+
+        if(@favorite.owner_id == current_user.id) &&        @favorite.destroy
+            head :no_content
         else
             render json: ["Oops, there's an error"], status: 404
         end
+    end
+
+    private
+    def favorite_params
+        params.require(:favorite).permit(:owner_id,:listing_id)
     end
 
 end

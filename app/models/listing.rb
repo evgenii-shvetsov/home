@@ -29,6 +29,15 @@ class Listing < ApplicationRecord
     foreign_key: :owner_id,
     class_name: :User
 
+    has_many :favorites,
+    foreign_key: :listing_id,
+    class_name: :Favorite,
+    dependent: :destroy
+
+    has_many :users_favorited,
+    through: :favorites,
+    source: :user
+
     validates :status, :deal_type, :description, :zip, :state , :city, :address, :lat, :lng, :bedroom, :bathroom, :size, :year_built, :price, :listing_type, presence: true
 
 end

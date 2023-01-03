@@ -19,6 +19,15 @@ class User < ApplicationRecord
     primary_key: :id,
     foreign_key: :owner_id,
     class_name: :Listing
+
+    has_many :favorites,
+    foreign_key: :owner_id,
+    class_name: :Favorite,
+    dependent: :destroy
+
+    has_many :listings_favorited,
+    through: :favorites,
+    source: :listing
     
     # attr_reader :password  #don't need anymore
   

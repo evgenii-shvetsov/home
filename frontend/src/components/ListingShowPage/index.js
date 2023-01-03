@@ -6,6 +6,7 @@ import { fetchListing } from '../../store/listings';
 import "./ListingShowPage.css";
 import logo from "../../assets/home-logo.png"
 import { deleteListing } from "../../store/listings";
+import { createFavorite } from '../../store/favorites';
 import Map from '../Map'
 
 const ListingShowPage = () => {
@@ -28,6 +29,7 @@ const ListingShowPage = () => {
   // }
     const heartClick = () =>{
       setHeart(!heart)
+      dispatch(createFavorite(sessionUser, listingId))
   }
 
     

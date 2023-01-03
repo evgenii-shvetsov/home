@@ -11,7 +11,7 @@
 class Favorite < ApplicationRecord
     validates :owner_id, uniqueness: { scope: :listing_id }
     
-    belongs_to :owner,
+    belongs_to :user,
     primary_key: :id,
     foreign_key: :owner_id,
     class_name: :User
