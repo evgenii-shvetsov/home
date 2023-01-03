@@ -11,7 +11,7 @@ Rails.application.routes.draw do
     resources :users, only: [:create]
     resource :session, only: [:show, :create, :destroy]
     resources :listings, only: [:index, :show, :create, :update, :destroy]
-    resources :favorites, only: [:create, :destroy] #ability to check a listing and uncheck
+    resources :favorites, only: [:index, :show, :create, :destroy] #ability to check a listing and uncheck
   end
   
 end
