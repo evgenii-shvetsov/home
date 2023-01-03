@@ -6,6 +6,7 @@ import { fetchListing } from '../../store/listings';
 import "./ListingShowPage.css";
 import logo from "../../assets/home-logo.png"
 import { deleteListing } from "../../store/listings";
+import Map from '../Map'
 
 const ListingShowPage = () => {
 
@@ -115,6 +116,7 @@ const ListingShowPage = () => {
 
         <section id='listing-map'>
           <h4>Map</h4>
+          <Map latitude={listing.lat} longitude={listing.lng}/>
         </section>
 
 
