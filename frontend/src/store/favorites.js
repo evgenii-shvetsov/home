@@ -12,15 +12,14 @@ const setFavorites = (favorites) => ({
     payload: favorites
 });
 
-const addFavorite = ({owner_id, listing_id}) => ({
+const addFavorite = (favorite) => ({
     type: ADD_FAVORITE,
-    owner_id,
-    listing_id
+    payload: favorite
 });
 
-const removeFavorite = (listingId) => ({
+const removeFavorite = (favoriteId) => ({
     type: REMOVE_FAVORITE,
-    listingId
+    favoriteId
 });
 
 //Thunk action creators
@@ -30,17 +29,14 @@ export const fetchFavorites = () => async (dispatch) =>{
     if(res.ok){
         const favorites = await res.json();
         dispatch(setFavorites(favorites));
+        return favorites
     }
 };
 
-export const createFavorite = ({ownerId, listingId }) => async (dispatch) =>{
+export const createFavorite = (favoriteData) => async (dispatch) =>{
     const res = await csrfFetch('/api/favorites', {
         method: "POST",
-        body: JSON.stringify({ownerId, listingId}),
-        headers: {
-            "Content-Type": "application/json",
-            "Accept": "application/json"
-        },
+        body: JSON.stringify(favoriteData)
     })
     if(res.ok){
         const favorite = await res.json();
@@ -49,12 +45,12 @@ export const createFavorite = ({ownerId, listingId }) => async (dispatch) =>{
 }
 
 
-export const deleteFavorite = (listingId) => async (dispatch) =>{
-    const res = await csrfFetch(`/api/favorites/${listingId}`, {
+export const deleteFavorite = (favoriteId) => async (dispatch) =>{
+    const res = await csrfFetch(`/api/favorites/${favoriteId}`, {
         method: "DELETE"
     })
     if(res.ok){
-        dispatch(removeFavorite(listingId))
+        dispatch(removeFavorite(favoriteId))
     }
 }
 
@@ -65,10 +61,10 @@ const favoritesReducer = (state = {}, action) => {
         case SET_FAVORITES:
             return {...state, ...action.payload};
         case ADD_FAVORITE:
-            return {...state, ...{[action.listing_id]: {owner_id: action.owner_id, listing_id: action.listing_id }}}
+            return {...state, ...action.payload}
         case REMOVE_FAVORITE:
             const newState = {...state}
-            delete newState[action.listingId]
+            delete newState[action.favoriteId]
             return newState;
         default:
             return state;

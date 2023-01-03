@@ -6,7 +6,7 @@ import { fetchListing } from '../../store/listings';
 import "./ListingShowPage.css";
 import logo from "../../assets/home-logo.png"
 import { deleteListing } from "../../store/listings";
-import { createFavorite } from '../../store/favorites';
+import { createFavorite ,deleteFavorite, fetchFavorites } from '../../store/favorites';
 import Map from '../Map'
 
 const ListingShowPage = () => {
@@ -14,6 +14,11 @@ const ListingShowPage = () => {
     const { listingId } = useParams();
     const sessionUser = useSelector(state => state.session.user);
     const listing = useSelector((store) => store.listings[listingId]);
+
+    const favorites = useSelector((store) => store.favorites)
+  
+
+
     const dispatch = useDispatch();
     const history = useHistory();
 
@@ -21,6 +26,13 @@ const ListingShowPage = () => {
 
     useEffect(()=>{
         dispatch(fetchListing(listingId))
+        dispatch(fetchFavorites()).then((favorites)=>{
+          if(Object.values(favorites).find(el=>el.listing_id === +listingId)){
+          setHeart(true)
+          
+          }
+        })
+        
     }, [dispatch, listingId])
 
   //   const handleClick = (e) => {
@@ -28,8 +40,18 @@ const ListingShowPage = () => {
   //     history.push(`/listings/${listing.id}`)
   // }
     const heartClick = () =>{
-      setHeart(!heart)
-      dispatch(createFavorite(sessionUser, listingId))
+      
+      
+      // dispatch(createFavorite(favorite))
+      //if statement
+      if(!heart){
+        const favorite = {favorite: {owner_id: sessionUser.id, listing_id: listingId }}
+        dispatch(createFavorite(favorite))
+        setHeart(true)
+      } else {
+        dispatch(deleteFavorite(Object.values(favorites).find(el=>el.listing_id === +listingId).id))
+        setHeart(false)
+      }
   }
 
     
@@ -112,31 +134,6 @@ const ListingShowPage = () => {
           <Map latitude={listing.lat} longitude={listing.lng}/>
         </section>
 
-
-        
-
-
-        {/* <br />
-
-        <h4>Listing type: {listing.listing_type}</h4>
-        <h4>Deal type: {listing.deal_type}</h4>
-        <h4>Price: {listing.price}</h4>
-        <br />
-
-        <h4>Address: {listing.address}</h4>
-        <h4>ZIP: {listing.zip}</h4>
-        <h4>State: {listing.state}</h4>
-        <h4>City: {listing.city}</h4>
-        <h4>Latitude: {listing.lat}</h4>
-        <h4>Longitude: {listing.lng}</h4>
-        <br />
-        <h4>Size: {listing.size} sq.ft.</h4>
-        <h4>Bedroom: {listing.bedroom}</h4>
-        <h4>Bathroom: {listing.bathroom}</h4>
-        <h4>Built in: {listing.year_built}</h4>
-        <br />
-        
-        <p>Description: {listing.description}</p> */}
       </section>
 
         

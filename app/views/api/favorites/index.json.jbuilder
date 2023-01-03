@@ -1,6 +1,5 @@
 @favorites.each do |favorite|
     json.set! favorite.id do
-        json.partial! 'favorite', favorite: favorite
-
+        json.partial! 'favorites', favorite: favorite
     end
 end

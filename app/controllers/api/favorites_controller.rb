@@ -6,7 +6,7 @@ class Api::FavoritesController < ApplicationController
         if current_user
             @favorites = Favorite.where(owner_id: current_user.id)
             render :index
-
+        end
     end
 
 
@@ -14,7 +14,7 @@ class Api::FavoritesController < ApplicationController
         @favorite = Favorite.new(favorite_params)
         @favorite.owner_id = current_user.id
 
-        if @favorite.save
+        if @favorite.save!
             # render 'api/favorites/show'
             render :show
             return
@@ -26,7 +26,7 @@ class Api::FavoritesController < ApplicationController
 
         @favorite = Favorite.find(params[:id])
 
-        if(@favorite.owner_id == current_user.id) &&        @favorite.destroy
+        if(@favorite.owner_id == current_user.id) &&  @favorite.destroy
             head :no_content
         else
             render json: ["Oops, there's an error"], status: 404

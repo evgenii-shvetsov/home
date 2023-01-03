@@ -1,11 +1,19 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import "./Homepage.css"
 import ListingIndexPage from '../ListingIndexPage'
 import buyLogo from "../../assets/buy-home.jpg"
 import rentLogo from "../../assets/rent-home.jpg"
 import {Link} from 'react-router-dom'
+import {  useDispatch } from "react-redux";
+import { fetchFavorites } from '../../store/favorites'
 
 const Homepage = () => {
+  
+  const dispatch = useDispatch()
+  useEffect(()=>{
+    dispatch(fetchFavorites())
+  },[dispatch])
+
   return (
     <main className='main-homepage'>
 
