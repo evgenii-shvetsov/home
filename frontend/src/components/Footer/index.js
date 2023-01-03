@@ -10,17 +10,17 @@ const Footer = () => {
             <div>
               <NavLink exact to="/"><img id="footer-logo" src={logo} alt="company logo" /></NavLink>
             </div>
-            <div class="footer-text">
+            <div className="footer-text">
                 <h6>Evgenii Shvetsov</h6>
                 <a href="mailto:sea.dev91@gmail.com">Email Me</a>
             </div>
 
-            <div class="social_media">
+            <div className="social_media">
               <a href="https://www.linkedin.com/in/evgenii-shvetsov" target="_blank" rel="noopener noreferrer">
-                <i class="fa-brands fa-linkedin"></i>
+                <i className="fa-brands fa-linkedin"></i>
               </a>
               <a href="https://github.com/evgenii-shvetsov" target="_blank" rel="noopener noreferrer">
-                <i class="fa-brands fa-square-github"></i>
+                <i className="fa-brands fa-square-github"></i>
               </a>
             </div>
 
