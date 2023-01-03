@@ -15,7 +15,8 @@ class Api::FavoritesController < ApplicationController
         @favorite.owner_id = current_user.id
 
         if @favorite.save
-            render 'api/favorites/show'
+            # render 'api/favorites/show'
+            render :show
             return
         end
         render json: {errors: @favorite.errors.full_messages}, status: 422
