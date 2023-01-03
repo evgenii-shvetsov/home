@@ -30,7 +30,7 @@ export default function SimpleMap({latitude, longitude}){
 
         lat={defaultProps.latitude}
         lng ={defaultProps.longitude}
-        text="📍"
+        text="🏠"
         />
       </GoogleMapReact>
     </div>
