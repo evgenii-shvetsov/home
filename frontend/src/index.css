@@ -82,6 +82,7 @@ body {
     flex-direction: column;
     color: black;
     background: rgb(255, 255, 255);
+    font-family: "Open Sans", "Adjusted Arial", Tahoma, Geneva, sans-serif;
 }
 
  #root {

@@ -38,11 +38,15 @@ nav a:hover{
     width:80px;
     border-radius: 10px;
     margin: 0 auto;
+    margin-top: 10px;
+    margin-bottom: 10px;
 }
 #logo:hover{
     /* box-shadow: 1px 1px 1px 1px rgb(211, 203, 203); */
     /* box-shadow: 0.5px 0.5px 1px 1px rgb(13, 69, 153); */
-    border: 0.1px solid rgb(13, 69, 153);
+    /* border: 0.1px solid rgb(13, 69, 153); */
+    transition: 0.5s;
+    scale: 1.1;
 }
 button{
     background: none;
