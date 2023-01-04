@@ -16,8 +16,7 @@ const ListingListItem = ( {listing} ) => {
 
     const favorites = useSelector((store) => store.favorites)
 
-     const dispatch = useDispatch()
-
+    const dispatch = useDispatch()
 
     const sessionUser = useSelector(state => state.session.user);
 
@@ -41,14 +40,18 @@ const ListingListItem = ( {listing} ) => {
         history.push(`/listings/${listing.id}`)
     }
     const heartClick = () =>{
-        if(!heart){
-            const favorite = {favorite: {owner_id: sessionUser.id, listing_id: listing.id }}
-            dispatch(createFavorite(favorite))
-            setHeart(true)
-          } else {
-            dispatch(deleteFavorite(Object.values(favorites).find(el=>el.listing_id === +listing.id).id))
-            setHeart(false)
-          }
+        if(sessionUser){
+            if(!heart){
+                const favorite = {favorite: {owner_id: sessionUser.id, listing_id: listing.id }}
+                dispatch(createFavorite(favorite))
+                setHeart(true)
+              } else {
+                dispatch(deleteFavorite(Object.values(favorites).find(el=>el.listing_id === +listing.id).id))
+                setHeart(false)
+              }
+        } else{
+            alert('Please LOGIN TO USE THE FEATURE')
+        }
     }
 
     return (

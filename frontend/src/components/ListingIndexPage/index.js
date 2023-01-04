@@ -4,7 +4,7 @@ import { useSelector, useDispatch } from "react-redux";
 import { fetchListings } from '../../store/listings';
 import ListingList from './ListingList';
 import "./ListingIndexPage.css";
-import {Link, useHistory} from "react-router-dom";
+// import {Link, useHistory} from "react-router-dom";
 
 import {fetchFavorites} from "../../store/favorites";
 
@@ -12,14 +12,10 @@ const ListingIndexPage = () => {
   const sessionUser = useSelector(state => state.session.user);
 
     const listings = useSelector((store) => Object.values(store.listings));
-    /*new code*/
-
-    // const favorites = useSelector((store) => store.favorites)
-
-    /*new code*/
+    
 
     const dispatch = useDispatch();
-    const history = useHistory();
+    // const history = useHistory();
 
     useEffect(()=>{
         dispatch(fetchListings());

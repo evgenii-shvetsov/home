@@ -30,7 +30,7 @@ const ListingShowPage = () => {
         dispatch(fetchFavorites()).then((favorites)=>{
           if(Object.values(favorites).find(el=>el.listing_id === +listingId)){
           setHeart(true)
-          }
+          } 
         })}
         
     }, [dispatch, sessionUser, listingId])
@@ -40,17 +40,23 @@ const ListingShowPage = () => {
   //     history.push(`/listings/${listing.id}`)
   // }
     const heartClick = () =>{
-  
-      if(!heart){
-        const favorite = {favorite: {owner_id: sessionUser.id, listing_id: listingId }}
-        dispatch(createFavorite(favorite))
-        setHeart(true)
-      } else {
-        dispatch(deleteFavorite(Object.values(favorites).find(el=>el.listing_id === +listingId).id))
-        setHeart(false)
+      if(sessionUser){
+        if(!heart){
+          const favorite = {favorite: {owner_id: sessionUser.id, listing_id: listingId }}
+          dispatch(createFavorite(favorite))
+          setHeart(true)
+        } else {
+          dispatch(deleteFavorite(Object.values(favorites).find(el=>el.listing_id === +listingId).id))
+          setHeart(false)
+        }
+      }
+      else{
+        alert('AAAAA Please LOGIN TO USE THE FEATURE')
       }
   }
-
+    // if(!sessionUser){
+    //   setHeart(false)
+    // }
     
     if(!listing) return null;
 
