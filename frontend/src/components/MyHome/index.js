@@ -9,7 +9,7 @@ const MyHome = () => {
 
     const sessionUser = useSelector(state => state.session.user);
 
-    const listingsSpecial = useSelector((store) => {
+    const ownerListings = useSelector((store) => {
         return Object.values(store.listings).filter(listing=>listing.owner_id === sessionUser.id)
     });
 
@@ -26,13 +26,13 @@ const MyHome = () => {
 
     // console.log(listings)
     // console.log(data)
-    console.log(listingsSpecial)
-    const textSpecial = "Your Listings"
+    // console.log(ownerListings)
+    const ownerListingText = "Your Listings"
   return (
     <main>
         <div>MyHome</div>
         {/* <section><ListingIndexPage/></section> */}
-        <section><ListingList listings={listingsSpecial} text ={textSpecial}/></section>
+        <section><ListingList listings={ownerListings} text ={ownerListingText}/></section>
     </main>
   )
 }
