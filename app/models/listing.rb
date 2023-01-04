@@ -38,6 +38,9 @@ class Listing < ApplicationRecord
     through: :favorites,
     source: :user
 
+    #there is an option: has_one_attached :photo
+    has_many_attached :photos 
+
     validates :status, :deal_type, :description, :zip, :state , :city, :address, :lat, :lng, :bedroom, :bathroom, :size, :year_built, :price, :listing_type, presence: true
 
 end
