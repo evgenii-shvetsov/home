@@ -6,6 +6,7 @@ import { useSelector, useDispatch } from "react-redux";
 import { fetchListings } from '../../store/listings';
 import { fetchFavorites } from '../../store/favorites';
 // import { Route, Switch, Redirect} from 'react-router-dom';
+import { useHistory } from "react-router-dom";
 
 // import Homepage from '../Homepage';
 
@@ -13,7 +14,7 @@ const MyHome = () => {
     const sessionUser = useSelector(state => state.session.user);
     const favorites = useSelector((store) => store.favorites)
     const listings = useSelector((store) => Object.values(store.listings));
-
+    // const history = useHistory();
     // if(!sessionUser) {
     //     <Switch>
     //         <Route exact path="/" component={Homepage} />
@@ -32,6 +33,10 @@ const MyHome = () => {
         if(sessionUser){
           dispatch(fetchFavorites())
         }
+
+        // if(!sessionUser){
+        //     history.push("/")
+        // }
 
     },[dispatch, sessionUser])
 
