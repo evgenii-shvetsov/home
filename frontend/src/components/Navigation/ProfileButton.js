@@ -45,8 +45,9 @@ function ProfileButton({ user }) {
         <ul className="profile-dropdown">
           <li>{user.username}</li>
           <li>{user.email}</li>
+          <NavLink exact to='/myhome'><li><button>Manage Account</button></li></NavLink>
           <NavLink exact to='/listings/new'><li><button>Add New Listing</button></li></NavLink>
-          <li><button>Saved Homes</button></li>
+          <NavLink exact to='/myhome'><li><button>Saved Homes</button></li></NavLink>
           <li>
             <button id="logout-btn" onClick={logout}>Log Out</button>
           </li>

@@ -8,6 +8,7 @@ import Page404 from './components/Page404'
 import Footer from './components/Footer';
 import ListingShowPage from './components/ListingShowPage';
 import ListingFormPage from './components/ListingFormPage';
+import MyHome from './components/MyHome';
 
 function App() {
   return (
@@ -15,10 +16,10 @@ function App() {
       <Navigation />
         <Switch>
           <Route exact path="/" component={Homepage} />
-          <Route path ='/listings/new' component={ListingFormPage}/>
-          <Route path ='/listings/:listingId/edit' component={ListingFormPage}/>
-          <Route path ='/listings/:listingId' component={ListingShowPage} />
-          
+          <Route exact path ='/listings/new' component={ListingFormPage}/>
+          <Route exact path ='/listings/:listingId/edit' component={ListingFormPage}/>
+          <Route exact path ='/listings/:listingId' component={ListingShowPage} />
+          <Route exact path ='/myhome' component={MyHome} />
           {/* <Route exact path="/listings/for_rent" component={RentListings}/>
           <Route exact path="/listings/for_sale" component={SaleListings}/>
           <Route exact path="/myhome/account" component={UserProfile} /> */}
