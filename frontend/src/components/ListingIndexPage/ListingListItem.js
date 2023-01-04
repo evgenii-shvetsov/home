@@ -73,8 +73,8 @@ const ListingListItem = ( {listing} ) => {
                 
              
                 <section /*onClick={handleClick}*/ className="listing-detail">
-                   <h2>${listing.price.toLocaleString()}</h2>
-
+                   {/* <h2>${listing.price.toLocaleString()}</h2> */}
+                   <h2>${listing.price}</h2>
                    <div>
                         {listing.bedroom} bds | &nbsp;
                         {listing.bathroom} ba | &nbsp;
