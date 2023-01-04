@@ -1,6 +1,6 @@
 import React from "react";
 import { useHistory } from 'react-router-dom';
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import logo from "../../assets/home-logo.png";
 
 import {useDispatch} from 'react-redux';
@@ -8,24 +8,51 @@ import { deleteListing } from "../../store/listings";
 import { useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
 
+import { createFavorite, deleteFavorite, fetchFavorites } from "../../store/favorites";
+
 //commented code is for showing listings for specific user
 
 const ListingListItem = ( {listing} ) => {
-    const sessionUser = useSelector(state => state.session.user);
-    // console.log(listing.owner_id)
+
+    const favorites = useSelector((store) => store.favorites)
+
     const dispatch = useDispatch()
+    useEffect(()=>{
+      dispatch(fetchFavorites())
+    },[dispatch])
+
+    const sessionUser = useSelector(state => state.session.user);
+
+    // console.log(listing.owner_id)
+    // const dispatch = useDispatch()
 
     const history = useHistory();
     
     const [heart, setHeart] = useState(false)
 
+    useEffect(()=>{
+        // dispatch(fetchListing(listingId))
+        dispatch(fetchFavorites()).then((favorites)=>{
+          if(Object.values(favorites).find(el=>el.listing_id === listing.id)){
+          setHeart(true)
+          }
+        })
+
+    }, [dispatch, listing.id])
 
     const handleClick = (e) => {
         e.preventDefault();
         history.push(`/listings/${listing.id}`)
     }
     const heartClick = () =>{
-        setHeart(!heart)
+        if(!heart){
+            const favorite = {favorite: {owner_id: sessionUser.id, listing_id: listing.id }}
+            dispatch(createFavorite(favorite))
+            setHeart(true)
+          } else {
+            dispatch(deleteFavorite(Object.values(favorites).find(el=>el.listing_id === +listing.id).id))
+            setHeart(false)
+          }
     }
 
     return (

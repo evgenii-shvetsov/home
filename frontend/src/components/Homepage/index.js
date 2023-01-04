@@ -9,10 +9,7 @@ import { fetchFavorites } from '../../store/favorites'
 
 const Homepage = () => {
   
-  const dispatch = useDispatch()
-  useEffect(()=>{
-    dispatch(fetchFavorites())
-  },[dispatch])
+ 
 
   return (
     <main className='main-homepage'>

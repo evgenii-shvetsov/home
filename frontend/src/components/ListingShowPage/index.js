@@ -40,10 +40,7 @@ const ListingShowPage = () => {
   //     history.push(`/listings/${listing.id}`)
   // }
     const heartClick = () =>{
-      
-      
-      // dispatch(createFavorite(favorite))
-      //if statement
+  
       if(!heart){
         const favorite = {favorite: {owner_id: sessionUser.id, listing_id: listingId }}
         dispatch(createFavorite(favorite))
