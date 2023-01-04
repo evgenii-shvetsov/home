@@ -27,10 +27,9 @@ function ProfileButton({ user }) {
 
   const logout = (e) => {
     e.preventDefault();
+
     dispatch(sessionActions.logout()).then(()=>setTimeout(()=>window.location.reload(),1));
-    // location.reload()
-    // setTimeout(()=>window.location.reload(),1000)
-    // window.location.reload();
+    
     
   };
 
@@ -51,6 +50,10 @@ function ProfileButton({ user }) {
           <li>
             <button id="logout-btn" onClick={logout}>Log Out</button>
           </li>
+          {/* <NavLink exact to='/'><li>
+            <button id="logout-btn" onClick={logout}>Log Out</button>
+          </li></NavLink> */}
+        
         </ul>
       )}
       </div>
