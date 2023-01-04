@@ -10,10 +10,10 @@ const breakPoints = [
   {width:1200, itemsToShow: 4},
 ];
 
-const ListingList = ( {listings} ) => {
+const ListingList = ( {listings ,text} ) => {
   return (
     <div className='listings-main'>
-        <h1>Homes For You in San Francisco, CA</h1>
+        <h1> {text ? text: "Homes For You in San Francisco, CA"}</h1>
         <hr id="hr" />
           <section className='listings-output' >
                 <Carousel breakPoints={breakPoints} /*enableAutoPlay autoPlaySpeed={3000}*/>
