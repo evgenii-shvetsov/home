@@ -52,13 +52,14 @@ const matchedFavoritesListings = userFavoritesListingsId.map(el=> ({...listings.
     // console.log(userFavoritesListingsId)
 // console.log(matchedFavoritesListings)
     const ownerListingText = "Your Listings"
+    const favoriteListingText = "Your Favorites"
   return (
     <main>
         <div>MyHome</div>
         {/* <section><ListingIndexPage/></section> */}
         <section><ListingList listings={ownerListings} text ={ownerListingText}/></section>
 
-        <section><ListingList listings={matchedFavoritesListings} text ={ownerListingText}/></section>
+        <section><ListingList listings={matchedFavoritesListings} text ={favoriteListingText}/></section>
     </main>
   )
 }
