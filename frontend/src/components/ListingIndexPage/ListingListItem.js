@@ -8,9 +8,9 @@ import { deleteListing } from "../../store/listings";
 import { useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
 
-import { createFavorite, deleteFavorite, fetchFavorites } from "../../store/favorites";
+import { createFavorite, deleteFavorite} from "../../store/favorites";
 
-//commented code is for showing listings for specific user
+
 
 const ListingListItem = ( {listing} ) => {
 
@@ -33,7 +33,7 @@ const ListingListItem = ( {listing} ) => {
           setHeart(true)
           }
 
-    }, [dispatch, favorites, listing.id])
+    }, [dispatch, favorites, listing.id, sessionUser])
 
     const handleClick = (e) => {
         e.preventDefault();

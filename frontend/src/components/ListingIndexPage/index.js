@@ -19,6 +19,7 @@ const ListingIndexPage = () => {
 
     useEffect(()=>{
         dispatch(fetchListings());
+        
         if(sessionUser){
           dispatch(fetchFavorites())
         }

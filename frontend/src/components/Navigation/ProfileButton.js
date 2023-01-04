@@ -27,8 +27,10 @@ function ProfileButton({ user }) {
 
   const logout = (e) => {
     e.preventDefault();
-    dispatch(sessionActions.logout());
-    // location.reload();
+    dispatch(sessionActions.logout()).then(()=>setTimeout(()=>window.location.reload(),1));
+    // location.reload()
+    // setTimeout(()=>window.location.reload(),1000)
+    // window.location.reload();
     
   };
 
