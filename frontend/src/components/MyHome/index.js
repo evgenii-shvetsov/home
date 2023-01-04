@@ -32,6 +32,7 @@ const MyHome = () => {
         if(sessionUser){
           dispatch(fetchFavorites())
         }
+
     },[dispatch, sessionUser])
 
     const userFavoritesListingsId = userFavorites.map((favorite)=> favorite.listing_id)
