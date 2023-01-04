@@ -6,16 +6,27 @@ import ListingList from './ListingList';
 import "./ListingIndexPage.css";
 import {Link, useHistory} from "react-router-dom";
 
+import {fetchFavorites} from "../../store/favorites";
 
 const ListingIndexPage = () => {
+  const sessionUser = useSelector(state => state.session.user);
 
     const listings = useSelector((store) => Object.values(store.listings));
+    /*new code*/
+
+    // const favorites = useSelector((store) => store.favorites)
+
+    /*new code*/
+
     const dispatch = useDispatch();
     const history = useHistory();
 
     useEffect(()=>{
         dispatch(fetchListings());
-    },[dispatch])
+        if(sessionUser){
+          dispatch(fetchFavorites())
+        }
+    },[dispatch, sessionUser])
     
   return (
     <div >
@@ -28,7 +39,7 @@ const ListingIndexPage = () => {
           Create Listing
         </Link>
       </button> */}
-      <ListingList listings={listings} />
+      <ListingList listings={listings}  />
     </div>
   )
 }

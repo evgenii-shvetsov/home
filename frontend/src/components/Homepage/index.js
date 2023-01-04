@@ -1,15 +1,16 @@
-import React, { useEffect } from 'react'
+import React from 'react'
 import "./Homepage.css"
 import ListingIndexPage from '../ListingIndexPage'
 import buyLogo from "../../assets/buy-home.jpg"
 import rentLogo from "../../assets/rent-home.jpg"
 import {Link} from 'react-router-dom'
-import {  useDispatch } from "react-redux";
-import { fetchFavorites } from '../../store/favorites'
+// import {  useDispatch } from "react-redux";
+// import { fetchFavorites } from '../../store/favorites'
 
+// import {useSelector} from "react-redux"
 const Homepage = () => {
-  
- 
+
+  // const sessionUser = useSelector(state => state.session.user);
 
   return (
     <main className='main-homepage'>

@@ -16,10 +16,8 @@ const ListingListItem = ( {listing} ) => {
 
     const favorites = useSelector((store) => store.favorites)
 
-    const dispatch = useDispatch()
-    useEffect(()=>{
-      dispatch(fetchFavorites())
-    },[dispatch])
+     const dispatch = useDispatch()
+
 
     const sessionUser = useSelector(state => state.session.user);
 
@@ -31,14 +29,12 @@ const ListingListItem = ( {listing} ) => {
     const [heart, setHeart] = useState(false)
 
     useEffect(()=>{
-        // dispatch(fetchListing(listingId))
-        dispatch(fetchFavorites()).then((favorites)=>{
+        
           if(Object.values(favorites).find(el=>el.listing_id === listing.id)){
           setHeart(true)
           }
-        })
 
-    }, [dispatch, listing.id])
+    }, [dispatch, favorites, listing.id])
 
     const handleClick = (e) => {
         e.preventDefault();

@@ -26,14 +26,14 @@ const ListingShowPage = () => {
 
     useEffect(()=>{
         dispatch(fetchListing(listingId))
+        if(sessionUser){
         dispatch(fetchFavorites()).then((favorites)=>{
           if(Object.values(favorites).find(el=>el.listing_id === +listingId)){
           setHeart(true)
-          
           }
-        })
+        })}
         
-    }, [dispatch, listingId])
+    }, [dispatch, sessionUser, listingId])
 
   //   const handleClick = (e) => {
   //     e.preventDefault();
