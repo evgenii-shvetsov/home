@@ -40,6 +40,7 @@ class Listing < ApplicationRecord
 
     #there is an option: has_one_attached :photo
     has_many_attached :photos 
+    # has_one_attached :photo
 
     validates :status, :deal_type, :description, :zip, :state , :city, :address, :lat, :lng, :bedroom, :bathroom, :size, :year_built, :price, :listing_type, presence: true
 

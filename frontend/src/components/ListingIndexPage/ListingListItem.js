@@ -15,11 +15,11 @@ import { createFavorite, deleteFavorite} from "../../store/favorites";
 const ListingListItem = ( {listing} ) => {
 
     const favorites = useSelector((store) => store.favorites)
-
     const dispatch = useDispatch()
-
     const sessionUser = useSelector(state => state.session.user);
 
+    const url = listing.photoUrls[0]
+    
     // console.log(listing.owner_id)
     // const dispatch = useDispatch()
 
@@ -68,6 +68,7 @@ const ListingListItem = ( {listing} ) => {
 
                 <section className="listing-img">
                     <img onClick={handleClick} id="home-logo" src={logo} alt="home logo" />
+                    {/* <img onClick={handleClick} id="home-logo" src={url} alt="home logo" /> */}
                 </section>
 
                 

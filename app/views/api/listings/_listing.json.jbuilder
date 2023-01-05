@@ -17,5 +17,6 @@ json.extract! listing,
                         :lat,
                         :lng
 
-
+# json.photoUrls listing.photos.map { |file| url_for(file) } if listing.photos.attached?
+json.photoUrls listing.photos.map { |photo| photo.url } #if listing.photos.attached?
 

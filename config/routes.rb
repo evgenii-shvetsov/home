@@ -13,5 +13,7 @@ Rails.application.routes.draw do
     resources :listings, only: [:index, :show, :create, :update, :destroy]
     resources :favorites, only: [:index, :show, :create, :destroy] #ability to check a listing and uncheck
   end
+
+  # get '*path', to: "static_pages#frontend_index"
   
 end

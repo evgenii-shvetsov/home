@@ -58,8 +58,16 @@
     display: block;
     align-items: center;
 } */
+
+
+/* #home-logo{
+    height: 70px;
+    cursor: pointer;
+} */
+
 #home-logo{
     height: 70px;
+    width: 70px;
     cursor: pointer;
 }
 
