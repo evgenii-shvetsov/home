@@ -16,11 +16,11 @@ const ListingShowPage = () => {
     const listing = useSelector((store) => store.listings[listingId]);
 
     const favorites = useSelector((store) => store.favorites)
-    const url_main = listing.photoUrls[0]
-    const url_1 = listing.photoUrls[1]
-    const url_2 = listing.photoUrls[2]
-    const url_3 = listing.photoUrls[3]
-    const url_4 = listing.photoUrls[4]
+    const url_main = listing?.photoUrls[0]
+    const url_1 = listing?.photoUrls[1]
+    const url_2 = listing?.photoUrls[2]
+    const url_3 = listing?.photoUrls[3]
+    const url_4 = listing?.photoUrls[4]
   
 
     const dispatch = useDispatch();
@@ -68,11 +68,18 @@ const ListingShowPage = () => {
     <main className='listing-details-page'>
 
       <section className='listing-gallery'>
-        {url_main ? <img src={url_main} alt="" /> : <img src={logo} alt="" />}
-        {url_1 ? <img src={url_1} alt="" /> : null}
-        {url_2 ? <img src={url_2} alt="" /> : null}
-        {url_3 ? <img src={url_3} alt="" /> : null}
-        {url_4 ? <img src={url_4} alt="" /> : null}
+
+        <div className='listing-gallery-main-wrapper'>
+           {url_main ? <img id='listing-gallery-main' src={url_main} alt="" /> : <img src={logo} alt="" />}
+        </div>
+
+        <div className='listing-gallery-extra-wrapper'>
+          
+          {url_1 ? <img src={url_1} alt="" /> : null}
+          {url_2 ? <img src={url_2} alt="" /> : null}
+          {url_3 ? <img src={url_3} alt="" /> : null}
+          {url_4 ? <img src={url_4} alt="" /> : null}
+        </div>
       </section>
 
 
