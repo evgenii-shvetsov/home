@@ -31,6 +31,13 @@
     object-position: 50% 50%;
     border-radius: 10px;
 }
+
+#listing-gallery-main-placeholder{
+    width: 200px;
+    height: 200px;
+    margin-right: 100px;
+    margin-bottom: -200px;
+}
 /* Main photo end */
 
 
@@ -190,8 +197,20 @@
     margin-bottom: 20px;
 }
 
+@media only screen and (max-width: 815px) {
+ 
+    #listing-gallery-main-placeholder{
+    
+        margin-bottom: 50px;
+    }
+}
+
 @media only screen and (max-width: 625px) {
     .listing-detailed-info{
         margin-top:200px;
+    }
+    #listing-gallery-main-placeholder{
+    
+        margin-bottom: -200px;
     }
 }

@@ -56,7 +56,8 @@ const MyHome = () => {
     
         <section><ListingList listings={ownerListings} text ={ownerListingText}/></section>
 
-        <section><ListingList listings={matchedFavoritesListings} text ={favoriteListingText}/></section>
+        {/* {matchedFavoritesListings ? <section><ListingList listings={matchedFavoritesListings} text ={favoriteListingText}/></section> : null} */}
+         <section><ListingList listings={matchedFavoritesListings} text ={favoriteListingText}/></section>
     </main>
   )
 }

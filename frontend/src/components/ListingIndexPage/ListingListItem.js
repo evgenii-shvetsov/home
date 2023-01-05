@@ -18,7 +18,7 @@ const ListingListItem = ( {listing} ) => {
     const dispatch = useDispatch()
     const sessionUser = useSelector(state => state.session.user);
 
-    const url = listing?.photoUrls[0]
+    const url = listing?.photoUrls?.at(0)
     
     // console.log(listing.owner_id)
     // const dispatch = useDispatch()

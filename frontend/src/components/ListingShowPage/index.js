@@ -16,6 +16,7 @@ const ListingShowPage = () => {
     const listing = useSelector((store) => store.listings[listingId]);
 
     const favorites = useSelector((store) => store.favorites)
+    
     const url_main = listing?.photoUrls[0]
     const url_1 = listing?.photoUrls[1]
     const url_2 = listing?.photoUrls[2]
@@ -70,11 +71,11 @@ const ListingShowPage = () => {
       <section className='listing-gallery'>
 
         <div className='listing-gallery-main-wrapper'>
-           {url_main ? <img id='listing-gallery-main' src={url_main} alt="" /> : <img src={logo} alt="" />}
+           {url_main ? <img id='listing-gallery-main' src={url_main} alt="" /> : <img id='listing-gallery-main-placeholder' src={logo} alt="" />}
         </div>
 
         <div className='listing-gallery-extra-wrapper'>
-          
+
           {url_1 ? <img src={url_1} alt="" /> : null}
           {url_2 ? <img src={url_2} alt="" /> : null}
           {url_3 ? <img src={url_3} alt="" /> : null}
