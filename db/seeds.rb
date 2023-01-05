@@ -93,7 +93,7 @@ ApplicationRecord.transaction do
       ])
     
     #2
-    Listing.create!({
+    listing_2 = Listing.create!({
       owner_id: 2,
       status: "active",
       deal_type: "sale",
@@ -111,8 +111,17 @@ ApplicationRecord.transaction do
       price: 870000,
       listing_type: "house",
     })
+
+    listing_2.photos.attach([
+      {io: URI.open("https://home-zillow-dev.s3.us-west-2.amazonaws.com/2.1740-20th/1740-20th.jpg"), filename: "1740-20th.jpg"},
+      {io: URI.open("https://home-zillow-dev.s3.us-west-2.amazonaws.com/2.1740-20th/1740-20th-1.jpg"), filename: "1740-20th-1.jpg"},
+      {io: URI.open("https://home-zillow-dev.s3.us-west-2.amazonaws.com/2.1740-20th/1740-20th-2.jpg"), filename: "1740-20th-2.jpg"},
+      {io: URI.open("https://home-zillow-dev.s3.us-west-2.amazonaws.com/2.1740-20th/1740-20th-3.jpg"), filename: "1740-20th-3.jpg"},
+      {io: URI.open("https://home-zillow-dev.s3.us-west-2.amazonaws.com/2.1740-20th/1740-20th-4.jpg"), filename: "1740-20th-4.jpg"}
+      ])
+
       #3
-    Listing.create!({
+    listing_3 = Listing.create!({
       owner_id: 1,
       status: "active",
       deal_type: "rent",
@@ -130,8 +139,18 @@ ApplicationRecord.transaction do
       price: 4236,
       listing_type: "apartment",
     })
+
+    listing_3.photos.attach([
+      {io: URI.open("https://home-zillow-dev.s3.us-west-2.amazonaws.com/3.1145-harrison/1145-harrison.jpg"), filename: "1145-harrison.jpg"},
+      {io: URI.open("https://home-zillow-dev.s3.us-west-2.amazonaws.com/3.1145-harrison/1145-harrison-1.jpg"), filename: "1145-harrison-1.jpg"},
+      {io: URI.open("https://home-zillow-dev.s3.us-west-2.amazonaws.com/3.1145-harrison/1145-harrison-2.jpg"), filename: "1145-harrison-2.jpg"},
+      {io: URI.open("https://home-zillow-dev.s3.us-west-2.amazonaws.com/3.1145-harrison/1145-harrison-3.jpg"), filename: "1145-harrison-3.jpg"},
+      {io: URI.open("https://home-zillow-dev.s3.us-west-2.amazonaws.com/3.1145-harrison/1145-harrison-4.jpg"), filename: "1145-harrison-4.jpg"}
+      ])
+
+
       #4
-    Listing.create!({
+    listing_4 = Listing.create!({
       owner_id: 2,
       status: "active",
       deal_type: "rent",
@@ -149,8 +168,18 @@ ApplicationRecord.transaction do
       price: 5608,
       listing_type: "apartment",
     })
+
+    listing_4.photos.attach([
+      {io: URI.open("https://home-zillow-dev.s3.us-west-2.amazonaws.com/4.3713-18th/3713-18th.jpg"), filename: "3713-18th.jpg"},
+      {io: URI.open("https://home-zillow-dev.s3.us-west-2.amazonaws.com/4.3713-18th/3713-18th-1.jpg"), filename: "3713-18th-1.jpg"},
+      {io: URI.open("https://home-zillow-dev.s3.us-west-2.amazonaws.com/4.3713-18th/3713-18th-2.jpg"), filename: "3713-18th-2.jpg"},
+      {io: URI.open("https://home-zillow-dev.s3.us-west-2.amazonaws.com/4.3713-18th/3713-18th-3.jpg"), filename: "3713-18th-3.jpg"},
+      {io: URI.open("https://home-zillow-dev.s3.us-west-2.amazonaws.com/4.3713-18th/3713-18th-4.jpg"), filename: "3713-18th-4.jpg"}
+      ])
+
+
       #5
-    Listing.create!({
+    listing_5 = Listing.create!({
       owner_id: 1,
       status: "active",
       deal_type: "sale",
@@ -169,8 +198,17 @@ ApplicationRecord.transaction do
       listing_type: "apartment",
     })
 
+    listing_5.photos.attach([
+      {io: URI.open("https://home-zillow-dev.s3.us-west-2.amazonaws.com/5.1288-howard/1288-howard.jpg"), filename: "1288-howard.jpg"},
+      {io: URI.open("https://home-zillow-dev.s3.us-west-2.amazonaws.com/5.1288-howard/1288-howard-1.jpg"), filename: "1288-howard-1.jpg"},
+      {io: URI.open("https://home-zillow-dev.s3.us-west-2.amazonaws.com/5.1288-howard/1288-howard-2.jpg"), filename: "1288-howard-2.jpg"},
+      {io: URI.open("https://home-zillow-dev.s3.us-west-2.amazonaws.com/5.1288-howard/1288-howard-3.jpg"), filename: "1288-howard-3.jpg"},
+      {io: URI.open("https://home-zillow-dev.s3.us-west-2.amazonaws.com/5.1288-howard/1288-howard-4.jpg"), filename: "1288-howard-4.jpg"}
+      ])
+
+
     #6
-    Listing.create!({
+    listing_6 = Listing.create!({
       owner_id: 2,
       status: "active",
       deal_type: "sale",
@@ -189,8 +227,17 @@ ApplicationRecord.transaction do
       listing_type: "house",
     })
 
+    listing_6.photos.attach([
+      {io: URI.open("https://home-zillow-dev.s3.us-west-2.amazonaws.com/6.749-16th/749-16th.jpg"), filename: "749-16th.jpg"},
+      {io: URI.open("https://home-zillow-dev.s3.us-west-2.amazonaws.com/6.749-16th/749-16th-1.jpg"), filename: "749-16th-1.jpg"},
+      {io: URI.open("https://home-zillow-dev.s3.us-west-2.amazonaws.com/6.749-16th/749-16th-2.jpg"), filename: "749-16th-2.jpg"},
+      {io: URI.open("https://home-zillow-dev.s3.us-west-2.amazonaws.com/6.749-16th/749-16th-3.jpg"), filename: "749-16th-3.jpg"},
+      {io: URI.open("https://home-zillow-dev.s3.us-west-2.amazonaws.com/6.749-16th/749-16th-4.jpg"), filename: "749-16th-4.jpg"}
+      ])
+
+
     #7
-    Listing.create!({
+    listing_7 = Listing.create!({
       owner_id: 1,
       status: "active",
       deal_type: "sale",
@@ -209,8 +256,17 @@ ApplicationRecord.transaction do
       listing_type: "house",
     })
 
+    listing_7.photos.attach([
+      {io: URI.open("https://home-zillow-dev.s3.us-west-2.amazonaws.com/7.220-castro/220-castro.jpg"), filename: "220-castro.jpg"},
+      {io: URI.open("https://home-zillow-dev.s3.us-west-2.amazonaws.com/7.220-castro/220-castro-1.jpg"), filename: "220-castro-1.jpg"},
+      {io: URI.open("https://home-zillow-dev.s3.us-west-2.amazonaws.com/7.220-castro/220-castro-2.jpg"), filename: "220-castro-2.jpg"},
+      {io: URI.open("https://home-zillow-dev.s3.us-west-2.amazonaws.com/7.220-castro/220-castro-3.jpg"), filename: "220-castro-3.jpg"},
+      {io: URI.open("https://home-zillow-dev.s3.us-west-2.amazonaws.com/7.220-castro/220-castro-4.jpg"), filename: "220-castro-4.jpg"}
+      ])
+
+
     #8
-    Listing.create!({
+    listing_8 = Listing.create!({
       owner_id: 2,
       status: "active",
       deal_type: "sale",
@@ -229,8 +285,17 @@ ApplicationRecord.transaction do
       listing_type: "house",
     })
 
+    listing_8.photos.attach([
+      {io: URI.open("https://home-zillow-dev.s3.us-west-2.amazonaws.com/8.1020-broadway/1020-broadway.jpg"), filename: "1020-broadway.jpg"},
+      {io: URI.open("https://home-zillow-dev.s3.us-west-2.amazonaws.com/8.1020-broadway/1020-broadway-1.jpg"), filename: "1020-broadway-1.jpg"},
+      {io: URI.open("https://home-zillow-dev.s3.us-west-2.amazonaws.com/8.1020-broadway/1020-broadway-2.jpg"), filename: "1020-broadway-2.jpg"},
+      {io: URI.open("https://home-zillow-dev.s3.us-west-2.amazonaws.com/8.1020-broadway/1020-broadway-3.jpg"), filename: "1020-broadway-3.jpg"},
+      {io: URI.open("https://home-zillow-dev.s3.us-west-2.amazonaws.com/8.1020-broadway/1020-broadway-4.jpg"), filename: "1020-broadway-4.jpg"}
+      ])
+
+
     #9
-    Listing.create!({
+    listing_9 = Listing.create!({
       owner_id: 1,
       status: "active",
       deal_type: "rent",
@@ -248,8 +313,17 @@ ApplicationRecord.transaction do
       price: 12200,
       listing_type: "house",
     })
+      
+    listing_9.photos.attach([
+      {io: URI.open("https://home-zillow-dev.s3.us-west-2.amazonaws.com/9.125-marina/125-marina.jpg"), filename: "125-marina.jpg"},
+      {io: URI.open("https://home-zillow-dev.s3.us-west-2.amazonaws.com/9.125-marina/125-marina-1.jpg"), filename: "125-marina-1.jpg"},
+      {io: URI.open("https://home-zillow-dev.s3.us-west-2.amazonaws.com/9.125-marina/125-marina-2.jpg"), filename: "125-marina-2.jpg"},
+      {io: URI.open("https://home-zillow-dev.s3.us-west-2.amazonaws.com/9.125-marina/125-marina-3.jpg"), filename: "125-marina-3.jpg"},
+      {io: URI.open("https://home-zillow-dev.s3.us-west-2.amazonaws.com/9.125-marina/125-marina-4.jpg"), filename: "125-marina-4.jpg"}
+      ])
+
     #10
-    Listing.create!({
+    listing_10 = Listing.create!({
       owner_id: 2,
       status: "active",
       deal_type: "rent",
@@ -268,8 +342,16 @@ ApplicationRecord.transaction do
       listing_type: "house",
     })
 
+    listing_10.photos.attach([
+      {io: URI.open("https://home-zillow-dev.s3.us-west-2.amazonaws.com/10.2011-lyon/2011-lyon.jpg"), filename: "2011-lyon.jpg"},
+      {io: URI.open("https://home-zillow-dev.s3.us-west-2.amazonaws.com/10.2011-lyon/2011-lyon-1.jpg"), filename: "2011-lyon-1.jpg"},
+      {io: URI.open("https://home-zillow-dev.s3.us-west-2.amazonaws.com/10.2011-lyon/2011-lyon-2.jpg"), filename: "2011-lyon-2.jpg"},
+      {io: URI.open("https://home-zillow-dev.s3.us-west-2.amazonaws.com/10.2011-lyon/2011-lyon-3.jpg"), filename: "2011-lyon-3.jpg"},
+      {io: URI.open("https://home-zillow-dev.s3.us-west-2.amazonaws.com/10.2011-lyon/2011-lyon-4.jpg"), filename: "2011-lyon-4.jpg"}
+      ])
+
     #11
-    Listing.create!({
+    listing_11 = Listing.create!({
       owner_id: 1,
       status: "active",
       deal_type: "rent",
@@ -288,8 +370,18 @@ ApplicationRecord.transaction do
       price: 9450,
       listing_type: "apartment",
     })
+
+    listing_11.photos.attach([
+      {io: URI.open("https://home-zillow-dev.s3.us-west-2.amazonaws.com/11.440-vallejo/440-vallejo.jpg"), filename: "440-vallejo.jpg"},
+      {io: URI.open("https://home-zillow-dev.s3.us-west-2.amazonaws.com/11.440-vallejo/440-vallejo-1.jpg"), filename: "440-vallejo-1.jpg"},
+      {io: URI.open("https://home-zillow-dev.s3.us-west-2.amazonaws.com/11.440-vallejo/440-vallejo-2.jpg"), filename: "440-vallejo-2.jpg"},
+      {io: URI.open("https://home-zillow-dev.s3.us-west-2.amazonaws.com/11.440-vallejo/440-vallejo-3.jpg"), filename: "440-vallejo-3.jpg"},
+      {io: URI.open("https://home-zillow-dev.s3.us-west-2.amazonaws.com/11.440-vallejo/440-vallejo-4.jpg"), filename: "440-vallejo-4.jpg"}
+      ])
+
+
     #12
-    Listing.create!({
+    listing_12 = Listing.create!({
       owner_id: 2,
       status: "active",
       deal_type: "rent",
@@ -308,11 +400,17 @@ ApplicationRecord.transaction do
       listing_type: "apartment",
     })
 
-    
+    listing_12.photos.attach([
+      {io: URI.open("https://home-zillow-dev.s3.us-west-2.amazonaws.com/12.301-mission/301-mission.jpg"), filename: "301-mission.jpg"},
+      {io: URI.open("https://home-zillow-dev.s3.us-west-2.amazonaws.com/12.301-mission/301-mission-1.jpg"), filename: "301-mission-1.jpg"},
+      {io: URI.open("https://home-zillow-dev.s3.us-west-2.amazonaws.com/12.301-mission/301-mission-2.jpg"), filename: "301-mission-2.jpg"},
+      {io: URI.open("https://home-zillow-dev.s3.us-west-2.amazonaws.com/12.301-mission/301-mission-3.jpg"), filename: "301-mission-3.jpg"},
+      {io: URI.open("https://home-zillow-dev.s3.us-west-2.amazonaws.com/12.301-mission/301-mission-4.jpg"), filename: "301-mission-4.jpg"}
+      ])
 
     
     #13
-    Listing.create!({
+    listing_13 = Listing.create!({
       owner_id: 3,
       status: "active",
       deal_type: "sale",
@@ -330,9 +428,18 @@ ApplicationRecord.transaction do
       price: 3995000,
       listing_type: "apartment",
     })
-  
+
+    listing_13.photos.attach([
+      {io: URI.open("https://home-zillow-dev.s3.us-west-2.amazonaws.com/13.1-steuart/1-steuart.jpg"), filename: "1-steuart.jpg"},
+      {io: URI.open("https://home-zillow-dev.s3.us-west-2.amazonaws.com/13.1-steuart/1-steuart-1.jpg"), filename: "1-steuart-1.jpg"},
+      {io: URI.open("https://home-zillow-dev.s3.us-west-2.amazonaws.com/13.1-steuart/1-steuart-2.jpg"), filename: "1-steuart-2.jpg"},
+      {io: URI.open("https://home-zillow-dev.s3.us-west-2.amazonaws.com/13.1-steuart/1-steuart-3.jpg"), filename: "1-steuart-3.jpg"},
+      {io: URI.open("https://home-zillow-dev.s3.us-west-2.amazonaws.com/13.1-steuart/1-steuart-4.jpg"), filename: "1-steuart-4.jpg"}
+      ])
+
+
     #14
-    Listing.create!({
+    listing_14 = Listing.create!({
       owner_id: 4,
       status: "active",
       deal_type: "sale",
@@ -351,8 +458,17 @@ ApplicationRecord.transaction do
       listing_type: "house",
     })
     
+    listing_14.photos.attach([
+      {io: URI.open("https://home-zillow-dev.s3.us-west-2.amazonaws.com/14.261-17th/261-17th.jpg"), filename: "261-17th.jpg"},
+      {io: URI.open("https://home-zillow-dev.s3.us-west-2.amazonaws.com/14.261-17th/261-17th-1.jpg"), filename: "261-17th-1.jpg"},
+      {io: URI.open("https://home-zillow-dev.s3.us-west-2.amazonaws.com/14.261-17th/261-17th-2.jpg"), filename: "261-17th-2.jpg"},
+      {io: URI.open("https://home-zillow-dev.s3.us-west-2.amazonaws.com/14.261-17th/261-17th-3.jpg"), filename: "261-17th-3.jpg"},
+      {io: URI.open("https://home-zillow-dev.s3.us-west-2.amazonaws.com/14.261-17th/261-17th-4.jpg"), filename: "261-17th-4.jpg"}
+      ])
+
+
     #15
-    Listing.create!({
+    listing_15 = Listing.create!({
       owner_id: 3,
       status: "active",
       deal_type: "rent",
@@ -371,8 +487,16 @@ ApplicationRecord.transaction do
       listing_type: "apartment",
     })
 
+    listing_15.photos.attach([
+      {io: URI.open("https://home-zillow-dev.s3.us-west-2.amazonaws.com/15.690-market/690-market.jpg"), filename: "690-market.jpg"},
+      {io: URI.open("https://home-zillow-dev.s3.us-west-2.amazonaws.com/15.690-market/690-market-1.jpg"), filename: "690-market-1.jpg"},
+      {io: URI.open("https://home-zillow-dev.s3.us-west-2.amazonaws.com/15.690-market/690-market-2.jpg"), filename: "690-market-2.jpg"},
+      {io: URI.open("https://home-zillow-dev.s3.us-west-2.amazonaws.com/15.690-market/690-market-3.jpg"), filename: "690-market-3.jpg"},
+      {io: URI.open("https://home-zillow-dev.s3.us-west-2.amazonaws.com/15.690-market/690-market-4.jpg"), filename: "690-market-4.jpg"}
+      ])
+
     #16
-    Listing.create!({
+    listing_16 = Listing.create!({
       owner_id: 4,
       status: "active",
       deal_type: "rent",
@@ -391,8 +515,16 @@ ApplicationRecord.transaction do
       listing_type: "apartment",
     })
 
+    listing_16.photos.attach([
+      {io: URI.open("https://home-zillow-dev.s3.us-west-2.amazonaws.com/16.631-folsom/631-folsom.jpg"), filename: "631-folsom.jpg"},
+      {io: URI.open("https://home-zillow-dev.s3.us-west-2.amazonaws.com/16.631-folsom/631-folsom-1.jpg"), filename: "631-folsom-1.jpg"},
+      {io: URI.open("https://home-zillow-dev.s3.us-west-2.amazonaws.com/16.631-folsom/631-folsom-2.jpg"), filename: "631-folsom-2.jpg"},
+      {io: URI.open("https://home-zillow-dev.s3.us-west-2.amazonaws.com/16.631-folsom/631-folsom-3.jpg"), filename: "631-folsom-3.jpg"},
+      {io: URI.open("https://home-zillow-dev.s3.us-west-2.amazonaws.com/16.631-folsom/631-folsom-4.jpg"), filename: "631-folsom-4.jpg"}
+      ])
+
     #17
-    Listing.create!({
+    listing_17 = Listing.create!({
       owner_id: 3,
       status: "active",
       deal_type: "sale",
@@ -411,8 +543,16 @@ ApplicationRecord.transaction do
       listing_type: "apartment",
     })
 
+    listing_17.photos.attach([
+      {io: URI.open("https://home-zillow-dev.s3.us-west-2.amazonaws.com/17.310-townsend/310-townsend.jpg"), filename: "310-townsend.jpg"},
+      {io: URI.open("https://home-zillow-dev.s3.us-west-2.amazonaws.com/17.310-townsend/310-townsend-1.jpg"), filename: "310-townsend-1.jpg"},
+      {io: URI.open("https://home-zillow-dev.s3.us-west-2.amazonaws.com/17.310-townsend/310-townsend-2.jpg"), filename: "310-townsend-2.jpg"},
+      {io: URI.open("https://home-zillow-dev.s3.us-west-2.amazonaws.com/17.310-townsend/310-townsend-3.jpg"), filename: "310-townsend-3.jpg"},
+      {io: URI.open("https://home-zillow-dev.s3.us-west-2.amazonaws.com/17.310-townsend/310-townsend-4.jpg"), filename: "310-townsend-4.jpg"}
+      ])
+
     #18
-    Listing.create!({
+    listing_18 = Listing.create!({
       owner_id: 4,
       status: "active",
       deal_type: "sale",
@@ -431,8 +571,16 @@ ApplicationRecord.transaction do
       listing_type: "apartment",
     })
 
+    listing_18.photos.attach([
+      {io: URI.open("https://home-zillow-dev.s3.us-west-2.amazonaws.com/18.165-francisco/165-francisco.jpg"), filename: "165-francisco.jpg"},
+      {io: URI.open("https://home-zillow-dev.s3.us-west-2.amazonaws.com/18.165-francisco/165-francisco-1.jpg"), filename: "165-francisco-1.jpg"},
+      {io: URI.open("https://home-zillow-dev.s3.us-west-2.amazonaws.com/18.165-francisco/165-francisco-2.jpg"), filename: "165-francisco-2.jpg"},
+      {io: URI.open("https://home-zillow-dev.s3.us-west-2.amazonaws.com/18.165-francisco/165-francisco-3.jpg"), filename: "165-francisco-3.jpg"},
+      {io: URI.open("https://home-zillow-dev.s3.us-west-2.amazonaws.com/18.165-francisco/165-francisco-4.jpg"), filename: "165-francisco-4.jpg"}
+      ])
+
     #19
-    Listing.create!({
+    listing_19 = Listing.create!({
       owner_id: 3,
       status: "active",
       deal_type: "rent",
@@ -451,8 +599,16 @@ ApplicationRecord.transaction do
       listing_type: "apartment",
     })
 
+    listing_19.photos.attach([
+      {io: URI.open("https://home-zillow-dev.s3.us-west-2.amazonaws.com/19.883-sacramento/883-sacramento.jpg"), filename: "883-sacramento.jpg"},
+      {io: URI.open("https://home-zillow-dev.s3.us-west-2.amazonaws.com/19.883-sacramento/16.jpg"), filename: "883-sacramento-16.jpg"},
+      {io: URI.open("https://home-zillow-dev.s3.us-west-2.amazonaws.com/19.883-sacramento/2.jpg"), filename: "883-sacramento-2.jpg"},
+      {io: URI.open("https://home-zillow-dev.s3.us-west-2.amazonaws.com/19.883-sacramento/4.jpg"), filename: "883-sacramento-4.jpg"},
+      {io: URI.open("https://home-zillow-dev.s3.us-west-2.amazonaws.com/19.883-sacramento/8.jpg"), filename: "883-sacramento-8.jpg"}
+      ])
+
     #20
-    Listing.create!({
+    listing_20 = Listing.create!({
       owner_id: 4,
       status: "active",
       deal_type: "rent",
@@ -470,6 +626,13 @@ ApplicationRecord.transaction do
       price: 6400,
       listing_type: "apartment",
     })
+    listing_20.photos.attach([
+      {io: URI.open("https://home-zillow-dev.s3.us-west-2.amazonaws.com/20.1037-polk/1037-polk.jpg"), filename: "1037-polk.jpg"},
+      {io: URI.open("https://home-zillow-dev.s3.us-west-2.amazonaws.com/20.1037-polk/1037-polk-1.jpg"), filename: "1037-polk-1.jpg"},
+      {io: URI.open("https://home-zillow-dev.s3.us-west-2.amazonaws.com/20.1037-polk/1037-polk-2.jpg"), filename: "1037-polk-2.jpg"},
+      {io: URI.open("https://home-zillow-dev.s3.us-west-2.amazonaws.com/20.1037-polk/1037-polk-3.jpg"), filename: "1037-polk-3.jpg"},
+      {io: URI.open("https://home-zillow-dev.s3.us-west-2.amazonaws.com/20.1037-polk/1037-polk-4.jpg"), filename: "1037-polk-4.jpg"}
+      ])
 
     puts "Done!"
   end
