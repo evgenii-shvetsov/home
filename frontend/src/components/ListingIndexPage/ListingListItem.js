@@ -68,7 +68,8 @@ const ListingListItem = ( {listing} ) => {
 
                 <section className="listing-img">
                     {/* <img onClick={handleClick} id="home-logo" src={logo} alt="home logo" /> */}
-                    <img onClick={handleClick} id="home-logo" src={url} alt="home logo" />
+                    {url ? <img onClick={handleClick} id="home-logo" src={url} alt="home logo" /> : <img onClick={handleClick} id="home-logo-placeholder" src={logo} alt="home logo" />}
+                    {/* <img onClick={handleClick} id="home-logo" src={url} alt="home logo" /> */}
                 </section>
 
                 

@@ -67,23 +67,30 @@ ApplicationRecord.transaction do
     listing_1 = Listing.create!({
       owner_id: 1,
       status: "active",
-      deal_type: "sale",
-      description:  "Great starter home in the Bayview neighboor with 3 beds and 1 bath on upper level - updated kitchen and bathroom, lower level consist one large family room and second bath.",
-      zip: 94124,
+      deal_type: "rent",
+      description:  "HUGE deck that spans the living room, dining room and one of the two bedrooms for indoor/outdoor living at the top of the world!
+      Fabulous 30th floor views from every room!",
+      zip: 94105,
       state: "CA",
       city: "San Francisco",
-      address: "1826 Keith St",
-      lat: 37.79352054026415, 
-      lng: -122.40412603039728, 
-      bedroom: 3,
-      bathroom: 1,
-      size: 1101,  
-      year_built: 1955,  
-      price: 1999999,
-      listing_type: "house"
+      address: "301 Main St",
+      lat: 37.78957, 
+      lng: -122.39123,
+      bedroom: 2,
+      bathroom: 2,
+      size: 1268,  
+      year_built: 2010,  
+      price: 5995,
+      listing_type: "apartment",
     })
 
-    listing_1.photos.attach([{io: URI.open("https://home-zillow-dev.s3.us-west-2.amazonaws.com/i2vjlpuhx2fuipu2znrxw3gbnun0"), filename: "301-main.jpg"}])
+    listing_1.photos.attach([
+      {io: URI.open("https://home-zillow-dev.s3.us-west-2.amazonaws.com/301-main/301-main.jpg"), filename: "301-main.jpg"},
+      {io: URI.open("https://home-zillow-dev.s3.us-west-2.amazonaws.com/301-main/301-main-1.jpg"), filename: "301-main-1.jpg"},
+      {io: URI.open("https://home-zillow-dev.s3.us-west-2.amazonaws.com/301-main/301-main-2.jpg"), filename: "301-main-2.jpg"},
+      {io: URI.open("https://home-zillow-dev.s3.us-west-2.amazonaws.com/301-main/301-main-3.jpg"), filename: "301-main-3.jpg"},
+      {io: URI.open("https://home-zillow-dev.s3.us-west-2.amazonaws.com/301-main/301-main-4.jpg"), filename: "301-main-4.jpg"}
+      ])
     
     #2
     Listing.create!({
@@ -286,21 +293,23 @@ ApplicationRecord.transaction do
       owner_id: 2,
       status: "active",
       deal_type: "rent",
-      description:  "HUGE deck that spans the living room, dining room and one of the two bedrooms for indoor/outdoor living at the top of the world!
-      Fabulous 30th floor views from every room!",
+      description:  "Luxury 3 BR/ 2.5 BA condo at Millennium Tower, one of the most luxurious condominium building in San Francisco. Features floor to ceiling windows on the living room, stainless steel appliances in the kitchen.",
       zip: 94105,
       state: "CA",
       city: "San Francisco",
-      address: "301 Main St",
-      lat: 37.78957, 
-      lng: -122.39123,
-      bedroom: 2,
-      bathroom: 2,
-      size: 1268,  
+      address: "301 Mission St",
+      lat: 37.790529829495654, 
+      lng: -122.3961641020766,
+      bedroom: 3,
+      bathroom: 3,
+      size: 1583,  
       year_built: 2010,  
-      price: 5995,
+      price: 1498000,
       listing_type: "apartment",
     })
+
+    
+
     
     #13
     Listing.create!({
