@@ -102,8 +102,6 @@ GEM
     date (3.3.1)
     debug_inspector (1.1.0)
     erubi (1.11.0)
-    faker (3.1.0)
-      i18n (>= 1.8.11, < 2)
     globalid (1.0.0)
       activesupport (>= 5.0)
     i18n (1.12.0)
@@ -123,6 +121,7 @@ GEM
     marcel (1.0.2)
     method_source (1.0.0)
     mini_mime (1.1.2)
+    mini_portile2 (2.8.1)
     minitest (5.16.3)
     msgpack (1.6.0)
     net-imap (0.3.2)
@@ -135,6 +134,9 @@ GEM
     net-smtp (0.3.3)
       net-protocol
     nio4r (2.5.8)
+    nokogiri (1.13.10)
+      mini_portile2 (~> 2.8.0)
+      racc (~> 1.4)
     nokogiri (1.13.10-x86_64-darwin)
       racc (~> 1.4)
     pg (1.4.5)
@@ -187,6 +189,7 @@ GEM
 
 PLATFORMS
   x86_64-darwin-21
+  x86_64-unknown
 
 DEPENDENCIES
   annotate
@@ -196,7 +199,6 @@ DEPENDENCIES
   binding_of_caller
   bootsnap
   byebug
-  faker
   jbuilder
   pg (~> 1.1)
   pry-rails
