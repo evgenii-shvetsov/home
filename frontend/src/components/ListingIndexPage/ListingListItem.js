@@ -67,8 +67,8 @@ const ListingListItem = ( {listing} ) => {
                 </button>
 
                 <section className="listing-img">
-                    <img onClick={handleClick} id="home-logo" src={logo} alt="home logo" />
-                    {/* <img onClick={handleClick} id="home-logo" src={url} alt="home logo" /> */}
+                    {/* <img onClick={handleClick} id="home-logo" src={logo} alt="home logo" /> */}
+                    <img onClick={handleClick} id="home-logo" src={url} alt="home logo" />
                 </section>
 
                 

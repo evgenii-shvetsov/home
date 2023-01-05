@@ -24,6 +24,7 @@ ApplicationRecord.transaction do
     # For easy testing, so that after seeding, the first `User` has `id` of 1
     ApplicationRecord.connection.reset_pk_sequence!('users')
     ApplicationRecord.connection.reset_pk_sequence!('listings')
+    ApplicationRecord.connection.reset_pk_sequence!('favorites')
   
     puts "Creating users..."
     # Create one user with an easy to remember username, email, and password:
@@ -63,7 +64,7 @@ ApplicationRecord.transaction do
     puts "Creating listings..."
     
     #1
-    Listing.create!({
+    listing_1 = Listing.create!({
       owner_id: 1,
       status: "active",
       deal_type: "sale",
@@ -81,6 +82,8 @@ ApplicationRecord.transaction do
       price: 1999999,
       listing_type: "house"
     })
+
+    listing_1.photos.attach([{io: URI.open("https://home-zillow-dev.s3.us-west-2.amazonaws.com/i2vjlpuhx2fuipu2znrxw3gbnun0"), filename: "301-main.jpg"}])
     
     #2
     Listing.create!({
