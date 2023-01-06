@@ -4,6 +4,7 @@ import csrfFetch from './csrf';
 const SET_LISTINGS = "listings/setListings";
 const ADD_LISTING = "listings/addListing";
 const REMOVE_LISTING = "listings/removeListing"
+const REMOVE_LISTINGS = "listings/removeListings"
 
 //Action creators
 const setListings = (listings) => ({
@@ -19,6 +20,10 @@ const addListing = (listing) => ({
 const removeListing = (listingId) => ({
     type: REMOVE_LISTING,
     listingId
+})
+
+export const removeListings = () => ({
+    type: REMOVE_LISTINGS
 })
 
 //THUNK ACTION CREATORS
@@ -84,6 +89,22 @@ export const deleteListing = (listingId) => async (dispatch)=> {
     }
 }
 
+export const fetchBuyListings = () => async (dispatch)=> {
+    const res = await csrfFetch(`/api/search/buy`)
+    if(res.ok){
+        const listings = await res.json();
+        dispatch(setListings(listings));
+    }
+}
+
+export const fetchRentListings = () => async (dispatch)=> {
+    const res = await csrfFetch(`/api/search/rent`)
+    if(res.ok){
+        const listings = await res.json();
+        dispatch(setListings(listings));
+    }
+}
+
 const listingsReducer = (state = {}, action) => {
     switch (action.type) {
         case SET_LISTINGS:
@@ -94,6 +115,8 @@ const listingsReducer = (state = {}, action) => {
             const newState = {...state}
             delete newState[action.listingId]
             return newState
+        case REMOVE_LISTINGS:
+            return {}
         default:
             return state;
     }

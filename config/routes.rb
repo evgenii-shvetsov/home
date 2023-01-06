@@ -12,6 +12,12 @@ Rails.application.routes.draw do
     resource :session, only: [:show, :create, :destroy]
     resources :listings, only: [:index, :show, :create, :update, :destroy]
     resources :favorites, only: [:index, :show, :create, :destroy] #ability to check a listing and uncheck
+
+  # http #backend       #controller  #action
+  # verb #route         #
+    get '/search/buy', to: 'searches#sale_index'
+    get '/search/rent', to: 'searches#rent_index'
+  # get '/listings', to: 'listings#index'
   end
 
   get '*path', to: "static_pages#frontend_index"

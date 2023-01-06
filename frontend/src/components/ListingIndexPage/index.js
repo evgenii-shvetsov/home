@@ -1,7 +1,7 @@
 import React from 'react';
 import { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { fetchListings } from '../../store/listings';
+import { fetchListings, removeListings } from '../../store/listings';
 import ListingList from './ListingList';
 import "./ListingIndexPage.css";
 // import {Link, useHistory} from "react-router-dom";
@@ -23,6 +23,7 @@ const ListingIndexPage = () => {
         if(sessionUser){
           dispatch(fetchFavorites())
         }
+        return () => dispatch(removeListings()) 
     },[dispatch, sessionUser])
     
   return (

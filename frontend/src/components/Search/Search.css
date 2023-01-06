@@ -1,0 +1,24 @@
+.search-type{
+    display: flex;
+    max-width: 1200px;
+    /* height: 100vh; */
+    flex-wrap: wrap;
+    margin: 0 auto;
+    /* justify-content: space-between; */
+}
+
+.search-map{
+    min-width: 500px;
+    max-width: 600px;
+    /* height: 100vh; */
+    border: 1px solid black;
+    margin: 10px;
+}
+
+.search-listings{
+    min-width: 500px;
+    max-width: 600px;
+    /* height: 100vh; */
+    border: 1px solid black;
+    margin: 10px;
+}
