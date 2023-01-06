@@ -25,7 +25,7 @@ const Homepage = () => {
           <img src={buyLogo} alt="buy home logo" />
           <h3>Buy a home</h3>
           <p>Find your place with an immersive photo experience and the most listings, including things you won’t find anywhere else.</p>
-          <Link className='deal-type-link' to="/search/:type">
+          <Link className='deal-type-link' to="/search/buy">
             <button className='deal-type-button'>Browse homes</button>
           </Link>
         </div>
@@ -34,7 +34,7 @@ const Homepage = () => {
           <img src={rentLogo} alt="rent home logo" />
           <h3>Rent a home</h3>
           <p>Whether you’re looking for a single-family home, high-rise apartment, or something in between, we’ll help you find it.</p>
-          <Link className='deal-type-link' to="/search/:type"> 
+          <Link className='deal-type-link' to="/search/rent"> 
             <button className='deal-type-button'>Find rentals</button>
           </Link>
         </div>
