@@ -9,6 +9,7 @@ import Footer from './components/Footer';
 import ListingShowPage from './components/ListingShowPage';
 import ListingFormPage from './components/ListingFormPage';
 import MyHome from './components/MyHome';
+import Search from './components/Search';
 
 function App() {
   return (
@@ -20,10 +21,9 @@ function App() {
           <Route exact path ='/listings/:listingId/edit' component={ListingFormPage}/>
           <Route exact path ='/listings/:listingId' component={ListingShowPage} />
           <Route exact path ='/myhome' component={MyHome} />
-          {/* <Route exact path="/listings/for_rent" component={RentListings}/>
-          <Route exact path="/listings/for_sale" component={SaleListings}/>
-          <Route exact path="/myhome/account" component={UserProfile} /> */}
-
+          
+          <Route exact path="/search/:type" component={Search}/>
+          
           <Route path="/error" component={Page404}/>
           <Redirect to="/error"/>
         </Switch>

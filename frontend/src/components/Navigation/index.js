@@ -28,8 +28,8 @@ function Navigation() {
     <header>
       <div className='header-wrapper'>
           <nav>
-          <NavLink exact to="/listings/for_sale">Buy</NavLink>
-          <NavLink exact to="/listings/for_rent">Rent</NavLink>
+          <NavLink exact to="/search/:type">Buy</NavLink>
+          <NavLink exact to="/search/:type">Rent</NavLink>
           </nav>
         
           <NavLink exact to="/"><img id="logo" src={logo} alt="company logo" /></NavLink>

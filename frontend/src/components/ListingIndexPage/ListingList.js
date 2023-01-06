@@ -10,6 +10,7 @@ const breakPoints = [
   {width:1200, itemsToShow: 4},
 ];
 
+//splice(0,5) restricts the number of objects shown
 const ListingList = ( {listings ,text} ) => {
   return (
     <div className='listings-main'>
@@ -17,7 +18,7 @@ const ListingList = ( {listings ,text} ) => {
         <hr id="hr" />
           <section className='listings-output' >
                 <Carousel breakPoints={breakPoints} /*enableAutoPlay autoPlaySpeed={3000}*/>
-              {listings?.map((listing, idx) => ( <ListingListItem listing={listing} key ={idx}/>) )}
+              {listings?.map((listing, idx) => ( <ListingListItem listing={listing} key ={idx}/>)).splice(0,3)}
             </Carousel>
           </section>
           
