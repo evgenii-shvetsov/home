@@ -150,7 +150,7 @@ const ListingShowPage = () => {
 
         <section id='listing-map'>
           <h4>Map</h4>
-          <Map latitude={listing.lat} longitude={listing.lng}/>
+          {/* <Map latitude={listing.lat} longitude={listing.lng}/> */}
         </section>
 
       </section>

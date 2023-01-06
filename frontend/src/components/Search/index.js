@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react'
 import './Search.css'
 
-import Map from '../Map'
+import MapSearch from '../MapSearch'
 import { useParams } from 'react-router-dom'
 import { useDispatch, useSelector } from 'react-redux'
 import { fetchBuyListings, fetchRentListings, removeListings } from '../../store/listings'
@@ -29,6 +29,7 @@ const Search = () => {
         <section className='search-map'>
                 <h4>google maps</h4>
                 {/* <Map latitude={37.776392} longitude={-122.4194}/> */}
+                <MapSearch />
         </section>
 
         <section className='search-listings'>

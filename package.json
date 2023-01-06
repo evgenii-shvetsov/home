@@ -21,5 +21,11 @@
   "bugs": {
     "url": "https://github.com/evgenii-shvetsov/home/issues"
   },
-  "homepage": "https://github.com/evgenii-shvetsov/home#readme"
+  "homepage": "https://github.com/evgenii-shvetsov/home#readme",
+  "devDependencies": {
+    "@iconify/react": "^4.0.1"
+  },
+  "dependencies": {
+    "@iconify/icons-mdi": "^1.2.38"
+  }
 }
