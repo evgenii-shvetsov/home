@@ -28,22 +28,13 @@ function Navigation() {
     <header>
       <div className='header-wrapper'>
           <nav>
-          <NavLink to="/search/buy">Buy</NavLink>
-          <NavLink to="/search/rent">Rent</NavLink>
+          <NavLink activeStyle={{ color:'rgba(46, 118, 235, 1)'}} exact to="/search/buy">Buy</NavLink>
+          <NavLink activeStyle={{ color:'rgba(46, 118, 235, 1)' }} exact to="/search/rent">Rent</NavLink>
           </nav>
         
           <NavLink to="/"><img id="logo" src={logo} alt="company logo" /></NavLink>
           {<span id="session-links">{sessionLinks}</span>}
       </div>
-
-      {/* <ul>
-        <li>
-          <NavLink exact to="/">Buy</NavLink>
-          <NavLink exact to="/listings/for_rent">Rent</NavLink>
-          <NavLink exact to="/">Home</NavLink>
-          {<span>{sessionLinks}</span>}
-        </li>
-      </ul> */}
     </header>
   );
 }
