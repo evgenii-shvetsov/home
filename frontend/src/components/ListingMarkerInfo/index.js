@@ -3,12 +3,15 @@ import './ListingMarkerInfo.css'
 const ListingMarkerInfo = ( {info} ) => {
   return (
     <div className='listing-marker-info'>
-            <h4>Listing Info</h4>
-            <ul>
+            {/* <ul>
                 <li>{info.listing_type}</li>
-                <li>{info.price}</li>
-                <li>{info.bedroom}</li>
-            </ul>
+                <li>{info.price} price</li>
+                <li>{info.bedroom} bd</li>
+            </ul> */}
+                <p>{info.listing_type}</p>
+                <p>${info?.price.toLocaleString()}</p>
+                <p>{info.bedroom} bd</p>
+            
     </div>
   )
 }

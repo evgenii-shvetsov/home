@@ -3,7 +3,7 @@ import React from 'react'
 import GoogleMapReact from 'google-map-react';
 import ListingMarker from '../ListingMarker';
 import './MapSearch.css'
-import ListingMarkerInfo from '../ListingMarkerInfo';
+// import ListingMarkerInfo from '../ListingMarkerInfo';
 
 const MapSearch = ({listings, center, zoom}) => {
   // const [listingInfo, setListingInfo] = useState(null);
@@ -16,7 +16,8 @@ const MapSearch = ({listings, center, zoom}) => {
    markerInfo={
       {listing_type: listing.listing_type,
       price: listing.price,
-      bedroom: listing.bedroom}} />
+      bedroom: listing.bedroom,
+      listing_id: listing.id}} />
   })
 //()=>setListingInfo({listing_type: listing.listing_type, price: listing.price, bedroom: listing.bedroom})
   return (

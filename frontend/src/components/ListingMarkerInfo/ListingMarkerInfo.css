@@ -1,10 +1,18 @@
 .listing-marker-info{
     position:absolute;
-    /* top: 50px;
-    right: 50px; */
-    top: 0;
-    right: 0;
-    width:50px;
-    min-height: 200px;
-    padding: 20px;
+
+    top: -48px;
+    right: -50px;
+    min-width: 78px;
+    max-height: 54px;
+    /* padding: 20px; */
+    background-color: rgba(0,0,0,0.7);
+    border-radius: 5px;
+    /* font-size: 16px; */
+    text-align: center;
+    color: #fff;
+    line-height: 17px;
+    z-index: 100;
+
 }
+
