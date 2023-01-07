@@ -29,7 +29,7 @@ const Search = () => {
         <section className='search-map'>
                 <h4>google maps</h4>
                 {/* <Map latitude={37.776392} longitude={-122.4194}/> */}
-                <MapSearch />
+                <MapSearch listings={listings} />
         </section>
 
         <section className='search-listings'>

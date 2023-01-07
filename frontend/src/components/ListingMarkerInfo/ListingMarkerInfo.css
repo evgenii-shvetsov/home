@@ -1,0 +1,10 @@
+.listing-marker-info{
+    position:absolute;
+    /* top: 50px;
+    right: 50px; */
+    top: 0;
+    right: 0;
+    width:50px;
+    min-height: 200px;
+    padding: 20px;
+}
