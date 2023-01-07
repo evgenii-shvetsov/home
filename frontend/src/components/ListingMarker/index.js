@@ -1,6 +1,7 @@
 import React from 'react'
 import { Icon } from '@iconify/react'
-import listingIcon from '@iconify/icons-mdi/home'
+import listingIconHouse from '@iconify/icons-mdi/house-outline'
+import listingIconApartment from '@iconify/icons-mdi/house-city-outline'
 import "./ListingMarker.css"
 import ListingMarkerInfo from '../ListingMarkerInfo';
 import { useState } from 'react';
@@ -19,12 +20,20 @@ const ListingMarker = ({lat, lng, markerInfo}) => {
   return (
         <div className='location-marker' onMouseOver={()=>setCondition(true)} onMouseOut={()=>setCondition(false)} onClick={handleClick}>
 
-         { condition ?  
-         <div>
-            <ListingMarkerInfo info={markerInfo} />
-         </div> : null}
+         { 
+          condition ?  
+          <div>
+              <ListingMarkerInfo info={markerInfo} />
+          </div> : null
+         }
 
-            <Icon icon={listingIcon} className="listing-icon" info={markerInfo}/>
+          {
+            markerInfo.listing_type === 'house' 
+            ? 
+              <Icon icon={listingIconHouse} className="listing-icon" info={markerInfo}/> 
+            :
+              <Icon icon={listingIconApartment} className="listing-icon" info={markerInfo}/> 
+          }
 
         </div>
   )

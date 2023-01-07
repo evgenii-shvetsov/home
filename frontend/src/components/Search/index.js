@@ -13,6 +13,16 @@ const Search = () => {
     const listings = useSelector(store => Object.values(store.listings))
     const dispatch = useDispatch(); 
 
+    // const filteredListings = () =>{
+    //     let filtered = []
+    //     for(let i=0; i < listings.length; i++){
+    //         if(i % 3 === 0){
+    //             filtered.push(listings[i])
+    //         }
+    //     }
+    //     return filtered;
+    // }
+
     useEffect(()=>{
         dispatch(removeListings())
         
@@ -28,8 +38,9 @@ const Search = () => {
     <main className='search-type'>
         <section className='search-map'>
                 <h4>google maps</h4>
-                {/* <Map latitude={37.776392} longitude={-122.4194}/> */}
-                <MapSearch listings={listings} />
+                {/* add restriction on amount of listings */}
+                <MapSearch listings={listings.slice(0,3)} />
+                {/* <MapSearch listings={filteredListings} /> */}
         </section>
 
         <section className='search-listings'>
