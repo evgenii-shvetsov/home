@@ -18,6 +18,7 @@ const ListingIndexPage = () => {
     // const history = useHistory();
 
     useEffect(()=>{
+        dispatch(removeListings())
         dispatch(fetchListings());
         
         if(sessionUser){

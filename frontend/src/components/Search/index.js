@@ -6,6 +6,8 @@ import { useParams } from 'react-router-dom'
 import { useDispatch, useSelector } from 'react-redux'
 import { fetchBuyListings, fetchRentListings, removeListings } from '../../store/listings'
 
+import ListingListItem from '../ListingIndexPage/ListingListItem'
+
 
 
 const Search = () => {
@@ -45,12 +47,12 @@ const Search = () => {
 
         <section className='search-listings'>
             <h4>Listings</h4>
-                <ul>{listings?.map((listing)=> (
-                    
+                {/* <ul>{listings?.map((listing)=> (
                         <li>{listing.address} </li>
-                    
                 ))}
-                </ul>
+                </ul> */}
+
+                {listings?.map((listing, idx) => (          <ListingListItem listing={listing} key ={idx}/>)).splice(0,3)}
         </section>
         
     </main>

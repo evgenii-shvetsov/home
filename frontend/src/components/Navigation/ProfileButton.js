@@ -30,9 +30,9 @@ function ProfileButton({ user }) {
 
   const logout = (e) => {
     e.preventDefault();
-    history.push("/");
-    // dispatch(sessionActions.logout());
-    dispatch(sessionActions.logout()).then(()=>setTimeout(()=>window.location.reload(),1));
+    // history.push("/");
+    dispatch(sessionActions.logout()).then(()=>history.push("/"));
+    // dispatch(sessionActions.logout()).then(()=>setTimeout(()=>window.location.reload(),1));
     
     
   };
