@@ -10,6 +10,9 @@ import { Link } from 'react-router-dom';
 
 import { createFavorite, deleteFavorite} from "../../store/favorites";
 
+import { Modal } from '../../context/Modal';
+import RequestForm from "../SaveModalRequest/RequestForm";
+
 
 
 const ListingListItem = ( {listing} ) => {
@@ -17,6 +20,8 @@ const ListingListItem = ( {listing} ) => {
     const favorites = useSelector((store) => store.favorites)
     const dispatch = useDispatch()
     const sessionUser = useSelector(state => state.session.user);
+
+    const [showModal, setShowModal] = useState(false);
 
     const url = listing?.photoUrls?.at(0)
     
@@ -39,7 +44,8 @@ const ListingListItem = ( {listing} ) => {
         e.preventDefault();
         history.push(`/listings/${listing.id}`)
     }
-    const heartClick = () =>{
+    const heartClick = () => {
+        // setShowModal(true)
         if(sessionUser){
             if(!heart){
                 const favorite = {favorite: {owner_id: sessionUser.id, listing_id: listing.id }}
@@ -50,12 +56,17 @@ const ListingListItem = ( {listing} ) => {
                 setHeart(false)
               }
         } else{
-            alert('Please LOGIN TO USE THE FEATURE')
+            setShowModal(true)
+                // <Modal onClose={() => setShowModal(false)}>
+                //   <LoginForm />
+                // </Modal>
+            // alert('Please LOGIN TO USE THE FEATURE')
+            // <LoginFormModal />
         }
     }
-    if(listing){
 
-    
+    if(listing){
+        
     return (
         // <>
         
@@ -67,6 +78,12 @@ const ListingListItem = ( {listing} ) => {
                 <button className="font-awesome-favorite" onClick={heartClick}>
                     {!heart ? <i className="fa-regular fa-heart"></i> : <i className="fa-solid fa-heart"></i> }
                 </button>
+
+                {showModal && (
+                    <Modal onClose={() => setShowModal(false)}>
+                         <RequestForm />
+                    </Modal>
+                )}
 
                 <section className="listing-img">
                     {/* <img onClick={handleClick} id="home-logo" src={logo} alt="home logo" /> */}
