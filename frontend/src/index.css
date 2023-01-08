@@ -73,6 +73,26 @@ h2, h3, h4{
     font-size: 1.25em;
 }
 
+@font-face {
+    font-family: 'Adjusted Times';
+    src: url('./assets/Adjusted\ Times.woff2');
+}
+
+@font-face {
+    font-family: 'Ivar Headline Subset';
+    src: url('./assets/Ivar\ Headline\ Subset.woff2');
+}
+
+@font-face {
+    font-family: 'Ivar Headline';
+    src: url('./assets/Ivar\ Headline.woff');
+}
+
+@font-face {
+    font-family: 'Open Sans';
+    src: url('./assets/Open\ Sans.woff2');
+}
+
 /*************BODY***********************/
 body {
     height: 100%;
@@ -83,7 +103,7 @@ body {
     color: black;
     background: rgb(255, 255, 255);
     font-family: "Open Sans", "Adjusted Arial", Tahoma, Geneva, sans-serif;
-    /* font-family: "Ivar Headline", "Ivar Headline Subset", "Adjusted Times", "Adjusted Times New Roman", "Times New Roman", serif; */
+    font-family: "Ivar Headline", "Ivar Headline Subset", "Adjusted Times", "Adjusted Times New Roman", "Times New Roman", serif;
 }
 
  #root {

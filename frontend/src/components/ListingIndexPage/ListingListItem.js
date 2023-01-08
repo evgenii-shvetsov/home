@@ -69,7 +69,7 @@ const ListingListItem = ( {listing} ) => {
         
     return (
         // <>
-        
+       
         //  {sessionUserId === listing.owner_id &&
         <div /*onClick={handleClick}*/ className="listing-container">
             <section className="listing-wrapper">

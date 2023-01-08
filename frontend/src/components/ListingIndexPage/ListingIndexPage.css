@@ -79,11 +79,20 @@
     position: absolute;
     top: 20px;
     right:10px;
-    color: blue;
+    color: rgb(163 0 11);
+   
+}
+
+.font-awesome-favorite:hover{
+    color: rgb(240, 4, 20);
 }
 
 .font-awesome-favorite .fa-solid {
-    color:blue
+    color:rgb(163 0 11);
+}
+
+.font-awesome-favorite .fa-solid:hover {
+    color: rgb(240, 4, 20);
 }
 
 .listing-detail{
