@@ -13,6 +13,8 @@ import { createFavorite, deleteFavorite} from "../../store/favorites";
 import { Modal } from '../../context/Modal';
 import RequestForm from "../SaveModalRequest/RequestForm";
 
+import mainPlaceholder from '../../assets/placeholders/main-placeholder.jpg'
+
 
 
 const ListingListItem = ( {listing} ) => {
@@ -23,10 +25,12 @@ const ListingListItem = ( {listing} ) => {
 
     const [showModal, setShowModal] = useState(false);
 
-    const url = listing?.photoUrls?.at(0)
+    const url = mainPlaceholder
+
+    //production code
+    // const url = listing?.photoUrls?.at(0)
     
-    // console.log(listing.owner_id)
-    // const dispatch = useDispatch()
+    
 
     const history = useHistory();
     

@@ -9,6 +9,13 @@ import { deleteListing } from "../../store/listings";
 import { createFavorite ,deleteFavorite, fetchFavorites } from '../../store/favorites';
 import Map from '../Map'
 
+import mainPlaceholder from '../../assets/placeholders/main-placeholder.jpg'
+import firstPlaceholder from '../../assets/placeholders/1-placeholder.jpg'
+import secondlaceholder from '../../assets/placeholders/2-placeholder.jpg'
+import thirdPlaceholder from '../../assets/placeholders/3-placeholder.jpg'
+import fifthPlaceholder from '../../assets/placeholders/4-placeholder.jpg'
+
+
 const ListingShowPage = () => {
 
     const { listingId } = useParams();
@@ -16,12 +23,20 @@ const ListingShowPage = () => {
     const listing = useSelector((store) => store.listings[listingId]);
 
     const favorites = useSelector((store) => store.favorites)
+
+    //temporary placeholders
+    const url_main = mainPlaceholder
+    const url_1 = firstPlaceholder
+    const url_2 = secondlaceholder
+    const url_3 = thirdPlaceholder
+    const url_4 = fifthPlaceholder
     
-    const url_main = listing?.photoUrls[0]
-    const url_1 = listing?.photoUrls[1]
-    const url_2 = listing?.photoUrls[2]
-    const url_3 = listing?.photoUrls[3]
-    const url_4 = listing?.photoUrls[4]
+    //This is for production
+    // const url_main = listing?.photoUrls[0]
+    // const url_1 = listing?.photoUrls[1]
+    // const url_2 = listing?.photoUrls[2]
+    // const url_3 = listing?.photoUrls[3]
+    // const url_4 = listing?.photoUrls[4]
   
 
     const dispatch = useDispatch();
