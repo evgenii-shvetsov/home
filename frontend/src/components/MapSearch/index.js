@@ -7,12 +7,16 @@ import './MapSearch.css'
 
 const MapSearch = ({listings, center, zoom}) => {
   // const [listingInfo, setListingInfo] = useState(null);
+  const mapOptions={
+    fullscreenControl: false,
+    disableDefaultUI : true
+  }
   
   // const hoverMarker = ()=> {
   //   setListingInfo({listing_type: listing.listing_type, price: listing.price, bedroom: listing.bedroom})
   // }
-  const markers = listings?.map(listing=>{
-   return <ListingMarker lat={listing.lat} lng={listing.lng} 
+  const markers = listings?.map((listing , idx)=>{
+   return <ListingMarker lat={listing.lat} lng={listing.lng} key ={idx}
    markerInfo={
       {listing_type: listing.listing_type,
       price: listing.price,
@@ -26,6 +30,8 @@ const MapSearch = ({listings, center, zoom}) => {
             bootstrapURLKeys={{ key: process.env.REACT_APP_MAPS_API_KEY }}
             defaultCenter={ center }
             defaultZoom={ zoom }
+            options = {mapOptions}
+            
             >
              {markers}
             </GoogleMapReact>
@@ -39,8 +45,11 @@ MapSearch.defaultProps = {
         lat: 37.776392,
         lng: -122.4194
     },
-    zoom: 12
+    zoom: 12,
+    // disableDefaultUI : true
 }
+
+
 
 export default MapSearch
 

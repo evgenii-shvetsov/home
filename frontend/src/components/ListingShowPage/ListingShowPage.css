@@ -1,3 +1,9 @@
+main{
+    flex:1;
+    flex-wrap: wrap;
+    /* height: 1000px; */
+}
+
 .listing-details-page{
 
     font-family: "Open Sans", "Adjusted Arial", Tahoma, Geneva, sans-serif;
@@ -9,11 +15,13 @@
     margin-top: 50px;
     padding-left: 40px;
     padding-right: 40px;
+    margin-bottom: 50px;
 }
 
 /* Photos section */
 
 .listing-gallery{
+    display: flex;
     margin-top: 60px;
     margin-bottom: 50px;
     text-align: center;
@@ -23,6 +31,7 @@
 .listing-gallery-main-wrapper{
     max-width: 616px;
     max-height: 548px;
+    margin-bottom: 3px;
 }
 
 #listing-gallery-main{
@@ -58,8 +67,6 @@
     object-position: 50% 50%;
     border-radius: 5px;
     min-height: 183px;
-    
-
 }
 
 /* Extra photos end */
@@ -197,6 +204,20 @@
     font-size: 22px;
     margin-bottom: 20px;
 }
+
+/* @media only screen and (max-width: 1151px) {
+ 
+    .listing-gallery-extra-wrapper img{
+        
+        margin: 1px;
+      
+        max-width: 100%;
+        max-height: 100%;
+        object-position: 50% 50%;
+        border-radius: 5px;
+        min-height: 183px;
+    }
+} */
 
 @media only screen and (max-width: 815px) {
  
