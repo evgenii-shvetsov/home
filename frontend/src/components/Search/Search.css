@@ -46,11 +46,92 @@ main{
     padding: 10px;
 }
 
+@media only screen and (max-width: 1825px) {
+   
+    .search-map{
+        min-width:55% ;
+    }
+}
+
+@media only screen and (max-width: 1645px) {
+    .search-map{
+        min-width:50% ;
+    }
+}
+
+@media only screen and (max-width: 1482px) {
+    .search-map{
+        min-width:45% ;
+    }
+}
+
 @media only screen and (max-width: 1452px) {
     .search-type{
         justify-content: center;
     }
+
+    .search-map{
+        min-width:72% ;
+    }
 }
+
+@media only screen and (max-width: 1419px) {
+    .search-map{
+        min-width:71% ;
+    }
+}
+
+@media only screen and (max-width: 1371px) {
+    .search-map{
+        min-width:68% ;
+    }
+}
+
+@media only screen and (max-width: 1244px) {
+    .search-map{
+        min-width:66% ;
+    }
+}
+
+@media only screen and (max-width: 1170px) {
+    .search-map{
+        min-width:65% ;
+    }
+}
+
+@media only screen and (max-width: 1137px) {
+    .search-map{
+        min-width:64% ;
+    }
+}
+
+@media only screen and (max-width: 1106px) {
+    .search-map{
+        min-width:63% ;
+    }
+}
+
+
+@media only screen and (max-width: 1077px) {
+    .search-map{
+        min-width:62% ;
+    }
+}
+
+@media only screen and (max-width: 1049px) {
+    .search-map{
+        min-width:61% ;
+    }
+}
+
+@media only screen and (max-width: 1022px) {
+    .search-map{
+        min-width:60% ;
+    }
+}
+
+
+
 
 @media (max-width: 1007px) {
     main{
