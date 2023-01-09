@@ -112,8 +112,20 @@ main{
     color: black;
     font-weight: 100;
 }
+
+.show-page-font-awesome-favorite .fa-regular.fa-heart{
+    color:rgb(163 0 11);
+}
+
+.show-page-font-awesome-favorite .fa-regular.fa-heart:hover{
+    color: rgb(240, 4, 20);
+}
 .show-page-font-awesome-favorite .fa-solid{
-    color:blue
+    color:rgb(163 0 11);
+}
+
+.show-page-font-awesome-favorite .fa-solid:hover{
+    color: rgb(240, 4, 20);
 }
 
 #contact-agent-btn{
