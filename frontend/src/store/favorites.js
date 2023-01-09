@@ -4,6 +4,7 @@ import csrfFetch from './csrf';
 const SET_FAVORITES = 'favorites/setFavorites';
 const ADD_FAVORITE = 'favorites/addFavorite';
 const REMOVE_FAVORITE = 'favorites/removeFavorite'
+const CLEAR_FAVORITES ='favorites/clearFavorites'
 
 //Action creators
 
@@ -20,6 +21,10 @@ const addFavorite = (favorite) => ({
 const removeFavorite = (favoriteId) => ({
     type: REMOVE_FAVORITE,
     favoriteId
+});
+
+export const clearFavorites = () => ({
+    type: CLEAR_FAVORITES
 });
 
 //Thunk action creators
@@ -66,6 +71,8 @@ const favoritesReducer = (state = {}, action) => {
             const newState = {...state}
             delete newState[action.favoriteId]
             return newState;
+        case CLEAR_FAVORITES:
+            return {};
         default:
             return state;
     }

@@ -6,6 +6,7 @@ import LoginFormModal from '../LoginFormModal'; // new LOGIN FEATURE
 import SignupFormModal from '../SignupFormModal'; // new SIGNUP FEATURE
 import logo from '../../assets/home-logo.jpg';
 import './Navigation.css';
+import homeLogo from '../../assets/homeLogo.svg'
 
 function Navigation() {
   const sessionUser = useSelector(state => state.session.user);
@@ -18,7 +19,7 @@ function Navigation() {
   } else {
     sessionLinks = (
       <>
-        <LoginFormModal/>
+        <LoginFormModal id='blabla'/>
         <SignupFormModal/>
       </>
     );
@@ -27,13 +28,20 @@ function Navigation() {
   return (
     <header>
       <div className='header-wrapper'>
+        <div>
           <nav>
-          <NavLink activeStyle={{ color:'rgba(46, 118, 235, 1)'}} exact to="/search/buy">Buy</NavLink>
-          <NavLink activeStyle={{ color:'rgba(46, 118, 235, 1)' }} exact to="/search/rent">Rent</NavLink>
+            <NavLink activeStyle={{ color:'rgba(46, 118, 235, 1)'}} exact to="/search/buy">Buy</NavLink>
+            <NavLink id='rent-link' activeStyle={{ color:'rgba(46, 118, 235, 1)' }} exact to="/search/rent">Rent</NavLink>
           </nav>
-        
-          <NavLink to="/"><img id="logo" src={logo} alt="company logo" /></NavLink>
+        </div>
+
+        <div>
+          <NavLink to="/"><img id="logo" src={homeLogo} alt="company logo" /></NavLink>
+        </div>
+   
+        <div>
           {<span id="session-links">{sessionLinks}</span>}
+        </div>  
       </div>
     </header>
   );

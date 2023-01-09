@@ -4,6 +4,7 @@ import * as sessionActions from '../../store/session';
 import './Navigation.css';
 import { NavLink } from 'react-router-dom';
 import { useHistory } from "react-router-dom";
+import { clearFavorites } from "../../store/favorites";
 
 
 function ProfileButton({ user }) {
@@ -31,7 +32,9 @@ function ProfileButton({ user }) {
   const logout = (e) => {
     e.preventDefault();
     // history.push("/");
-    dispatch(sessionActions.logout()).then(()=>history.push("/"));
+    dispatch(sessionActions.logout()).then(()=>{
+      dispatch(clearFavorites())
+      history.push("/")});
     // dispatch(sessionActions.logout()).then(()=>setTimeout(()=>window.location.reload(),1));
     
     
