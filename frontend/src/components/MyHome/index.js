@@ -5,7 +5,7 @@ import { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { fetchListings } from '../../store/listings';
 import { fetchFavorites } from '../../store/favorites';
-import { Route, Switch, Redirect} from 'react-router-dom';
+import { Redirect} from 'react-router-dom';
 // import { useHistory } from "react-router-dom";
 
 // import Homepage from '../Homepage';
@@ -19,13 +19,6 @@ const MyHome = () => {
       <Redirect to="/" />
    }
 
-    // const history = useHistory();
-    // if(!sessionUser) {
-    //     <Switch>
-    //         <Route exact path="/" component={Homepage} />
-    //         <Redirect to="/" />
-    //     </Switch>
-    //  }
     let ownerListings;
     let userFavorites;
 
@@ -44,11 +37,9 @@ const MyHome = () => {
           dispatch(fetchFavorites())
         }
 
-        // if(!sessionUser){
-        //     history.push("/")
-        // }
-
     },[dispatch, sessionUser])
+
+    
 
     const userFavoritesListingsId = userFavorites?.map((favorite)=> favorite.listing_id)
 
@@ -63,11 +54,16 @@ const MyHome = () => {
 
   return (
     <main className='my-home'>
-    
-        <section><ListingList listings={ownerListings} text ={ownerListingText}/></section>
+        {
+          !ownerListings?.length ? null : 
+          <section><ListingList listings={ownerListings} text ={ownerListingText}/></section>
+        }
 
-        {/* {matchedFavoritesListings ? <section><ListingList listings={matchedFavoritesListings} text ={favoriteListingText}/></section> : null} */}
-         <section><ListingList listings={matchedFavoritesListings} text ={favoriteListingText}/></section>
+        
+        {
+          !userFavorites?.length ? null : 
+            <section><ListingList listings={matchedFavoritesListings} text ={favoriteListingText}/></section>
+         } 
     </main>
   )
 }
