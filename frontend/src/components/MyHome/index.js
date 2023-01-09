@@ -6,6 +6,9 @@ import { useSelector, useDispatch } from "react-redux";
 import { fetchListings } from '../../store/listings';
 import { fetchFavorites } from '../../store/favorites';
 import { Redirect} from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
+
+import './MyHome.css'
 // import { useHistory } from "react-router-dom";
 
 // import Homepage from '../Homepage';
@@ -54,6 +57,10 @@ const MyHome = () => {
 
   return (
     <main className='my-home'>
+        <div className='welcome-word'>
+          <h4>Welcome Home, {sessionUser.username} !</h4>
+          <p>Click to <NavLink exact to='/listings/new'><button id='add-new-listing'>Add New Listing</button></NavLink></p>
+        </div>
         {
           !ownerListings?.length ? null : 
           <section><ListingList listings={ownerListings} text ={ownerListingText}/></section>

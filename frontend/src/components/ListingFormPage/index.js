@@ -106,7 +106,7 @@ const ListingFormPage = () => {
 
         if(formType === "Create Listing"){
             return dispatch(createListing(listing))
-            .then(() => history.push("/"))
+            .then(() => history.push("/myhome"))
             // .then(() => history.push(`/listings/${listingId}`))
             .catch(async (res) => {
                 let data;

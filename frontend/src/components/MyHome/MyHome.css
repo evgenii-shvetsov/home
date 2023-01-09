@@ -1,0 +1,26 @@
+.welcome-word{
+    margin-top: 30px;
+    color: rgb(42, 42, 51);
+    font-family: "Open Sans", "Adjusted Arial", Tahoma, Geneva, sans-serif;
+    font-size: 20px;
+    line-height: 24px;
+    text-align: center;
+}
+
+.welcome-word h4{
+    text-align: center;
+}
+
+.welcome-word p{
+    margin-top: 25px;
+    /* margin-left: 80px; */
+}
+
+#add-new-listing{
+    
+    color: #0069ff;
+}
+
+#add-new-listing:hover{
+    color: #055cd7;
+}
