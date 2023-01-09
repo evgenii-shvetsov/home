@@ -61,11 +61,6 @@ const ListingListItem = ( {listing} ) => {
               }
         } else{
             setShowModal(true)
-                // <Modal onClose={() => setShowModal(false)}>
-                //   <LoginForm />
-                // </Modal>
-            // alert('Please LOGIN TO USE THE FEATURE')
-            // <LoginFormModal />
         }
     }
 

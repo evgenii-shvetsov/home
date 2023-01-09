@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import * as sessionActions from '../../store/session'
 import { useDispatch } from "react-redux";
 import "./SaveModalRequest.css";
+import SignupFormModal from "../SignupFormModal";
 // import { Redirect } from 'react-router-dom';// Added for modal
 
 function RequestForm() {
@@ -9,6 +10,8 @@ function RequestForm() {
   const [credential, setCredential] = useState("");
   const [password, setPassword] = useState("");
   const [errors, setErrors] = useState([]);
+
+  const [condition, setCondition] = useState(true)
 //   const sessionUser = useSelector(state => state.session.user); // Added for modal
 
 //   if (sessionUser) return <Redirect to="/" />;// Added for modal
@@ -77,6 +80,13 @@ function RequestForm() {
             dispatch(sessionActions.login({ credential: "demo-user", password:"demo-password" }))
           }}>Demo login</button>
       </form>
+
+          <div className="sign-up-request">
+              <p>
+                Don't have an account? <br />
+              </p>
+               <SignupFormModal />
+          </div>
     </div>
   );
 }

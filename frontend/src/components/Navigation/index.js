@@ -18,7 +18,7 @@ function Navigation() {
   } else {
     sessionLinks = (
       <>
-        <LoginFormModal id='blabla'/>
+        <LoginFormModal />
         <SignupFormModal/>
       </>
     );

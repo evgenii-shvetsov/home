@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import * as sessionActions from "../../store/session";
 import { useDispatch } from "react-redux";
 import "./LoginForm.css";
+import SignupFormModal from "../SignupFormModal";
 // import { Redirect } from 'react-router-dom';// Added for modal
 
 function LoginForm() {
@@ -77,6 +78,15 @@ function LoginForm() {
             dispatch(sessionActions.login({ credential: "demo-user", password:"demo-password" }))
           }}>Demo Login</button>
       </form>
+
+      <div className="sign-up-request">
+              <p>
+                Don't have an account? <br />
+              </p>
+               <SignupFormModal />
+              
+          </div>
+
     </div>
   );
 }

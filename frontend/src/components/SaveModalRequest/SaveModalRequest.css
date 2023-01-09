@@ -128,3 +128,8 @@ form > button{
     color: rgb(163, 0, 11);
     margin: 8px;
 }
+
+.sign-up-request{
+    text-align: center;
+    margin-top: 35px;
+}

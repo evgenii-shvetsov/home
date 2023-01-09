@@ -7,6 +7,10 @@ import "./ListingShowPage.css";
 import logo from "../../assets/home-logo.png"
 import { deleteListing } from "../../store/listings";
 import { createFavorite ,deleteFavorite, fetchFavorites } from '../../store/favorites';
+
+import { Modal } from '../../context/Modal';
+import RequestForm from "../SaveModalRequest/RequestForm";
+
 import Map from '../Map'
 
 import mainPlaceholder from '../../assets/placeholders/main-placeholder.jpg'
@@ -21,8 +25,9 @@ const ListingShowPage = () => {
     const { listingId } = useParams();
     const sessionUser = useSelector(state => state.session.user);
     const listing = useSelector((store) => store.listings[listingId]);
-
     const favorites = useSelector((store) => store.favorites)
+
+    const [showModal, setShowModal] = useState(false);
 
     //temporary placeholders
     const url_main = mainPlaceholder
@@ -55,10 +60,6 @@ const ListingShowPage = () => {
         
     }, [dispatch, sessionUser, listingId])
 
-  //   const handleClick = (e) => {
-  //     e.preventDefault();
-  //     history.push(`/listings/${listing.id}`)
-  // }
     const heartClick = () =>{
       if(sessionUser){
         if(!heart){
@@ -71,12 +72,11 @@ const ListingShowPage = () => {
         }
       }
       else{
-        alert('AAAAA Please LOGIN TO USE THE FEATURE')
+        setShowModal(true)
+        // alert('AAAAA Please LOGIN TO USE THE FEATURE')
       }
   }
-    // if(!sessionUser){
-    //   setHeart(false)
-    // }
+ 
     
     if(!listing) return null;
 
@@ -107,6 +107,12 @@ const ListingShowPage = () => {
           <button className="show-page-font-awesome-favorite" onClick={heartClick}>
                       {!heart ? <i className="fa-regular fa-heart"><span> Save</span></i> : <i className="fa-solid fa-heart"><span> Saved</span></i> }
           </button>
+
+          {showModal && (
+                    <Modal onClose={() => setShowModal(false)}>
+                         <RequestForm />
+                    </Modal>
+                )}
 
           {sessionUser?.id === listing.owner_id &&
                   <>
