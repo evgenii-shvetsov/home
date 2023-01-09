@@ -2,9 +2,8 @@ import React from 'react';
 import { NavLink } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import ProfileButton from './ProfileButton';
-import LoginFormModal from '../LoginFormModal'; // new LOGIN FEATURE
-import SignupFormModal from '../SignupFormModal'; // new SIGNUP FEATURE
-import logo from '../../assets/home-logo.jpg';
+import LoginFormModal from '../LoginFormModal'; 
+import SignupFormModal from '../SignupFormModal'; 
 import './Navigation.css';
 import homeLogo from '../../assets/homeLogo.svg'
 

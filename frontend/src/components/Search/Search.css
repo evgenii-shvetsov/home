@@ -46,87 +46,99 @@ main{
     padding: 10px;
 }
 
-@media only screen and (max-width: 1825px) {
+@media only screen and (max-width: 1820px) {
    
     .search-map{
-        min-width:55% ;
+        min-width:54%;
     }
 }
 
-@media only screen and (max-width: 1645px) {
+@media only screen and (max-width: 1640px) {
     .search-map{
-        min-width:50% ;
+        min-width:49%;
     }
 }
 
-@media only screen and (max-width: 1482px) {
+@media only screen and (max-width: 1473px) {
     .search-map{
-        min-width:45% ;
+        min-width:42%;
     }
 }
 
-@media only screen and (max-width: 1452px) {
+@media only screen and (max-width: 1459px) {
+    .search-map{
+        min-width:70%;
+    }
+}
+
+@media only screen and (max-width: 1448px) {
     .search-type{
         justify-content: center;
     }
 
     .search-map{
-        min-width:72% ;
+        min-width:71%;
     }
 }
 
-@media only screen and (max-width: 1419px) {
+@media only screen and (max-width: 1414px) {
     .search-map{
-        min-width:71% ;
+        min-width:70%;
     }
 }
 
-@media only screen and (max-width: 1371px) {
+@media only screen and (max-width: 1366px) {
     .search-map{
-        min-width:68% ;
+        min-width:69%;
     }
 }
 
-@media only screen and (max-width: 1244px) {
+@media only screen and (max-width: 1287px) {
     .search-map{
-        min-width:66% ;
+        min-width:65%;
     }
 }
 
-@media only screen and (max-width: 1170px) {
+@media only screen and (max-width: 1239px) {
     .search-map{
-        min-width:65% ;
+        min-width:65%;
     }
 }
 
-@media only screen and (max-width: 1137px) {
+@media only screen and (max-width: 1165px) {
     .search-map{
-        min-width:64% ;
+        min-width:64%;
     }
 }
 
-@media only screen and (max-width: 1106px) {
+@media only screen and (max-width: 1132px) {
     .search-map{
-        min-width:63% ;
+        min-width:63%;
+    }
+}
+
+@media only screen and (max-width: 1101px) {
+    .search-map{
+        min-width:62%;
     }
 }
 
 
-@media only screen and (max-width: 1077px) {
+@media only screen and (max-width: 1072px) {
     .search-map{
-        min-width:62% ;
+        min-width:61%;
     }
 }
 
-@media only screen and (max-width: 1049px) {
+@media only screen and (max-width: 1043px) {
     .search-map{
-        min-width:61% ;
+        min-width:60%;
     }
 }
 
-@media only screen and (max-width: 1022px) {
+@media only screen and (max-width: 1017px) {
     .search-map{
-        min-width:60% ;
+        min-width:59%;
     }
 }
 

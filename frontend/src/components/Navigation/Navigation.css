@@ -1,26 +1,17 @@
 header{
-    /* max-width: 1280px; */
-    /* background-color: #f9f9fb; */
     border-bottom: 1px solid rgb(216, 216, 216);
     min-height: 79px;
-
-    /* add new properties*/
     display: flex;
     justify-content: center;
 }
 
 
 .header-wrapper {
-    /* margin-top: 10px;
-    margin-bottom: 10px; */
-    /* margin-left:80px;*/
-    /* margin-right: 80px;  */
     width: 1200px; 
     display: flex;
     margin: 0 auto;
     justify-content: space-around;
     align-items: center;
-    /* max-width: 1200px;  */
 }
 .header-wrapper div{
     display: flex;
@@ -29,7 +20,6 @@ header{
 
 nav a{
     font-family: "Open Sans", Gotham, gotham, Tahoma, Geneva, sans-serif;
-    /* margin-left: 40px; */
     color: rgb(42,42,51);
     cursor: pointer;
     font-weight: 300;
@@ -46,16 +36,10 @@ nav a:hover{
 }
 
 #logo, .header-wrapper svg{
-    /* margin-left: -40px; */
     width:165px;
     margin: 0 auto;
-    /* margin-top: 10px;
-    margin-bottom: 10px; */
 }
 #logo:hover{
-    /* box-shadow: 1px 1px 1px 1px rgb(211, 203, 203); */
-    /* box-shadow: 0.5px 0.5px 1px 1px rgb(13, 69, 153); */
-    /* border: 0.1px solid rgb(13, 69, 153); */
     transition: 0.5s;
     scale: 1.1;
 }
@@ -63,8 +47,6 @@ button{
     background: none;
     border: none;
     font-family: "Open Sans", Gotham, gotham, Tahoma, Geneva, sans-serif;
-    /* margin-left: 40px; */
-    /* font-size: 20px; */
     box-sizing: border-box;
     color: rgb(42,42,51);
     cursor: pointer;
@@ -78,14 +60,6 @@ button:hover {
     color: rgb(0, 106, 255)
 }
 
-/* #session-links{
-    /* margin-right: 20px; */
-    /* color: red; */
-
-
-/* #session-links:first-child{
-    padding-right: 30px;
-} */
 #log-in-button{
     padding-right: 30px;
 }
@@ -100,7 +74,6 @@ button:hover {
 }
 #dropdown ul{
     min-width: 200px;
-    /* padding: 0px; */
 }
 .profile-dropdown{
     box-sizing: border-box;
@@ -114,7 +87,7 @@ button:hover {
     line-height: 40px;
     background-color: rgba(255,255,255,1);
     position: absolute;
-    top: 50px;
+    top: 55px;
     right: -20px;
     text-align: center;
     z-index: 100;
@@ -138,6 +111,9 @@ button:hover {
 
 .font-awesome-login{
     font-size: 30px;
-    /* padding-right: 30px; */
-    /* color: red; */
+    color: #0069ff;
+}
+
+.font-awesome-login:hover{
+    color: #055cd7;;
 }

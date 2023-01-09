@@ -1,14 +1,14 @@
 import React from 'react'
 import { NavLink } from 'react-router-dom';
 import "./Footer.css"
-import logo from '../../assets/home-logo.jpg';
+import homeLogo from '../../assets/homeLogo.svg'
 
 const Footer = () => {
   return (
     <footer>
         <section className='footer-info'>
             <div>
-              <NavLink exact to="/"><img id="footer-logo" src={logo} alt="company logo" /></NavLink>
+              <NavLink exact to="/"><img id="footer-logo" src={homeLogo} alt="company logo" /></NavLink>
             </div>
             <div className="footer-text">
                 <h6>Evgenii Shvetsov</h6>
@@ -25,7 +25,6 @@ const Footer = () => {
             </div>
 
         </section> 
-        {/* <NavLink exact to="/"><img id="logo" src={logo} alt="company logo" /></NavLink> */}
         <section className='footer-big-logo'></section>
     </footer>
     
