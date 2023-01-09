@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import { useParams } from 'react-router-dom';
 import { useDispatch, useSelector  } from "react-redux";
 import { useHistory } from 'react-router-dom';
@@ -7,7 +7,7 @@ import { fetchListing, updateListing, createListing } from "../../store/listings
 import "./ListingFormPage.css"
 
 const ListingFormPage = () => {
-
+    const fileRef = useRef(null); //photo feature
     const sessionUser = useSelector(state => state.session.user);
 
     const { listingId } = useParams();
@@ -34,7 +34,9 @@ const ListingFormPage = () => {
             size: "",
             year_built: "",
             price: "",
-            listing_type: ""
+            listing_type: "",
+            photoFiles: [], //photo feature
+            photoUrls: [] //photo feature
         }
     }
 
@@ -54,58 +56,68 @@ const ListingFormPage = () => {
     const [price, setPrice] = useState(listing?.price);
     const [listing_type, setListingType] = useState(listing?.listing_type);
 
-    // const [status, setStatus] = useState("");
-    // const [deal_type, setDealType] = useState("");
-    // const [description, setDescription] = useState("");
-    // const [zip, setZip] = useState("");
-    // const [state, setState] = useState("");
-    // const [city, setCity] = useState("");
-    // const [address, setAddress] = useState("");
-    // const [lat, setLat] = useState("");
-    // const [lng, setLng] = useState("");
-    // const [bedroom, setBedroom] = useState("");
-    // const [bathroom, setBathroom] = useState("");
-    // const [size, setSize] = useState("");
-    // const [year_built, setYearBuilt] = useState("");
-    // const [price, setPrice] = useState("");
-    // const [listing_type, setListingType] = useState("");
+    const [photoFiles, setPhotoFiles] = useState([]); //photo feature
+    const [photoUrls, setPhotoUrls] = useState(listing?.photoUrls) //photo feature
+
+
 
     useEffect(() => {
         if(listingId){
             dispatch(fetchListing(listingId))
-            /*.then((listing)=>{*/
-                // console.log(listing)
-                // setStatus(listing.status)
-                // setDealType(listing.deal_type)
-                // setDescription(listing.description)
-                // setZip(listing.zip)
-                // setState(listing.state)
-                // setCity(listing.city)
-                // setAddress(listing.address)
-                // setLat(listing.lat)
-                // setLng(listing.lng)
-                // setBedroom(listing.bedroom)
-                // setBathroom(listing.bathroom)
-                // setSize(listing.size)
-                // setYearBuilt(listing.year_built)
-                // setPrice(listing.price)
-                // setListingType(listing.listing_type)
-            
-
-        
-
-
         }
-    },[listingId])
+    },[dispatch, listingId])
+
+    //photo feature   THIS ONE IS PROBABLY NOT WORKING CORRECTLY
+    const handleFile = ({currentTarget}) => {
+        console.log([...currentTarget.files])
+        Array.from(currentTarget.files).forEach((file)=>{
+        if (file) {
+            const fileReader = new FileReader();
+            fileReader.readAsDataURL(file);
+            fileReader.onload = () => {
+                setPhotoFiles(prev => [...prev, file]);
+                setPhotoUrls(prev => [...prev, fileReader.result]);
+            };
+        }
+        })
+        
+    }
 
     const handleSubmit = (e) => {
         e.preventDefault();
+
+        fileRef.current.value = null;
+
+        const formData = new FormData();
         setErrors([]);
 
-        listing = {...listing, status, deal_type, description, zip, state,city,address,lat, lng,  bedroom,  bathroom,  size, year_built,  price, listing_type }
+        formData.append('listing[status]',status)
+        formData.append('listing[deal_type]', deal_type)
+        formData.append('listing[description]', description)
+        formData.append('listing[zip]', zip)
+        formData.append('listing[state]', state)
+        formData.append('listing[city]', city)
+        formData.append('listing[address]', address)
+        formData.append('listing[lat]', lat)
+        formData.append('listing[lng]', lng)
+        formData.append('listing[bedroom]', bedroom)
+        formData.append('listing[bathroom]', bathroom)
+        formData.append('listing[size]', size)
+        formData.append('listing[year_built]', year_built)
+        formData.append('listing[price]', price)
+        formData.append('listing[listing_type]', listing_type)
+
+
+        if (photoFiles.length !== 0) {
+            photoFiles.forEach(photo => {
+              formData.append('listing[photos][]', photo);  
+            })
+        }
+
 
         if(formType === "Create Listing"){
-            return dispatch(createListing(listing))
+            return dispatch(createListing(formData))
+            // return dispatch(createListing(listing))
             .then(() => history.push("/myhome"))
             // .then(() => history.push(`/listings/${listingId}`))
             .catch(async (res) => {
@@ -118,18 +130,17 @@ const ListingFormPage = () => {
                 }
                 if (data?.errors) {
                   setErrors(data.errors)
-        
                 }
                 else if (data) {
                   setErrors([data])
-        
                 }
                 else {
                   setErrors([res.statusText])
                 }
               });
         } else {
-             dispatch(updateListing(listing))
+            //  dispatch(updateListing(listing))
+             dispatch(updateListing(formData, listingId))
             .then(() => history.push(`/listings/${listingId}`))
             .catch(async (res) => {
                 let data;
@@ -141,11 +152,9 @@ const ListingFormPage = () => {
                 }
                 if (data?.errors) {
                   setErrors(data.errors)
-        
                 }
                 else if (data) {
                   setErrors([data])
-        
                 }
                 else {
                   setErrors([res.statusText])
@@ -156,6 +165,13 @@ const ListingFormPage = () => {
 
     if(!listing) return null;
 
+    console.log(photoFiles)
+    console.log(photoUrls)
+
+    const preview = photoUrls ? photoUrls?.map(photoUrl => (<img src={photoUrl} alt="" height="200" /> )) : null;
+
+    // const preview = photoUrls ? <img src={photoUrls} alt="" height="200" /> : null;
+
     return (
         <main className="listing-form">
             {/* <h1>{!sessionUser && "Log In to create a new listing "}</h1> */}
@@ -164,11 +180,6 @@ const ListingFormPage = () => {
                     <h1>{formType}</h1>
                     
                     <label> Status: 
-                        {/* <input required
-                        type="text" 
-                        placeholder="Status" 
-                        value={status} 
-                        onChange={e => setStatus(e.target.value)}/> */}
                         <select required
                             name="status"
                             value={status}
@@ -182,11 +193,6 @@ const ListingFormPage = () => {
                     </label>
 
                     <label> Deal Type: 
-                        {/* <input required
-                        type="text" 
-                        placeholder="Deal type" 
-                        value={deal_type} 
-                        onChange={e => setDealType(e.target.value)}/> */}
                         <select required
                             name="deal_type" 
                             value={deal_type} 
@@ -287,11 +293,6 @@ const ListingFormPage = () => {
                     </label>
 
                     <label> Listing Type: 
-                        {/* <input required
-                        type="text" 
-                        placeholder="Listing Type"  
-                        value={listing_type} 
-                        onChange={e => setListingType(e.target.value)}/> */}
                          <select required
                             name="listing_type"
                             value={listing_type}
@@ -302,6 +303,14 @@ const ListingFormPage = () => {
                                 <option key={"Apartment"}>apartment</option>
                         </select>    
                     </label>
+
+                    <label> Upload Photos:
+                            <input type="file" ref={fileRef} onChange={handleFile} multiple />
+                    </label>
+
+                    <h3>Image preview</h3>
+                        {preview}
+
 
                     <ul className="listing-form-errors" >
                         {errors?.map(error => <li key={error}>{error}</li>)}

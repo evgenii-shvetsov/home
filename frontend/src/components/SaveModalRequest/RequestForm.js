@@ -5,22 +5,29 @@ import "./SaveModalRequest.css";
 import SignupFormModal from "../SignupFormModal";
 // import { Redirect } from 'react-router-dom';// Added for modal
 
-function RequestForm() {
+function RequestForm( {setShowModal}) {
   const dispatch = useDispatch();
   const [credential, setCredential] = useState("");
   const [password, setPassword] = useState("");
   const [errors, setErrors] = useState([]);
 
   const [condition, setCondition] = useState(true)
+  console.log(setShowModal)
 //   const sessionUser = useSelector(state => state.session.user); // Added for modal
 
 //   if (sessionUser) return <Redirect to="/" />;// Added for modal
+
+  const handleDemoSubmit = (e) =>{
+    e.preventDefault();
+    dispatch(sessionActions.login({ credential: "demo-user", password:"demo-password" }))
+    .then(()=>setShowModal(false))
+  }
 
   const handleSubmit = (e) => {
     e.preventDefault();
     setErrors([]);
     return dispatch(sessionActions.login({ credential, password }))
- 
+      .then(()=>setShowModal(false))
       .catch(async (res) => {
         let data;
         try {
@@ -75,10 +82,7 @@ function RequestForm() {
         </ul>
         <button type="submit">Log In</button>
         
-        <button id="demo-request-btn" onClick={(e) => {
-            e.preventDefault();
-            dispatch(sessionActions.login({ credential: "demo-user", password:"demo-password" }))
-          }}>Demo login</button>
+        <button id="demo-request-btn" onClick={handleDemoSubmit}>Demo login</button>
       </form>
 
           <div className="sign-up-request">

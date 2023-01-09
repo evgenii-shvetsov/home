@@ -80,7 +80,7 @@ const ListingListItem = ( {listing} ) => {
 
                 {showModal && (
                     <Modal onClose={() => setShowModal(false)}>
-                         <RequestForm />
+                         <RequestForm setShowModal={setShowModal} />
                     </Modal>
                 )}
 

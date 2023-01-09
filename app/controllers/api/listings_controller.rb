@@ -1,4 +1,9 @@
 class Api::ListingsController < ApplicationController
+
+    wrap_parameters include: Listing.attribute_names + [:photos], format: :multipart_form
+
+    # wrap_parameters include: Bench.attribute_names + [:photo], format: :multipart_form
+
     def index
         @listings = Listing.all
         render :index
@@ -61,7 +66,10 @@ class Api::ListingsController < ApplicationController
             :size, 
             :year_built, 
             :price, 
-            :listing_type
+            :listing_type,
+            photos: [],
+            # :photo,
+            # photoUrls: []
         )
     end
 

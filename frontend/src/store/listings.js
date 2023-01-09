@@ -45,14 +45,26 @@ export const fetchListing = (listingId) => async (dispatch) =>{
     }
 };
 
-export const createListing = (listing) => async (dispatch) =>{
+// export const createListing = (listing) => async (dispatch) =>{
+//     const res = await csrfFetch("/api/listings", {
+//         method: "POST",
+//         body: JSON.stringify(listing),
+//         headers: {
+//             "Content-Type": "application/json",
+//             "Accept": "application/json"
+//         },
+//     });
+//     if(res.ok){
+//         const listing = await res.json();
+//         dispatch(addListing(listing))
+//     }
+// }
+
+
+export const createListing = (formData) => async (dispatch) =>{
     const res = await csrfFetch("/api/listings", {
         method: "POST",
-        body: JSON.stringify(listing),
-        headers: {
-            "Content-Type": "application/json",
-            "Accept": "application/json"
-        },
+        body: formData,
     });
     if(res.ok){
         const listing = await res.json();
@@ -60,19 +72,17 @@ export const createListing = (listing) => async (dispatch) =>{
     }
 }
 
-////////////////
-//add thunk for EDIT AND DESTROY
-////////////////
 
-export const updateListing = (listingData) => async (dispatch) => {
-    const res = await csrfFetch(`/api/listings/${listingData.id}`, {
+export const updateListing = (formData, id) => async (dispatch) => {
+    const res = await csrfFetch(`/api/listings/${id}`, {
         method: "PATCH",
-        body: JSON.stringify(listingData),
+        body: formData,
+        // body: JSON.stringify(listingData),
         // body: JSON.stringify({listing: listingData}),
-        headers: {
-            "Content-Type": "application/json",
-            "Accept": "application/json"
-        }
+        // headers: {
+        //     "Content-Type": "application/json",
+        //     "Accept": "application/json"
+        // }
     })
     if(res.ok){
         const listing = await res.json();

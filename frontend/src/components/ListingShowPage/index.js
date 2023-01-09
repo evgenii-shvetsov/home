@@ -30,18 +30,18 @@ const ListingShowPage = () => {
     const [showModal, setShowModal] = useState(false);
 
     //temporary placeholders
-    const url_main = mainPlaceholder
-    const url_1 = firstPlaceholder
-    const url_2 = secondlaceholder
-    const url_3 = thirdPlaceholder
-    const url_4 = fifthPlaceholder
+    // const url_main = mainPlaceholder
+    // const url_1 = firstPlaceholder
+    // const url_2 = secondlaceholder
+    // const url_3 = thirdPlaceholder
+    // const url_4 = fifthPlaceholder
     
     //This is for production
-    // const url_main = listing?.photoUrls[0]
-    // const url_1 = listing?.photoUrls[1]
-    // const url_2 = listing?.photoUrls[2]
-    // const url_3 = listing?.photoUrls[3]
-    // const url_4 = listing?.photoUrls[4]
+    const url_main = listing?.photoUrls[0]
+    const url_1 = listing?.photoUrls[1]
+    const url_2 = listing?.photoUrls[2]
+    const url_3 = listing?.photoUrls[3]
+    const url_4 = listing?.photoUrls[4]
   
 
     const dispatch = useDispatch();
@@ -110,7 +110,7 @@ const ListingShowPage = () => {
 
           {showModal && (
                     <Modal onClose={() => setShowModal(false)}>
-                         <RequestForm />
+                         <RequestForm setShowModal={setShowModal} />
                     </Modal>
                 )}
 

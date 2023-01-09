@@ -10,7 +10,7 @@ function SaveModalRequest() {
         <button onClick={() => setShowModal(true)}>Log In</button>
         {showModal && (
           <Modal onClose={() => setShowModal(false)}>
-            <RequestForm />
+            <RequestForm setShowModal={setShowModal} />
           </Modal>
         )}
       </>
