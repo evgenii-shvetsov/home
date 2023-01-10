@@ -12,7 +12,7 @@ function RequestForm( {setShowModal}) {
   const [errors, setErrors] = useState([]);
 
   const [condition, setCondition] = useState(true)
-  console.log(setShowModal)
+  // console.log(setShowModal)
 //   const sessionUser = useSelector(state => state.session.user); // Added for modal
 
 //   if (sessionUser) return <Redirect to="/" />;// Added for modal
