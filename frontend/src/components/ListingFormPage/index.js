@@ -329,14 +329,17 @@ const ListingFormPage = () => {
                 </form>
                 
                 <div className="image-preview">
+                    {!photoUrls?.length ? null : 
+                        <>
                     <h1>Uploaded images</h1>
                     
                     <div className="photos-bucket">
-                    <Carousel breakPoints={breakPoints} pagination={false}/*enableAutoPlay autoPlaySpeed={3000}*/>
+                        <Carousel breakPoints={breakPoints} pagination={false}/*enableAutoPlay autoPlaySpeed={3000}*/>
                         {preview}
                         </Carousel>
                     </div>
-                    
+                    </>
+                    }
                 </div>
               </>  
             }
