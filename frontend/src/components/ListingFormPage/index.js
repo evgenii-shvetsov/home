@@ -173,8 +173,8 @@ const ListingFormPage = () => {
     // console.log(photoFiles)
     // console.log(photoUrls)
 
-    const preview = photoUrls ? photoUrls?.map(photoUrl => {
-    return <div><img className="single-image-style" src={photoUrl} alt=""  /></div> }) : null;
+    const preview = photoUrls ? photoUrls?.map((photoUrl,idx) => {
+    return <div key ={idx}><img className="single-image-style" src={photoUrl} alt=""  /></div> }) : null;
 
     // const preview = photoUrls ? <img src={photoUrls} alt="" height="200" /> : null;
 
