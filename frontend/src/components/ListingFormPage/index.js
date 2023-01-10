@@ -3,8 +3,17 @@ import { useParams } from 'react-router-dom';
 import { useDispatch, useSelector  } from "react-redux";
 import { useHistory } from 'react-router-dom';
 import { fetchListing, updateListing, createListing } from "../../store/listings";
-
 import "./ListingFormPage.css"
+
+import Carousel from 'react-elastic-carousel';
+
+const breakPoints = [
+    {width:1, itemsToShow: 1},
+    {width:550, itemsToShow: 2},
+    {width:768, itemsToShow: 3},
+    {width:1200, itemsToShow: 4},
+  ];
+
 
 const ListingFormPage = () => {
     const fileRef = useRef(null); //photo feature
@@ -67,7 +76,6 @@ const ListingFormPage = () => {
         }
     },[dispatch, listingId])
 
-    //photo feature   THIS ONE IS PROBABLY NOT WORKING CORRECTLY
     const handleFile = ({currentTarget}) => {
         console.log([...currentTarget.files])
         Array.from(currentTarget.files).forEach((file)=>{
@@ -117,9 +125,7 @@ const ListingFormPage = () => {
 
         if(formType === "Create Listing"){
             return dispatch(createListing(formData))
-            // return dispatch(createListing(listing))
             .then(() => history.push("/myhome"))
-            // .then(() => history.push(`/listings/${listingId}`))
             .catch(async (res) => {
                 let data;
                 try {
@@ -139,7 +145,6 @@ const ListingFormPage = () => {
                 }
               });
         } else {
-            //  dispatch(updateListing(listing))
              dispatch(updateListing(formData, listingId))
             .then(() => history.push(`/listings/${listingId}`))
             .catch(async (res) => {
@@ -165,17 +170,20 @@ const ListingFormPage = () => {
 
     if(!listing) return null;
 
-    console.log(photoFiles)
-    console.log(photoUrls)
+    // console.log(photoFiles)
+    // console.log(photoUrls)
 
-    const preview = photoUrls ? photoUrls?.map(photoUrl => (<img src={photoUrl} alt="" height="200" /> )) : null;
+    const preview = photoUrls ? photoUrls?.map(photoUrl => {
+    return <div><img className="single-image-style" src={photoUrl} alt=""  /></div> }) : null;
 
     // const preview = photoUrls ? <img src={photoUrls} alt="" height="200" /> : null;
 
     return (
         <main className="listing-form">
-            {/* <h1>{!sessionUser && "Log In to create a new listing "}</h1> */}
-            {!sessionUser ? <h1>Log In To Modify The Listing</h1> : 
+            
+                {!sessionUser ? <h1>Log In To Modify The Listing</h1> : 
+
+                <>
                 <form onSubmit={handleSubmit}>
                     <h1>{formType}</h1>
                     
@@ -308,8 +316,8 @@ const ListingFormPage = () => {
                             <input type="file" ref={fileRef} onChange={handleFile} multiple />
                     </label>
 
-                    <h3>Image preview</h3>
-                        {preview}
+                    {/* <h3>Image preview</h3>
+                        {preview} */}
 
 
                     <ul className="listing-form-errors" >
@@ -319,7 +327,21 @@ const ListingFormPage = () => {
                     <button type="submit">{formType}</button>
                 
                 </form>
+                
+                <div className="image-preview">
+                    <h1>Uploaded images</h1>
+                    
+                    <div className="photos-bucket">
+                    <Carousel breakPoints={breakPoints} pagination={false}/*enableAutoPlay autoPlaySpeed={3000}*/>
+                        {preview}
+                        </Carousel>
+                    </div>
+                    
+                </div>
+              </>  
             }
+
+
         </main>
 
 
