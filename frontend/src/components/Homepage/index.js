@@ -4,6 +4,8 @@ import ListingIndexPage from '../ListingIndexPage'
 import buyLogo from "../../assets/buy-home.jpg"
 import rentLogo from "../../assets/rent-home.jpg"
 import {Link} from 'react-router-dom'
+import SearchFilter from '../SearchFilter'
+
 // import {  useDispatch } from "react-redux";
 // import { fetchFavorites } from '../../store/favorites'
 
@@ -15,7 +17,7 @@ const Homepage = () => {
   return (
     <main className='main-homepage'>
 
-      <section className='search-bar'></section>
+      <section className='search-bar'><SearchFilter /></section>
 
       <section className='listings-cards'><ListingIndexPage/></section>
 
