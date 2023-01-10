@@ -83,7 +83,7 @@ const ListingFormPage = () => {
     },[dispatch, listingId])
 
     const handleFile = ({currentTarget}) => {
-        console.log([...currentTarget.files])
+        // console.log([...currentTarget.files])
         Array.from(currentTarget.files).forEach((file)=>{
         if (file) {
             const fileReader = new FileReader();
