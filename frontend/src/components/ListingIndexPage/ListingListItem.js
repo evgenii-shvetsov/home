@@ -111,7 +111,7 @@ const ListingListItem = ( {listing} ) => {
 
                 {sessionUser?.id === listing.owner_id &&
                 <>
-                    <Link to={`listings/${listing.id}/edit`}> <button className="listing-card-update">
+                    <Link to={`/listings/${listing.id}/edit`}> <button className="listing-card-update">
                         <i className="fa-solid fa-pen"></i>
                     </button>
                     </Link>

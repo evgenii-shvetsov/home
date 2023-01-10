@@ -16,10 +16,10 @@ const AnyReactComponent = ({ text }) => <div id="map-pin">{text}</div>;
 //   };
   
 
-export default function MapCoordinates(){
+const MapCoordinates = ({setLat, setLng , lat, lng}) => {
 
-    const [latitude, setLatitude] = useState('');
-    const [longitude, setLongitude] = useState('');
+    // const [latitude, setLatitude] = useState('bla');
+    // const [longitude, setLongitude] = useState('bla');
 
   const defaultProps = {
     center: {
@@ -36,32 +36,32 @@ export default function MapCoordinates(){
   }
 
   const getCoordinates = (e)=>{
-    setLatitude(e.lat);
-    setLongitude(e.lng)
+    setLat(e.lat);
+    setLng(e.lng)
         // console.log("In MAP component, latitide = ", e.lat);
         // console.log("In MAP component, longitude = ", e.lng);
   }
 
-  console.log('MAP STATE', longitude)
-  console.log('MAP STATE', latitude)
+//   console.log('MAP STATE', longitude)
+//   console.log('MAP STATE', latitude)
   return (
     // Important! Always set the container height explicitly
     <div style={{ height: '400px', width: '400px' }}>
-      <GoogleMapReact onClick={getCoordinates}
+      <GoogleMapReact onClick={getCoordinates} 
         bootstrapURLKeys={{ /*key: process.env.REACT_APP_MAPS_API_KEY */}}
         defaultCenter={defaultProps.center}
         defaultZoom={defaultProps.zoom}
         options = {mapOptions}
         draggable={true}
         yesIWantToUseGoogleMapApiInternals
-        latitude={latitude} setLongitude={longitude}
+        
         // onGoogleApiLoaded={({ map, maps }) => {
         //     apiIsLoaded(map, maps)
             
         //   }}
-        
       >
-        <AnyReactComponent 
+        
+        <AnyReactComponent latitude={lat} setLongitude={lng}
 
         lat={defaultProps.center.lat}
         lng ={defaultProps.center.lng}
@@ -72,3 +72,11 @@ export default function MapCoordinates(){
     </div>
   );
 }
+
+export default MapCoordinates;
+
+// document.addEventListener('contextmenu',(event) => {
+//     event.preventDefault();
+//     console.log(event.type);
+//     console.log(event.lat);
+//   });

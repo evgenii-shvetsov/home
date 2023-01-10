@@ -16,12 +16,12 @@ const breakPoints = [
   ];
 
 
-const ListingFormPage = ({latitude, longitude}) => {
+const ListingFormPage = () => {
 
-    console.log("In Form", latitude)
-    console.log("In Form", longitude)
+    // console.log("In Form", latitude)
+    // console.log("In Form", longitude)
 
-    
+
     const fileRef = useRef(null); //photo feature
     const sessionUser = useSelector(state => state.session.user);
 
@@ -335,7 +335,7 @@ const ListingFormPage = ({latitude, longitude}) => {
 
                         <div className="map-coordinates" >
                             <h1>Get Coordinates</h1>
-                            <MapCoordinates />
+                            <MapCoordinates setLat={setLat} setLng={setLng} lat={lat} lng={lng} />
                         </div>
 
 
