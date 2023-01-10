@@ -6,6 +6,7 @@ import { fetchListing, updateListing, createListing } from "../../store/listings
 import "./ListingFormPage.css"
 
 import Carousel from 'react-elastic-carousel';
+import MapCoordinates from "../MapCoordinates";
 
 const breakPoints = [
     {width:1, itemsToShow: 1},
@@ -15,7 +16,12 @@ const breakPoints = [
   ];
 
 
-const ListingFormPage = () => {
+const ListingFormPage = ({latitude, longitude}) => {
+
+    console.log("In Form", latitude)
+    console.log("In Form", longitude)
+
+    
     const fileRef = useRef(null); //photo feature
     const sessionUser = useSelector(state => state.session.user);
 
@@ -187,144 +193,168 @@ const ListingFormPage = () => {
                 <form onSubmit={handleSubmit}>
                     <h1>{formType}</h1>
                     
-                    <label> Status: 
-                        <select required
-                            name="status"
-                            value={status}
-                            onChange={e => setStatus(e.target.value)}
-                        >
-                                <option value="" disabled>Select Status...</option>
-                                <option key={"Active"}>active</option>
-                                <option key={"Archive"}>archive</option>
-                        </select>
+                    <section className="inputs-wrapper">
+
+                        <div className="input-columns">
+                            <label> Status: 
+                                <select required
+                                    name="status"
+                                    value={status}
+                                    onChange={e => setStatus(e.target.value)}
+                                >
+                                        <option value="" disabled>Select Status...</option>
+                                        <option key={"Active"}>active</option>
+                                        <option key={"Archive"}>archive</option>
+                                </select>
+                                
+                            </label>
+
+                            <label> Listing Type: 
+                                <select required
+                                    name="listing_type"
+                                    value={listing_type}
+                                    onChange={e => setListingType(e.target.value)}
+                                >
+                                        <option value="" disabled>Select Listing Type...</option>
+                                        <option key={"House"}>house</option>
+                                        <option key={"Apartment"}>apartment</option>
+                                </select>    
+                            </label>
+
+                            <label> Deal Type: 
+                                <select required
+                                    name="deal_type" 
+                                    value={deal_type} 
+                                    onChange={e => setDealType(e.target.value)}
+                                >
+                                    <option value="" disabled>Select Deal Type...</option>
+                                    <option key={"Sale"}>sale</option>
+                                    <option key={"Rent"}>rent</option>
+
+                                </select>
+                            </label>
+
+                            <label> Description: 
+                                <textarea required
+                                placeholder="Description" 
+                                value={description}
+                                rows='1'
+                                onChange={e => setDescription(e.target.value)}/>
+                            </label>
+
+                            <label> ZIP:
+                                <input type="number" required
+                                placeholder="ZIP"
+                                value={zip}
+                                onChange={e=>setZip(e.target.value)} />
+                            </label>
+
+                            <label> State: 
+                                <input required
+                                type="text" 
+                                placeholder="State" 
+                                value={state} 
+                                onChange={e => setState(e.target.value)}/>
+                            </label>         
+
+                            <label> City: 
+                                <input required
+                                type="text" 
+                                placeholder="City" 
+                                value={city} 
+                                onChange={e => setCity(e.target.value)}/>
+                            </label>   
+
+                            <label> Address: 
+                                <input required
+                                type="text" 
+                                placeholder="Address" 
+                                value={address} 
+                                onChange={e => setAddress(e.target.value)}/>
+                            </label>
+                        </div>
+
+                    
+
+                        <div className="input-columns">
+
+                            <label> Latitude:
+                                <input type="number" required
+                                placeholder="Latitude"
+                                value={lat}
+                                onChange={e=>setLat(e.target.value)} />
+                            </label> 
+
+                            <label> Longitude:
+                                <input type="number" required
+                                placeholder="Longitude"
+                                value={lng}
+                                onChange={e=>setLng(e.target.value)} />
+                            </label>
+
+                            <label> Bedroom:
+                                <input type="number" required
+                                placeholder="Bedroom"
+                                value={bedroom}
+                                onChange={e=>setBedroom(e.target.value)} />
+                            </label>
+
+                            <label> Bathroom:
+                                <input type="number" required
+                                placeholder="Bathroom"
+                                value={bathroom}
+                                onChange={e=>setBathroom(e.target.value)} />
+                            </label>
+
+                            <label> Size:
+                                <input type="number" required
+                                placeholder="Size"
+                                value={size}
+                                onChange={e=>setSize(e.target.value)} />
+                            </label>
+
+                            <label> Built in:
+                                <input type="number" required
+                                placeholder="Built in"
+                                value={year_built}
+                                onChange={e=>setYearBuilt(e.target.value)} />
+                            </label>
+
+                            <label> Price:
+                                <input type="number" required
+                                placeholder="Price"
+                                value={price}
+                                onChange={e=>setPrice(e.target.value)} />
+                            </label>
+
+
+                            <label> Upload Photos:
+                                <input type="file" ref={fileRef} onChange={handleFile} multiple />
+                            </label>
+                        </div>
+
+                        <div className="map-coordinates" >
+                            <h1>Get Coordinates</h1>
+                            <MapCoordinates />
+                        </div>
+
+
+                    </section>
+
+                    
+                    
+                    <section className="submit-upload-section">
+
                         
-                    </label>
 
-                    <label> Deal Type: 
-                        <select required
-                            name="deal_type" 
-                            value={deal_type} 
-                            onChange={e => setDealType(e.target.value)}
-                        >
-                            <option value="" disabled>Select Deal Type...</option>
-                            <option key={"Sale"}>sale</option>
-                            <option key={"Rent"}>rent</option>
+                        <ul className="listing-form-errors" >
+                            {errors?.map(error => <li key={error}>{error}</li>)}
+                        </ul>
 
-                        </select>
-                    </label>
+                        <button type="submit">{formType}</button>
 
-                    <label> Description: 
-                        <textarea required
-                        placeholder="Description" 
-                        value={description} 
-                        onChange={e => setDescription(e.target.value)}/>
-                    </label>
-
-                    <label> ZIP:
-                        <input type="number" required
-                        placeholder="ZIP"
-                        value={zip}
-                        onChange={e=>setZip(e.target.value)} />
-                    </label>
-
-                    <label> State: 
-                        <input required
-                        type="text" 
-                        placeholder="State" 
-                        value={state} 
-                        onChange={e => setState(e.target.value)}/>
-                    </label>         
-
-                    <label> City: 
-                        <input required
-                        type="text" 
-                        placeholder="City" 
-                        value={city} 
-                        onChange={e => setCity(e.target.value)}/>
-                    </label>   
-
-                    <label> Address: 
-                        <input required
-                        type="text" 
-                        placeholder="Address" 
-                        value={address} 
-                        onChange={e => setAddress(e.target.value)}/>
-                    </label>
-
-                    <label> Latitude:
-                        <input type="number" required
-                        placeholder="Latitude"
-                        value={lat}
-                        onChange={e=>setLat(e.target.value)} />
-                    </label> 
-
-                    <label> Longitude:
-                        <input type="number" required
-                        placeholder="Longitude"
-                        value={lng}
-                        onChange={e=>setLng(e.target.value)} />
-                    </label>
-
-                    <label> Bedroom:
-                        <input type="number" required
-                        placeholder="Bedroom"
-                        value={bedroom}
-                        onChange={e=>setBedroom(e.target.value)} />
-                    </label>
-
-                    <label> Bathroom:
-                        <input type="number" required
-                        placeholder="Bathroom"
-                        value={bathroom}
-                        onChange={e=>setBathroom(e.target.value)} />
-                    </label>
-
-                    <label> Size:
-                        <input type="number" required
-                        placeholder="Size"
-                        value={size}
-                        onChange={e=>setSize(e.target.value)} />
-                    </label>
-
-                    <label> Built in:
-                        <input type="number" required
-                        placeholder="Built in"
-                        value={year_built}
-                        onChange={e=>setYearBuilt(e.target.value)} />
-                    </label>
-
-                    <label> Price:
-                        <input type="number" required
-                        placeholder="Price"
-                        value={price}
-                        onChange={e=>setPrice(e.target.value)} />
-                    </label>
-
-                    <label> Listing Type: 
-                         <select required
-                            name="listing_type"
-                            value={listing_type}
-                            onChange={e => setListingType(e.target.value)}
-                        >
-                                <option value="" disabled>Select Listing Type...</option>
-                                <option key={"House"}>house</option>
-                                <option key={"Apartment"}>apartment</option>
-                        </select>    
-                    </label>
-
-                    <label> Upload Photos:
-                            <input type="file" ref={fileRef} onChange={handleFile} multiple />
-                    </label>
-
-                    {/* <h3>Image preview</h3>
-                        {preview} */}
-
-
-                    <ul className="listing-form-errors" >
-                        {errors?.map(error => <li key={error}>{error}</li>)}
-                    </ul>
-
-                    <button type="submit">{formType}</button>
+                    </section>
+                   
                 
                 </form>
                 
@@ -341,6 +371,9 @@ const ListingFormPage = () => {
                     </>
                     }
                 </div>
+            
+            
+                
               </>  
             }
 
