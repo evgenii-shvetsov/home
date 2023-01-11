@@ -33,6 +33,18 @@ main{
     box-shadow: inset 0 -3em 3em rgb(0 0 0 / 10%), 0 0 0 0px rgb(255 255 255), 0.3em 0.3em 1em rgb(0 0 0 / 30%);
     
 }
+
+.search-listings h4{
+    margin: 0 auto;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    font-family: "Open Sans", "Adjusted Arial", Tahoma, Geneva, sans-serif;
+    text-align: center;
+    line-height: 27px;
+    font-weight: bold;
+
+}
+
 .search-listings-cards::-webkit-scrollbar {
     display: none;
   }
@@ -40,7 +52,8 @@ main{
     display: flex;
     justify-content: center;
     flex-wrap: wrap;
-    height: calc(100vh - 79px);
+    /* height: calc(100vh - 79px); */
+    height: calc(100vh - 139px);
     min-width: 360px;
     overflow-y: scroll;
     padding: 10px;

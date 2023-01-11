@@ -17,6 +17,7 @@ Rails.application.routes.draw do
   # verb #route         #
     get '/search/buy', to: 'searches#sale_index'
     get '/search/rent', to: 'searches#rent_index'
+    get '/search', to: 'searches#search_filter'
   # get '/listings', to: 'listings#index'
   end
 

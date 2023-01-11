@@ -38,14 +38,11 @@ const Search = () => {
   return (
         <main className='search-type'>
                 <section className='search-map'>
-                    {/* <h4>google maps</h4> */}
-                    {/* add restriction on amount of listings */}
                     <MapSearch  className="search-map-component" listings={listings} />
-                    {/* <MapSearch listings={filteredListings} /> */}
                 </section>
 
                 <section className='search-listings'>
-                {/* <h4>Listings</h4> */}
+                    {type === 'buy'? <h4>Real Estate & Homes for Sale</h4> : <h4>Real Estate & Homes for Rent</h4> }
                     <div className='search-listings-cards'>
                         {listings?.map((listing, idx) => (<ListingListItem listing={listing} key ={idx}/>))}
                     </div>

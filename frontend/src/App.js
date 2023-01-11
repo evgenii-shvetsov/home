@@ -10,6 +10,7 @@ import ListingShowPage from './components/ListingShowPage';
 import ListingFormPage from './components/ListingFormPage';
 import MyHome from './components/MyHome';
 import Search from './components/Search';
+import SearchResult from './components/SearchFilter/SearchResult';
 
 function App() {
   return (
@@ -23,6 +24,7 @@ function App() {
           <Route exact path ='/myhome' component={MyHome} />
           
           <Route exact path="/search/:type" component={Search}/>
+          <Route exact path="/search" component={SearchResult}/>
           
           <Route path="/error" component={Page404}/>
           <Redirect to="/error"/>

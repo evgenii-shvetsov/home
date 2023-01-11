@@ -115,6 +115,14 @@ export const fetchRentListings = () => async (dispatch)=> {
     }
 }
 
+export const fetchSearchFilterListings = (searchValue) => async(dispatch) => {
+    const res = await csrfFetch(`/api/search?query=${searchValue}`)
+    if(res.ok){
+        const listings = await res.json();
+        dispatch(setListings(listings));
+    }
+}
+
 const listingsReducer = (state = {}, action) => {
     switch (action.type) {
         case SET_LISTINGS:
