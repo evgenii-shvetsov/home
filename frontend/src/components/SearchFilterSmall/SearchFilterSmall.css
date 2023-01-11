@@ -1,16 +1,16 @@
-.search-filter-form{
+.filter-bar-small-form{
     display: flex;
     align-items: center;
     justify-content: center;
-    padding-top: 200px;
+    /* padding-top: 200px; */
 }
 
-.form-wrapper{
+.filter-bar-small-form-wrapper{
     display: flex;
     position: relative;
 }
 
-.form-input{
+.filter-bar-small-input{
     -webkit-appearance: none;
     -moz-appearance: none;
     appearance: none;
@@ -18,7 +18,7 @@
     margin: 0;
     padding-left: 16px;
     padding-right: 22px;
-    background-color: #f6f6fadb;
+    background-color: #f6f6fa00;
     border: 1px solid;
     border-color: #D1D1D5;
     border-radius: 4px;
@@ -40,22 +40,22 @@
     line-height: 24px;
     height: auto;
     color:black;
-    max-width: 620px;
+    /* max-width: 620px; */
 
-    min-width: 420px;
+    min-width: 300px;
 
-    height: 55px;
+    margin-left: 10px;
     
 }
 
-.form-input::placeholder{
+.filter-bar-small-input::placeholder{
     color: #2A2A33;
 }
-.form-input:focus{
+.filter-bar-small-input:focus{
     box-shadow: 0 0 0px 1px #fff, 0 0 2px 3px #a6e5ff, 0 0 2px 4px #006aff;
 }
 
-#search-filter-btn{
+#filter-bar-small-btn{
     color: #2A2A33;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
@@ -69,16 +69,16 @@
     line-height: 24px;
     height: auto;
     position: absolute;
-    top: -6px;
+    top: -12px;
     right: 13px;
     z-index: 1;
 }
 
-#search-filter-btn i{
+#filter-bar-small-btn i{
     font-size: 18px;
 }
 
-#search-filter-btn i:hover{
+#filter-bar-small i:hover{
     color: blue;
     scale: 1.1;
 }
@@ -87,10 +87,14 @@
 
 /* filter section */
 .filters-wrapper{
-    height: 80px;
+    height: 70px;
     display: flex;
     flex-direction: row;
+    align-items: center;
+    justify-content: flex-start;
+    /* justify-content: center; */
 }
+
 
 
 .filters-wrapper select{
@@ -102,7 +106,7 @@
     margin: 0px;
     padding: 9px 16px;
     /* padding-right: 20px; */
-    background-color: rgb(246, 246, 250);
+    background-color: #f6f6fa00;
     border: 1px solid rgb(209, 209, 213);
     border-radius: 4px;
     box-sizing: border-box;
@@ -124,7 +128,6 @@
     background-size: 5px 5px, 5px 5px, 1px 1.5em;
     background-repeat: no-repeat;
     cursor: pointer;
-    background-color: #f6f6fadb;
     /* border: 1px solid rgb(0, 106, 255); */
     font-family: "Open Sans", "Adjusted Arial", Tahoma, Geneva, sans-serif;
     font-weight: 700;
@@ -134,6 +137,10 @@
     width: 155px;
 }
 
-.filters-wrapper select:focus{
+.filters-wrapper select:hover{
     box-shadow: 0 0 0px 1px #fff, 0 0 2px 3px #a6e5ff, 0 0 2px 4px #006aff;
+}
+
+.filter-buttons select{
+    margin-left: 20px;
 }

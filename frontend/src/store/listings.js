@@ -120,6 +120,7 @@ export const fetchSearchFilterListings = (searchValue) => async(dispatch) => {
     if(res.ok){
         const listings = await res.json();
         dispatch(setListings(listings));
+        return listings;
     }
 }
 

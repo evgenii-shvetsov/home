@@ -9,8 +9,7 @@ class Api::SearchesController < ApplicationController
         render :index
     end
 
-    # api_searches_get GET    
-    #/api/searches/search(.:format)   
+    
 
     def search_filter
         query = params[:query] #94107
