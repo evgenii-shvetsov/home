@@ -19,7 +19,7 @@ const SearchFilterSmall = () => {
     }
   return (
     <>
-            <div className='blablabla'> 
+            <div className='filter-bar-small-wrapper'> 
                 <form onSubmit={handleSubmit} className='filter-bar-small-form'>
                         <div className='filter-bar-small-form-wrapper'>
                             <input type="text" className='filter-bar-small-input'  placeholder="Enter a Home Type or ZIP code"
