@@ -87,7 +87,7 @@
 
 /* filter section */
 .filters-wrapper{
-    height: 70px;
+    min-height: 70px;
     display: flex;
     flex-direction: row;
     align-items: center;
@@ -145,3 +145,35 @@
     margin-left: 20px;
 }
 
+
+@media (max-width: 1110px){
+    .filters{
+        display: flex;
+        justify-content: center;
+    }
+
+    .blablabla{
+        display: flex;
+        justify-content: flex-start;
+    }
+    .filter-bar-small-form{
+        display: flex;
+        /* align-items: center; */
+        /* justify-content: center; */
+        /* padding-top: 200px; */
+    }
+    .filters-wrapper{
+        min-height: 100px;
+        display: flex;
+        flex-direction: column;
+        margin-top: 10px;
+        margin-bottom: 10px;
+        /* align-items: center; */
+        /* justify-content: flex-start; */
+        /* justify-content: center; */
+    }
+    .filter-buttons{
+        margin-top: 10px;
+        
+    }
+}

@@ -19,18 +19,18 @@ const SearchFilterSmall = () => {
     }
   return (
     <>
-    <div> 
-        <form onSubmit={handleSubmit} className='filter-bar-small-form'>
-                <div className='filter-bar-small-form-wrapper'>
-                    <input type="text" className='filter-bar-small-input'  placeholder="Enter a Home Type or ZIP code"
-                    value={searchValue} 
-                    onChange={(e) => (setSearchValue(e.target.value))}/>
-                    <button id='filter-bar-small-btn'>
-                        <i className="fa fa-search"></i>
-                    </button>
-                </div>
-        </form> 
-    </div>
+            <div className='blablabla'> 
+                <form onSubmit={handleSubmit} className='filter-bar-small-form'>
+                        <div className='filter-bar-small-form-wrapper'>
+                            <input type="text" className='filter-bar-small-input'  placeholder="Enter a Home Type or ZIP code"
+                            value={searchValue} 
+                            onChange={(e) => (setSearchValue(e.target.value))}/>
+                            <button id='filter-bar-small-btn'>
+                                <i className="fa fa-search"></i>
+                            </button>
+                        </div>
+                </form> 
+            </div>
 
             <div className='filter-buttons'>
                     <select name="deal_type" id="">

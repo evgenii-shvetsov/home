@@ -37,7 +37,7 @@ const Search = () => {
     },[dispatch, type])
 
   return (
-        <main className='search-type'>
+        <main id='search-type'>
 
             <section className='filters'>
                 <div className='filters-wrapper'>

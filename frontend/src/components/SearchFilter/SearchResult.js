@@ -15,19 +15,10 @@ const SearchResult = () => {
     const location = useLocation()
 
     const listings = useSelector(store => Object.values(store.listings))
-    const[test,setTest] = useState(false)
+    const[match,setMatch] = useState(false)
 
 
     const {searchValue} = location.state
-
-    // useEffect(()=>{
-    //     if(!listings.length){
-    //         console.log("inside failed SEARCH", listings)
-    //         dispatch(fetchListings())
-
-    //     }
-    // },[dispatch, listings])
-
 
 
     useEffect(()=>{
@@ -39,29 +30,18 @@ const SearchResult = () => {
         .then((listings)=>{
             let result = listings
             if(!Object.keys(result).length){
-                setTest(true)
+                setMatch(true)
                 dispatch(fetchListings())
+                // setTimeout(()=> setMatch(false),1)
             }
-
-            // console.log(";asdadasda",result)
-
-
-        //    console.log('inside then', listings)
-            // if(!listings.length){
-            //     console.log("inside failed SEARCH", listings)
-            //     dispatch(fetchListings())
-
-            // }
         })
         
     },[dispatch, searchValue])
 
-
-
     
 
     return (
-        <main className='search-type'>
+        <main id='search-type'>
 
             <section className='filters'>
                 <div className='filters-wrapper'>
@@ -78,22 +58,17 @@ const SearchResult = () => {
             <section className='search-listings' id='search-result-header'>
                 <h4>Real Estate & Homes, based on your search " {searchValue} "</h4>
 
-                {/* {!test ? <h4>No matching results</h4> : 
-                <div className='search-listings-cards'>
-                    {listings?.map((listing, idx) => (<ListingListItem listing={listing} key ={idx}/>))}
-                </div>
-                 }   */}
 
-                {!test ? 
+                {!match ? 
                         <div className='search-listings-cards'>
-                        
-                        {listings?.map((listing, idx) => (<ListingListItem listing={listing} key ={idx}/>))}
-                    </div>
+                            {listings?.map((listing, idx) => (<ListingListItem listing={listing} key ={idx}/>))}
+                         </div>
                         : 
                
-               <div className='search-listings-cards'>
+                <div className='search-listings-cards'>
                     <h4>No matching results, check what we have for you:</h4> 
                     {listings?.map((listing, idx) => (<ListingListItem listing={listing} key ={idx}/>))}
+                    {/* {setTimeout(()=> setMatch(false),1)} */}
                 </div>
                  } 
 
