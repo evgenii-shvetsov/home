@@ -58,7 +58,7 @@ const MyHome = () => {
   return (
     <main className='my-home'>
         <div className='welcome-word'>
-          <h4>Welcome Home, {sessionUser.username} !</h4>
+          <h4>Welcome Home, {sessionUser?.username} !</h4>
           <p>Click to <NavLink exact to='/listings/new'><button id='add-new-listing'>Add New Listing</button></NavLink></p>
         </div>
         {

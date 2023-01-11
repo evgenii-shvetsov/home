@@ -7,6 +7,7 @@ import { useDispatch, useSelector } from 'react-redux'
 import { fetchBuyListings, fetchRentListings, removeListings } from '../../store/listings'
 
 import ListingListItem from '../ListingIndexPage/ListingListItem'
+import SearchFilterSmall from '../SearchFilterSmall'
 
 
 
@@ -37,6 +38,14 @@ const Search = () => {
 
   return (
         <main className='search-type'>
+
+            <section className='filters'>
+                <div className='filters-wrapper'>
+                    <SearchFilterSmall />  
+                </div>
+            </section>
+
+            <section className='search-output-map-listings'>
                 <section className='search-map'>
                     <MapSearch  className="search-map-component" listings={listings} />
                 </section>
@@ -47,7 +56,7 @@ const Search = () => {
                         {listings?.map((listing, idx) => (<ListingListItem listing={listing} key ={idx}/>))}
                     </div>
                 </section>
-
+            </section>
         </main>
     
   )
