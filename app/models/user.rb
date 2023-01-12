@@ -18,7 +18,8 @@ class User < ApplicationRecord
     has_many :listings,
     primary_key: :id,
     foreign_key: :owner_id,
-    class_name: :Listing
+    class_name: :Listing,
+    dependent: :destroy
 
     has_many :favorites,
     foreign_key: :owner_id,
