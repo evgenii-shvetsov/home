@@ -43,12 +43,13 @@ const SearchResult = () => {
                 setMatch(true)
                 dispatch(fetchListings())
                 // setTimeout(()=> setMatch(false),1)
+                
             }
         })
         
     },[dispatch, searchValue])
 
-    
+    setTimeout(()=> setMatch(false),3000)
 
     return (
         <main id='search-type'>
