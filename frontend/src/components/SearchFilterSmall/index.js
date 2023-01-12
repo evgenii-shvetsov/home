@@ -55,7 +55,8 @@ const SearchFilterSmall = ({filter, setFilter}) => {
                     <select name="deal_type" id="" 
                         onChange={(e)=>{const value = e.target.value
                             setFilter({...filter, dealType:value})}}>
-                            <option disabled selected>Deal type</option>
+                            <option value="" disabled selected>Deal type</option>
+                            <option value="">Deal type: Any</option>
                             <option value="sale">For Sale</option>
                             <option value="rent">For Rent</option>
                     </select>
@@ -64,30 +65,41 @@ const SearchFilterSmall = ({filter, setFilter}) => {
                         onChange={(e)=>{const value = e.target.value
                             setFilter({...filter, bedroom:value})}}>
                             <option value="" disabled selected>Beds</option>
-                            <option value="1">1</option>
-                            <option value="2">2</option>
-                            <option value="3">3</option>
-                            <option value="4">4</option>
-                            <option value="5">5</option>
-                            <option value="6">6</option>
+                            <option value="">Beds: Any</option>
+                            <option value="1">Bed: 1</option>
+                            <option value="2">Beds: 2</option>
+                            <option value="3">Beds: 3</option>
+                            <option value="4">Beds: 4</option>
+                            <option value="5">Beds: 5</option>
+                            <option value="6">Beds: 6</option>
+                            <option value="7">Beds: 7</option>
+                            <option value="8">Beds: 8</option>
+                            <option value="9">Beds: 9</option>
+                            <option value="10">Beds: 10</option>
                     </select>
 
                     <select name="bathroom" id=""
                          onChange={(e)=>{const value = e.target.value
                             setFilter({...filter, bathroom:value})}}>
                             <option value="" disabled selected>Baths</option>
-                            <option value="1">1</option>
-                            <option value="2">2</option>
-                            <option value="3">3</option>
-                            <option value="4">4</option>
-                            <option value="5">5</option>
-                            <option value="6">6</option>
+                            <option value="">Baths: Any</option>
+                            <option value="1">Bath: 1</option>
+                            <option value="2">Baths: 2</option>
+                            <option value="3">Baths: 3</option>
+                            <option value="4">Baths: 4</option>
+                            <option value="5">Baths: 5</option>
+                            <option value="6">Baths: 6</option>
+                            <option value="7">Baths: 7</option>
+                            <option value="8">Baths: 8</option>
+                            <option value="9">Baths: 9</option>
+                            <option value="10">Baths: 10</option>
                     </select>
 
                     <select name="listing_type" id=""
                         onChange={(e)=>{const value = e.target.value
                             setFilter({...filter, listing_type:value})}}>
                             <option value="" disabled selected>Home Type</option>
+                            <option value="">Home: Any</option>
                             <option value="house">House</option>
                             <option value="apartment">Apartment</option>
                     </select>

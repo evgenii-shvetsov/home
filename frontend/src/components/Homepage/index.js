@@ -27,7 +27,7 @@ const Homepage = () => {
           <img src={buyLogo} alt="buy home logo" />
           <h3>Buy a home</h3>
           <p>Find your place with an immersive photo experience and the most listings, including things you won’t find anywhere else.</p>
-          <Link className='deal-type-link' to="/search/buy">
+          <Link className='deal-type-link' to="/search/buy" >
             <button className='deal-type-button'>Browse homes</button>
           </Link>
         </div>

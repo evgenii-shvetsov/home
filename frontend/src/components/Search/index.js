@@ -33,8 +33,12 @@ const Search = () => {
         } else {
             dispatch(fetchRentListings())
         }
+
     },[dispatch, type])
 
+    useEffect(()=>{
+        window.scrollTo(0,0)
+    },[])
   return (
         <main id='search-type'>
 
