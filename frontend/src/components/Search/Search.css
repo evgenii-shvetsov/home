@@ -39,7 +39,7 @@ main{
 .search-listings h4{
     margin: 0 auto;
     margin-top: 20px;
-    margin-bottom: 20px;
+    /* margin-bottom: 20px; */
     font-family: "Open Sans", "Adjusted Arial", Tahoma, Geneva, sans-serif;
     text-align: center;
     line-height: 27px;
@@ -117,13 +117,13 @@ main{
         padding: 0px 16px;
         border-radius: 11px;
         box-shadow: inset 0 -3em 3em rgb(0 0 0 / 10%), 0 0 0 0px rgb(255 255 255), 0.3em 0.3em 1em rgb(0 0 0 / 30%);
-        
+        height: calc(100vh - 490px);
     }
     
     .search-listings h4{
         margin: 0 auto;
-        margin-top: 20px;
-        margin-bottom: 20px;
+        margin-top: 38px;
+        /* margin-bottom: 20px; */
         font-family: "Open Sans", "Adjusted Arial", Tahoma, Geneva, sans-serif;
         text-align: center;
         line-height: 27px;

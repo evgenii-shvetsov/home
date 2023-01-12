@@ -9,10 +9,18 @@ import {  removeListings, fetchSearchFilterListings, fetchListings } from '../..
 import ListingListItem from '../ListingIndexPage/ListingListItem'
 import SearchFilterSmall from '../SearchFilterSmall'
 
-const SearchResult = () => {
+const SearchResult = ({price, dealType, bedroom, bathroom, listing_type}) => {
 
     const dispatch = useDispatch(); 
     const location = useLocation()
+    const [filter, setFilter] =useState(
+        {
+            dealType: "",
+            bedroom: "",
+            bathroom: "",
+            listing_type: "",
+        }
+    )
 
     const listings = useSelector(store => Object.values(store.listings))
     const[match,setMatch] = useState(false)
@@ -45,7 +53,7 @@ const SearchResult = () => {
 
             <section className='filters'>
                 <div className='filters-wrapper'>
-                    <SearchFilterSmall />  
+                    <SearchFilterSmall setFilter={setFilter} filter={filter}/>  
                 </div>
             </section>
 
@@ -61,7 +69,7 @@ const SearchResult = () => {
 
                 {!match ? 
                         <div className='search-listings-cards'>
-                            {listings?.map((listing, idx) => (<ListingListItem listing={listing} key ={idx}/>))}
+                            {listings?.filter(listing=>listing.deal_type.includes(filter.dealType) && listing.bedroom.includes(filter.bedroom)).map((listing, idx) => (<ListingListItem listing={listing} key ={idx}/>))}
                          </div>
                         : 
                
