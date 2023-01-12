@@ -66,7 +66,7 @@ const MapCoordinates = ({setLat, setLng , lat, lng}) => {
         lat={defaultProps.center.lat}
         lng ={defaultProps.center.lng}
         // draggable={true}
-        text="🏠"
+        // text="🏠"
         />
       </GoogleMapReact>
     </div>
