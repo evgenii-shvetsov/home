@@ -47,6 +47,7 @@ const ListingListItem = ( {listing} ) => {
     const handleClick = (e) => {
         e.preventDefault();
         history.push(`/listings/${listing.id}`)
+        window.scrollTo(0,0)
     }
     const heartClick = () => {
         // setShowModal(true)

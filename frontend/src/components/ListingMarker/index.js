@@ -15,6 +15,7 @@ const ListingMarker = ({lat, lng, markerInfo}) => {
   const handleClick = (e) => {
     e.preventDefault();
     history.push(`/listings/${markerInfo.listing_id}`)
+    window.scrollTo(0,0)
 }
 
   return (
