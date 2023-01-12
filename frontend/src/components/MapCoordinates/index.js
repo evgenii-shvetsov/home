@@ -48,7 +48,7 @@ const MapCoordinates = ({setLat, setLng , lat, lng}) => {
     // Important! Always set the container height explicitly
     <div style={{ height: '400px', width: '400px' }}>
       <GoogleMapReact onClick={getCoordinates} 
-        bootstrapURLKeys={{ /*key: process.env.REACT_APP_MAPS_API_KEY */}}
+        bootstrapURLKeys={{ key: process.env.REACT_APP_MAPS_API_KEY }}
         defaultCenter={defaultProps.center}
         defaultZoom={defaultProps.zoom}
         options = {mapOptions}

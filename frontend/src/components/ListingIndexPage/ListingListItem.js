@@ -25,10 +25,10 @@ const ListingListItem = ( {listing} ) => {
 
     const [showModal, setShowModal] = useState(false);
 
-    const url = mainPlaceholder
+    // const url = mainPlaceholder
 
     //production code
-    // const url = listing?.photoUrls?.at(0)
+    const url = listing?.photoUrls?.at(0)
     
     
 

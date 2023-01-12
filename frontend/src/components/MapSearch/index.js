@@ -25,7 +25,7 @@ const MapSearch = ({listings, center, zoom}) => {
   return (
     <div className='map-search'>
             <GoogleMapReact
-            bootstrapURLKeys={{ /*key: process.env.REACT_APP_MAPS_API_KEY*/ }}
+            bootstrapURLKeys={{ key: process.env.REACT_APP_MAPS_API_KEY }}
             defaultCenter={ center }
             defaultZoom={ zoom }
             options = {mapOptions}
