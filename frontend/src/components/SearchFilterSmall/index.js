@@ -9,24 +9,24 @@ import "./SearchFilterSmall.css"
 
 const SearchFilterSmall = ({filter, setFilter}) => {
 
-    // const [price, setPrice] = useState('');
+    const [searchValue, setSearchValue] = useState('');
 
     // const [dealType, setDealType] = useState('');
     // const [bedroom, setBedroom] = useState('');
     // const [bathroom, setBathroom] = useState('');
     // const [listing_type, setListingType] = useState('');
 
-    // const history = useHistory()
+    const history = useHistory()
 
     const listings = useSelector(store => Object.values(store.listings))
     
     const handleSubmit = (e) =>{
         e.preventDefault()
-        // history.push({
-        //     pathname: '/search',
-        //     state: {searchValue}
-        // })
-        // setSearchValue('')
+        history.push({
+            pathname: '/search',
+            state: {searchValue}
+        })
+        setSearchValue('')
     }
 
     // console.log("Price Placeholder", price )
@@ -36,21 +36,20 @@ const SearchFilterSmall = ({filter, setFilter}) => {
     // console.log("Listing Type",listings.filter(listing=>listing.listing_type.includes(listing_type)))
   return (
     <>
-            {/* <div className='filter-bar-small-wrapper'> 
+            <div className='filter-bar-small-wrapper'> 
                 <form onSubmit={handleSubmit} className='filter-bar-small-form'>
-                        <div className='filter-bar-small-form-wrapper'>
+                         <div className='filter-bar-small-form-wrapper'>
 
-                            <input type="text" className='filter-bar-small-input'  placeholder="Enter a price"
-                            value={filter.price} 
-                            onChange={(e) => {const value = e.target.value
-                                setPrice(value)}}/>
+                            <input type="text" className='filter-bar-small-input'  placeholder="Enter a Home Type or ZIP code"
+                             value={searchValue} 
+                             onChange={(e) => (setSearchValue(e.target.value))}/>
 
-                            <button id='filter-bar-small-btn'>
-                                <i className="fa fa-search"></i>
+                             <button id='filter-bar-small-btn'>
+                               <i className="fa fa-search"></i>
                             </button>
-                        </div>
-                </form> 
-            </div> */}
+                         </div>
+               </form> 
+           </div>
 
             <div className='filter-buttons'>
                     <select name="deal_type" id="" 
@@ -73,9 +72,9 @@ const SearchFilterSmall = ({filter, setFilter}) => {
                             <option value="6">6</option>
                     </select>
 
-                    {/* <select name="bathroom" id=""
+                    <select name="bathroom" id=""
                          onChange={(e)=>{const value = e.target.value
-                            setBathroom(value)}}>
+                            setFilter({...filter, bathroom:value})}}>
                             <option value="" disabled selected>Baths</option>
                             <option value="1">1</option>
                             <option value="2">2</option>
@@ -87,11 +86,11 @@ const SearchFilterSmall = ({filter, setFilter}) => {
 
                     <select name="listing_type" id=""
                         onChange={(e)=>{const value = e.target.value
-                            setListingType(value)}}>
+                            setFilter({...filter, listing_type:value})}}>
                             <option value="" disabled selected>Home Type</option>
                             <option value="house">House</option>
                             <option value="apartment">Apartment</option>
-                    </select> */}
+                    </select>
              </div>
 
 
