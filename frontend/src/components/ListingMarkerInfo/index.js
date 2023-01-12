@@ -3,14 +3,10 @@ import './ListingMarkerInfo.css'
 const ListingMarkerInfo = ( {info} ) => {
   return (
     <div className='listing-marker-info'>
-            {/* <ul>
-                <li>{info.listing_type}</li>
-                <li>{info.price} price</li>
-                <li>{info.bedroom} bd</li>
-            </ul> */}
-                <p>{info.listing_type}</p>
-                <p>${info?.price.toLocaleString()}</p>
-                <p>{info.bedroom} bd</p>
+                <img id="marker-listing-photo" src={info.listing_photo} alt="" />
+                <p id="marker-listing-price">${info?.price.toLocaleString()}</p>
+                <p>{info.bedroom} bd {info.bathroom} ba</p>
+                <p>{info.listing_type} for {info.deal_type}</p>
             
     </div>
   )

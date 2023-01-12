@@ -1,18 +1,37 @@
 .listing-marker-info{
-    position:absolute;
-
-    top: -48px;
-    right: -50px;
-    min-width: 78px;
-    max-height: 54px;
+    position: absolute;
+    top: -158px;
+    right: -87px;
+    /* width: 146px; */
+    height: 158px;
     /* padding: 20px; */
-    background-color: rgba(0,0,0,0.7);
+    background-color: rgb(255 255 255);
     border-radius: 5px;
-    /* font-size: 16px; */
+    font-size: 13px;
     text-align: center;
-    color: #fff;
+    color: black;
     line-height: 17px;
     z-index: 100;
+    border-radius: 10px;
+    font-family: "Open Sans", "Adjusted Arial", Tahoma, Geneva, sans-serif;
+    cursor: pointer;
+    box-shadow: 0 0 0px 1px #fff, 0 0 2px 3px #9f9f9f, 0 0 2px 4px #6ba9ff;
 
 }
 
+.listing-marker-info:hover{
+    box-shadow: 0 0 0px 1px #fff, 0 0 2px 3px #a6e5ff, 0 0 2px 4px #006aff;
+}
+
+#marker-listing-photo{
+    width: 150px;
+    height: 95px;
+    /* padding: 5px; */
+    border-radius: 10px;
+}
+
+#marker-listing-price{
+    font-size: 15px;
+    margin-top: 2px;
+    margin-bottom: 2px;
+}
