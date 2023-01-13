@@ -15,7 +15,7 @@
 #   Character.create(name: "Luke", movie: movies.first)
 
 
-ApplicationRecord.transaction do 
+# ApplicationRecord.transaction do 
     puts "Destroying tables..."
     # Unnecessary if using `rails db:seed:replant`
     Favorite.destroy_all
@@ -637,4 +637,4 @@ ApplicationRecord.transaction do
       ])
 
     puts "Done!"
-  end
+  # end
