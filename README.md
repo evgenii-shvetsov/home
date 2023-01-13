@@ -9,6 +9,7 @@
 **Backend:** Ruby on Rails, Bcrypt for generating unique password <br/>
 **Frontend:** React-Redux, JavaScript, AWS, Google Map API <br/>
 **Database:** PostgreSQL <br/>
+**Other:** AWS, Google Map API <br/>
 
 ## Features
 Users can **search** for listings using "search bar", dropdown filters, map, and add to the "favorites" list. <br />
