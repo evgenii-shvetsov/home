@@ -1,4 +1,4 @@
-<center>[![homeLogo](https://user-images.githubusercontent.com/46214277/212250398-fb77b52e-3f22-4afd-9ad5-ba01abab63de.png)](https://home-hi1b.onrender.com/)</center> <br/> <br/> 
+[![homeLogo](https://user-images.githubusercontent.com/46214277/212250398-fb77b52e-3f22-4afd-9ad5-ba01abab63de.png)](https://home-hi1b.onrender.com/)  <br/> <br/> 
 [Home](https://home-hi1b.onrender.com/) is a clone of Zillow, a tech real-estate marketplace that allows users to browse homes, take virtual tours, find a local agent, and more. I used  JavaScript, React, Redux, PostgreSQL, AWS, and Google Map Api to build the project. User can search, upload, edit, and save listings.
 
 <br />
