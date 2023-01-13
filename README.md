@@ -7,7 +7,7 @@
 
 ## Technologies
 **Backend:** Ruby on Rails, Bcrypt for generating unique password <br/>
-**Frontend:** React-Redux, JavaScript, AWS, Google Map API <br/>
+**Frontend:** React-Redux, JavaScript <br/>
 **Database:** PostgreSQL <br/>
 **Other:** AWS, Google Map API <br/>
 
