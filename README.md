@@ -22,7 +22,48 @@ Users can **search** for listings using "search bar", dropdown filters, map, and
 ![myhome](https://user-images.githubusercontent.com/46214277/212256666-bf00f4d9-9476-4a56-bcca-73ba47179f68.gif) <br /> <br />
 
 ## Significant Code
-### Some code
+#### Managing filtering thunk action creators to update the store
+```javascript
+    useEffect(()=>{
+        dispatch(removeListings())
+ 
+        dispatch(fetchSearchFilterListings(searchValue))
+        .then((listings)=>{
+            let result = listings
+            if(!Object.keys(result).length){
+                setMatch(true)
+                dispatch(fetchListings())          
+            }
+        })
+        
+    },[dispatch, searchValue])
+
+    setTimeout(()=> setMatch(false),3000)
+
+```
+
+#### Photo uploading to AWS with preview in a Form
+```javascript
+       useEffect(() => {
+        if(listingId){
+            dispatch(fetchListing(listingId))
+        }
+    },[dispatch, listingId])
+
+    const handleFile = ({currentTarget}) => {
+        Array.from(currentTarget.files).forEach((file)=>{
+        if (file) {
+            const fileReader = new FileReader();
+            fileReader.readAsDataURL(file);
+            fileReader.onload = () => {
+                setPhotoFiles(prev => [...prev, file]);
+                setPhotoUrls(prev => [...prev, fileReader.result]);
+            };
+        }
+        })
+        
+    }
+```
 
 
 
