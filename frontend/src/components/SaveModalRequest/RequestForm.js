@@ -5,7 +5,7 @@ import "./SaveModalRequest.css";
 import SignupFormModal from "../SignupFormModal";
 // import { Redirect } from 'react-router-dom';// Added for modal
 
-function RequestForm( {setShowModal}) {
+function RequestForm( {setShowModal, onClose }) {
   const dispatch = useDispatch();
   const [credential, setCredential] = useState("");
   const [password, setPassword] = useState("");
@@ -89,7 +89,7 @@ function RequestForm( {setShowModal}) {
               <p>
                 Don't have an account? <br />
               </p>
-               <SignupFormModal />
+               <SignupFormModal onClose={onClose} />
           </div>
     </div>
   );

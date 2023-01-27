@@ -5,7 +5,7 @@ import "./LoginForm.css";
 import SignupFormModal from "../SignupFormModal";
 // import { Redirect } from 'react-router-dom';// Added for modal
 
-function LoginForm() {
+function LoginForm({onClose}) {
   const dispatch = useDispatch();
   const [credential, setCredential] = useState("");
   const [password, setPassword] = useState("");
@@ -83,7 +83,7 @@ function LoginForm() {
               <p>
                 Don't have an account? <br />
               </p>
-               <SignupFormModal />
+               <SignupFormModal onClose={onClose} />
               
           </div>
 
