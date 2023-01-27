@@ -110,7 +110,7 @@ const ListingShowPage = () => {
 
           {showModal && (
                     <Modal onClose={() => setShowModal(false)}>
-                         <RequestForm setShowModal={setShowModal} />
+                         <RequestForm setShowModal={setShowModal} onClose={() => setShowModal(false)}/>
                     </Modal>
                 )}
 
