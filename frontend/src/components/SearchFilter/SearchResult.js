@@ -15,7 +15,7 @@ const SearchResult = () => {
     const location = useLocation()
     const [filter, setFilter] = useState(
         {   
-            dealType: "",
+            // dealType: "",
             bedroom: "",
             bathroom: "",
             listing_type: "",
@@ -63,7 +63,7 @@ const SearchResult = () => {
         <section className='search-output-map-listings'>
 
             <section className='search-map'>
-                <MapSearch  className="search-map-component" listings={listings?.filter(listing=>listing.deal_type.includes(filter.dealType) && listing.bedroom.includes(filter.bedroom) && listing.bathroom.includes(filter.bathroom) && listing.listing_type.includes(filter.listing_type))} />
+                <MapSearch  className="search-map-component" listings={listings?.filter(listing=>/*listing.deal_type.includes(filter.dealType) &&*/ listing.bedroom.includes(filter.bedroom) && listing.bathroom.includes(filter.bathroom) && listing.listing_type.includes(filter.listing_type))} />
             </section>
 
             <section className='search-listings' id='search-result-header'>
@@ -72,13 +72,13 @@ const SearchResult = () => {
 
                 {!match ? 
                         <div className='search-listings-cards'>
-                            {listings?.filter(listing=>listing.deal_type.includes(filter.dealType) && listing.bedroom.includes(filter.bedroom) && listing.bathroom.includes(filter.bathroom) && listing.listing_type.includes(filter.listing_type)).map((listing, idx) => (<ListingListItem listing={listing} key ={idx}/>))}
+                            {listings?.filter(listing=>/*listing.deal_type.includes(filter.dealType) &&*/ listing.bedroom.includes(filter.bedroom) && listing.bathroom.includes(filter.bathroom) && listing.listing_type.includes(filter.listing_type)).map((listing, idx) => (<ListingListItem listing={listing} key ={idx}/>))}
                          </div>
                         : 
                
                 <div className='search-listings-cards'>
                     <h4>No matching results, check what we have for you: </h4> <br/>
-                    {listings?.filter(listing=>listing.deal_type.includes(filter.dealType) && listing.bedroom.includes(filter.bedroom) && listing.bathroom.includes(filter.bathroom) && listing.listing_type.includes(filter.listing_type)).map((listing, idx) => (<ListingListItem listing={listing} key ={idx}/>))}
+                    {listings?.filter(listing=>/*listing.deal_type.includes(filter.dealType) &&*/ listing.bedroom.includes(filter.bedroom) && listing.bathroom.includes(filter.bathroom) && listing.listing_type.includes(filter.listing_type)).map((listing, idx) => (<ListingListItem listing={listing} key ={idx}/>))}
                     {/* {setTimeout(()=> setMatch(false),1)} */}
                 </div>
                  } 

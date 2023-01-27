@@ -52,14 +52,14 @@ const SearchFilterSmall = ({filter, setFilter}) => {
            </div>
 
             <div className='filter-buttons'>
-                    <select name="deal_type" id="" 
+                    {/* <select name="deal_type" id="" 
                         onChange={(e)=>{const value = e.target.value
                             setFilter({...filter, dealType:value})}}>
                             <option value="" disabled selected>Deal type</option>
                             <option value="">Deal type: Any</option>
                             <option value="sale">For Sale</option>
                             <option value="rent">For Rent</option>
-                    </select>
+                    </select> */}
 
                     <select name="bedroom" id=""
                         onChange={(e)=>{const value = e.target.value
