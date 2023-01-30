@@ -151,10 +151,13 @@ const ListingShowPage = () => {
           <h4>For {listing.deal_type}</h4>
         </section>
 
-        <section id='contact-agent'>
+        {/* <section id='contact-agent'>
           <button id='contact-agent-btn'>CONTACT AGENT</button>
-        </section>
+        </section> */}
         
+        <section id='contact-agent'>
+          <button id='contact-agent-btn'>CONTACT AGENT <br/>(415) 123-4567</button>
+        </section>
 
         <section id='listing-features'>
           <div> <i className="fa-regular fa-building"></i>&nbsp; {listing.listing_type}</div>
