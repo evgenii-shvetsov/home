@@ -103,11 +103,12 @@ const ListingShowPage = () => {
       <section className='listing-detailed-info'>
 
         <section className='listing-detailed-info-header'>
-
+          
+        {sessionUser?.id !== listing.owner_id &&
           <button className="show-page-font-awesome-favorite" onClick={heartClick}>
                       {!heart ? <i className="fa-regular fa-heart"><span> Save</span></i> : <i className="fa-solid fa-heart"><span> Saved</span></i> }
           </button>
-
+        }
           {showModal && (
                     <Modal onClose={() => setShowModal(false)}>
                          <RequestForm setShowModal={setShowModal} onClose={() => setShowModal(false)}/>
