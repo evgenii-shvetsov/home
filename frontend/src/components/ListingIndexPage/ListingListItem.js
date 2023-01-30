@@ -74,10 +74,11 @@ const ListingListItem = ( {listing} ) => {
         <div /*onClick={handleClick}*/ className="listing-container">
             <section className="listing-wrapper">
                 
-
+                {sessionUser?.id !== listing.owner_id &&
                 <button className="font-awesome-favorite" onClick={heartClick}>
                     {!heart ? <i className="fa-regular fa-heart"></i> : <i className="fa-solid fa-heart"></i> }
                 </button>
+                }
 
                 {showModal && (
                     <Modal onClose={() => setShowModal(false)}>
