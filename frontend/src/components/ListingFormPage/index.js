@@ -97,6 +97,23 @@ const ListingFormPage = () => {
         
     }
 
+    const handleFileReplace = ({currentTarget}) => {
+        // console.log([...currentTarget.files])
+        setPhotoFiles([]);
+        setPhotoUrls([]);
+        Array.from(currentTarget.files).forEach((file)=>{
+        if (file) {
+            const fileReader = new FileReader();
+            fileReader.readAsDataURL(file);
+            fileReader.onload = () => {
+                setPhotoFiles(prev => [...prev, file]);
+                setPhotoUrls(prev => [...prev, fileReader.result]);
+            };
+        }
+        })
+        
+    }
+
     const handleSubmit = (e) => {
         e.preventDefault();
 
@@ -327,10 +344,18 @@ const ListingFormPage = () => {
                                 onChange={e=>setPrice(e.target.value)} />
                             </label>
 
-
+                        {
+                            formType === "Create Listing" 
+                            ? 
                             <label> Upload Photos:
                                 <input type="file" ref={fileRef} onChange={handleFile} multiple />
                             </label>
+                            :
+                            <label> Replace Current Photos:
+                                <input type="file" ref={fileRef} onChange={handleFileReplace} multiple />
+                            </label>
+                        }
+                            
                         </div>
 
                         <div className="map-coordinates" >
@@ -361,14 +386,14 @@ const ListingFormPage = () => {
                 <div className="image-preview">
                     {!photoUrls?.length ? null : 
                         <>
-                    <h1>Uploaded images</h1>
-                    
-                    <div className="photos-bucket">
-                        <Carousel breakPoints={breakPoints} pagination={false}/*enableAutoPlay autoPlaySpeed={3000}*/>
-                        {preview}
-                        </Carousel>
-                    </div>
-                    </>
+                            <h1>Uploaded images</h1>
+                            
+                            <div className="photos-bucket">
+                                <Carousel breakPoints={breakPoints} pagination={false}/*enableAutoPlay autoPlaySpeed={3000}*/>
+                                {preview}
+                                </Carousel>
+                            </div>
+                        </>
                     }
                 </div>
             
