@@ -41,7 +41,7 @@ const SearchResult = () => {
             let result = listings
             if(!Object.keys(result).length){
                 setMatch(true)
-                dispatch(fetchListings())
+                // dispatch(fetchListings())
                 // setTimeout(()=> setMatch(false),1)
                 
             }
@@ -49,7 +49,7 @@ const SearchResult = () => {
         
     },[dispatch, searchValue])
 
-    setTimeout(()=> setMatch(false),3000)
+    setTimeout(()=> setMatch(false),7000)
 
     return (
         <main id='search-type'>
@@ -77,9 +77,7 @@ const SearchResult = () => {
                         : 
                
                 <div className='search-listings-cards'>
-                    <h4>No matching results, check what we have for you: </h4> <br/>
-                    {listings?.filter(listing=>/*listing.deal_type.includes(filter.dealType) &&*/ listing.bedroom.includes(filter.bedroom) && listing.bathroom.includes(filter.bathroom) && listing.listing_type.includes(filter.listing_type)).map((listing, idx) => (<ListingListItem listing={listing} key ={idx}/>))}
-                    {/* {setTimeout(()=> setMatch(false),1)} */}
+                     <h4>No matching results</h4> <br/> 
                 </div>
                  } 
 
@@ -94,3 +92,19 @@ const SearchResult = () => {
 }
 
 export default SearchResult
+
+
+// {!match ? 
+//     <div className='search-listings-cards'>
+//         {listings?.filter(listing=>/*listing.deal_type.includes(filter.dealType) &&*/ listing.bedroom.includes(filter.bedroom) && listing.bathroom.includes(filter.bathroom) && listing.listing_type.includes(filter.listing_type)).map((listing, idx) => (<ListingListItem listing={listing} key ={idx}/>))}
+//      </div>
+//     : 
+
+// <div className='search-listings-cards'>
+//  <h4>No matching results, check what we have for you: </h4> <br/> 
+//     {listings?.filter(listing=>/*listing.deal_type.includes(filter.dealType) &&*/ listing.bedroom.includes(filter.bedroom) && listing.bathroom.includes(filter.bathroom) && listing.listing_type.includes(filter.listing_type)).map((listing, idx) => (<ListingListItem listing={listing} key ={idx}/>))}
+
+
+
+// </div>
+// } 
