@@ -261,6 +261,10 @@ const ListingFormPage = () => {
 
                             <label> ZIP:
                                 <input type="number" required
+                                pattern="[0-9]{5}"
+                                title="Five digit zip code"
+                                min='10000'
+                                max='99999'
                                 placeholder="ZIP"
                                 value={zip}
                                 onChange={e=>setZip(e.target.value)} />
@@ -269,7 +273,9 @@ const ListingFormPage = () => {
                             <label> State: 
                                 <input required
                                 type="text" 
-                                placeholder="State" 
+                                placeholder="State"
+                                pattern="[A-Za-z]+" 
+                                title="Only letters are allowed"
                                 value={state} 
                                 onChange={e => setState(e.target.value)}/>
                             </label>         
@@ -278,6 +284,8 @@ const ListingFormPage = () => {
                                 <input required
                                 type="text" 
                                 placeholder="City" 
+                                pattern="[A-Za-z ]+" 
+                                title="Only letters and spaces are allowed"
                                 value={city} 
                                 onChange={e => setCity(e.target.value)}/>
                             </label>   
@@ -312,6 +320,8 @@ const ListingFormPage = () => {
                             <label> Bedroom:
                                 <input type="number" required
                                 placeholder="Bedroom"
+                                min="1" 
+                                max="20"
                                 value={bedroom}
                                 onChange={e=>setBedroom(e.target.value)} />
                             </label>
@@ -319,6 +329,8 @@ const ListingFormPage = () => {
                             <label> Bathroom:
                                 <input type="number" required
                                 placeholder="Bathroom"
+                                min="1" 
+                                max="20"
                                 value={bathroom}
                                 onChange={e=>setBathroom(e.target.value)} />
                             </label>
@@ -326,6 +338,8 @@ const ListingFormPage = () => {
                             <label> Size:
                                 <input type="number" required
                                 placeholder="Size"
+                                min="100" 
+                                max="100000"
                                 value={size}
                                 onChange={e=>setSize(e.target.value)} />
                             </label>
@@ -333,6 +347,8 @@ const ListingFormPage = () => {
                             <label> Built in:
                                 <input type="number" required
                                 placeholder="Built in"
+                                min="1850" 
+                                max="2023"
                                 value={year_built}
                                 onChange={e=>setYearBuilt(e.target.value)} />
                             </label>
@@ -340,6 +356,8 @@ const ListingFormPage = () => {
                             <label> Price:
                                 <input type="number" required
                                 placeholder="Price"
+                                min="100" 
+                                max="1000000000"
                                 value={price}
                                 onChange={e=>setPrice(e.target.value)} />
                             </label>
