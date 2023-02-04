@@ -9,12 +9,15 @@ import { fetchBuyListings, fetchRentListings, removeListings } from '../../store
 import ListingListItem from '../ListingIndexPage/ListingListItem'
 import SearchFilterSmall from '../SearchFilterSmall'
 
+import { GridLoader } from 'react-spinners';
 
 
 const Search = () => {
     const { type } = useParams(); //string type
     const listings = useSelector(store => Object.values(store.listings))
     const dispatch = useDispatch(); 
+
+    const [loading, setLoading] = useState(false);
 
     const [filter, setFilter] = useState(
         {   price: "",
@@ -26,12 +29,14 @@ const Search = () => {
     )
 
     useEffect(()=>{
+        setLoading(true);
         dispatch(removeListings())
         
         if(type === 'buy'){
-            dispatch(fetchBuyListings())
+            dispatch(fetchBuyListings()).then(()=>setLoading(false))
+            
         } else {
-            dispatch(fetchRentListings())
+            dispatch(fetchRentListings()).then(()=>setLoading(false))
         }
 
     },[dispatch, type])
@@ -57,27 +62,35 @@ const Search = () => {
                     {type === 'buy'? <h4>Real Estate & Homes for Sale</h4> : <h4>Real Estate & Homes for Rent</h4> }
                     {/* <div className='search-listings-cards'> */}
                     {/* {listings?.filter(listing=>listing.deal_type.includes(filter.dealType) && listing.bedroom.includes(filter.bedroom) && listing.bathroom.includes(filter.bathroom) && listing.listing_type.includes(filter.listing_type)).map((listing, idx) => (<ListingListItem listing={listing} key ={idx}/>))} */}
-
-                {listings
-                    ?.filter(listing =>
-                        listing.deal_type.includes(filter.dealType) &&
-                        listing.bedroom.includes(filter.bedroom) &&
-                        listing.bathroom.includes(filter.bathroom) &&
-                        listing.listing_type.includes(filter.listing_type)
-                    ).length > 0 ? (
-                        <div className="search-listings-cards">
-                        {listings
-                            ?.filter(listing =>
+                <div>
+                    {loading ? (
+                        <div className="spinner-container">
+                        <GridLoader size={30} color={'lightblue'} />
+                      </div>
+                    ):(
+                        listings
+                        ?.filter(listing =>
                             listing.deal_type.includes(filter.dealType) &&
                             listing.bedroom.includes(filter.bedroom) &&
                             listing.bathroom.includes(filter.bathroom) &&
                             listing.listing_type.includes(filter.listing_type)
-                            ).map((listing, idx) => <ListingListItem listing={listing} key={idx} />)
-                        }
-                        </div>
-                    ) : (
-                        <p id='no-match-text'>No matching results</p>
+                        ).length > 0 ? (
+                            <div className="search-listings-cards">
+                            {listings
+                                ?.filter(listing =>
+                                listing.deal_type.includes(filter.dealType) &&
+                                listing.bedroom.includes(filter.bedroom) &&
+                                listing.bathroom.includes(filter.bathroom) &&
+                                listing.listing_type.includes(filter.listing_type)
+                                ).map((listing, idx) => <ListingListItem listing={listing} key={idx} />)
+                            }
+                            </div>
+                        ) : (
+                            <p id='no-match-text'>No matching results</p>
+                        )
                     )}
+                </div>
+                
                     {/* </div> */}
                 </section>
             </section>
