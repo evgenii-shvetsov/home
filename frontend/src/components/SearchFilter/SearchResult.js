@@ -71,8 +71,27 @@ const SearchResult = () => {
 
 
                 {!match ? 
-                        <div className='search-listings-cards'>
-                            {listings?.filter(listing=>/*listing.deal_type.includes(filter.dealType) &&*/ listing.bedroom.includes(filter.bedroom) && listing.bathroom.includes(filter.bathroom) && listing.listing_type.includes(filter.listing_type)).map((listing, idx) => (<ListingListItem listing={listing} key ={idx}/>))}
+                        <div>
+                        {listings
+                            ?.filter(listing =>
+                        
+                        listing.bedroom.includes(filter.bedroom) &&
+                        listing.bathroom.includes(filter.bathroom) &&
+                        listing.listing_type.includes(filter.listing_type)
+                            ).length > 0 ? (
+                        <div className="search-listings-cards">
+                        {listings
+                            ?.filter(listing =>
+                           
+                            listing.bedroom.includes(filter.bedroom) &&
+                            listing.bathroom.includes(filter.bathroom) &&
+                            listing.listing_type.includes(filter.listing_type)
+                            ).map((listing, idx) => <ListingListItem listing={listing} key={idx} />)
+                        }
+                        </div>
+                    ) : (
+                        <p id='no-match-text'>No matching results</p>
+                    )}
                          </div>
                         : 
                
