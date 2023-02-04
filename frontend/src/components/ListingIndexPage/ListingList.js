@@ -1,6 +1,9 @@
 import React from 'react'
 import ListingListItem from './ListingListItem';
 import Carousel from 'react-elastic-carousel';
+import Spinner from '../Spinner/Spinner';
+import { GridLoader } from 'react-spinners';
+import { useState, useEffect } from 'react';
 
 
 const breakPoints = [
@@ -12,14 +15,32 @@ const breakPoints = [
 
 //splice(0,5) restricts the number of objects shown
 const ListingList = ( {listings ,text} ) => {
+
+  const [isLoading, setIsLoading] = useState(true);
+
+  useEffect(() => {
+    setTimeout(() => {
+      setIsLoading(false);
+    }, 1000);
+  }, [listings]);
+
   return (
     <div className='listings-main'>
         <h1> {text ? text: "Homes For You in San Francisco, CA"}</h1>
         <hr id="hr" />
+        
           <section className='listings-output' >
-                <Carousel breakPoints={breakPoints} /*enableAutoPlay autoPlaySpeed={3000}*/>
-              {listings?.map((listing, idx) => ( <ListingListItem listing={listing} key ={idx}/>))}
-            </Carousel>
+
+          {isLoading ? (
+                  // <Spinner />
+                  <GridLoader size={15} color={'lightblue'} />
+                ) : (
+                  <Carousel breakPoints={breakPoints} /*enableAutoPlay autoPlaySpeed={3000}*/>
+                    {listings.map((listing, idx) => ( <ListingListItem listing={listing} key ={idx}/>))}
+                  </Carousel>
+                )}
+
+                
           </section>
           
     </div>

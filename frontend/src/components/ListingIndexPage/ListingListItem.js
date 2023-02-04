@@ -17,6 +17,8 @@ import mainPlaceholder from '../../assets/placeholders/main-placeholder.jpg'
 
 
 
+
+
 const ListingListItem = ( {listing} ) => {
 
     const favorites = useSelector((store) => store.favorites)
@@ -24,6 +26,8 @@ const ListingListItem = ( {listing} ) => {
     const sessionUser = useSelector(state => state.session.user);
 
     const [showModal, setShowModal] = useState(false);
+
+
 
     // const url = mainPlaceholder
 
@@ -66,7 +70,7 @@ const ListingListItem = ( {listing} ) => {
     }
 
     if(listing){
-        
+  
     return (
         // <>
        
@@ -110,6 +114,7 @@ const ListingListItem = ( {listing} ) => {
                         {listing.state}&nbsp;
                         {listing.zip}
                     </div>
+                    
 
                 {sessionUser?.id === listing.owner_id &&
                 <>

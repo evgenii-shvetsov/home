@@ -29,15 +29,6 @@ const ListingIndexPage = () => {
     
   return (
     <div >
-        {/* <h1>Listing Index Page</h1> */}
-        {/* <button onClick={() => history.push("/listings/new")}>
-        <Link
-          to="/listings/new"
-          style={{ textDecoration: "none", color: "black" }}
-        >
-          Create Listing
-        </Link>
-      </button> */}
       <ListingList listings={listings}  />
     </div>
   )

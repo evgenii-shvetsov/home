@@ -26,6 +26,7 @@
     "@iconify/react": "^4.0.1"
   },
   "dependencies": {
-    "@iconify/icons-mdi": "^1.2.38"
+    "@iconify/icons-mdi": "^1.2.38",
+    "react-spinners": "^0.13.8"
   }
 }
