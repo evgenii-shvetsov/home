@@ -4,10 +4,13 @@ import MapSearch from '../MapSearch'
 import { useLocation } from "react-router-dom"
 // import { useParams } from 'react-router-dom'
 import { useDispatch, useSelector } from 'react-redux'
-import {  removeListings, fetchSearchFilterListings, fetchListings } from '../../store/listings'
+import {  removeListings, fetchSearchFilterListings, fetchListings } from '../../store/listings';
 
-import ListingListItem from '../ListingIndexPage/ListingListItem'
-import SearchFilterSmall from '../SearchFilterSmall'
+import ListingListItem from '../ListingIndexPage/ListingListItem';
+import SearchFilterSmall from '../SearchFilterSmall';
+
+import Spinner from '../Spinner/Spinner';
+import { GridLoader } from 'react-spinners';
 
 const SearchResult = () => {
 
@@ -23,6 +26,7 @@ const SearchResult = () => {
     )
 
     // console.log(filter.price)
+    const [loading, setLoading] = useState(false);
 
     const listings = useSelector(store => Object.values(store.listings))
     const[match,setMatch] = useState(false)
@@ -32,6 +36,7 @@ const SearchResult = () => {
 
 
     useEffect(()=>{
+        setLoading(true);
         dispatch(removeListings())
 
         // console.log('after remove', listings)
@@ -45,6 +50,7 @@ const SearchResult = () => {
                 // setTimeout(()=> setMatch(false),1)
                 
             }
+            setLoading(false);
         })
         
     },[dispatch, searchValue])
@@ -69,36 +75,39 @@ const SearchResult = () => {
             <section className='search-listings' id='search-result-header'>
                 <h4>Real Estate & Homes, based on your search " {searchValue} "</h4>
 
-
-                {!match ? 
-                        <div>
-                        {listings
-                            ?.filter(listing =>
-                        
-                        listing.bedroom.includes(filter.bedroom) &&
-                        listing.bathroom.includes(filter.bathroom) &&
-                        listing.listing_type.includes(filter.listing_type)
-                            ).length > 0 ? (
-                        <div className="search-listings-cards">
-                        {listings
-                            ?.filter(listing =>
-                           
+                <div>
+                    {loading ? (
+                      <div className="spinner-container">
+                        <GridLoader size={30} color={'lightblue'} />
+                      </div>
+                    ) : (
+                      !match ? (
+                        listings
+                          ?.filter(listing =>
                             listing.bedroom.includes(filter.bedroom) &&
                             listing.bathroom.includes(filter.bathroom) &&
                             listing.listing_type.includes(filter.listing_type)
-                            ).map((listing, idx) => <ListingListItem listing={listing} key={idx} />)
-                        }
+                          ).length > 0 ? (
+                          <div className="search-listings-cards">
+                            {listings
+                              ?.filter(listing =>
+                                listing.bedroom.includes(filter.bedroom) &&
+                                listing.bathroom.includes(filter.bathroom) &&
+                                listing.listing_type.includes(filter.listing_type)
+                              ).map((listing, idx) => <ListingListItem listing={listing} key={idx} />)
+                            }
+                          </div>
+                        ) : (
+                          <p id="no-match-text">No matching results</p>
+                        )
+                      ) : (
+                        <div className="search-listings-cards">
+                          <h4>No matching results</h4> <br />
                         </div>
-                    ) : (
-                        <p id='no-match-text'>No matching results</p>
+                      )
                     )}
-                         </div>
-                        : 
-               
-                <div className='search-listings-cards'>
-                     <h4>No matching results</h4> <br/> 
-                </div>
-                 } 
+            </div>
+
 
 
             </section>

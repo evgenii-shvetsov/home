@@ -141,3 +141,13 @@
 .filters-wrapper select:focus{
     box-shadow: 0 0 0px 1px #fff, 0 0 2px 3px #a6e5ff, 0 0 2px 4px #006aff;
 }
+
+#search-result-header{
+    position: relative;
+}
+
+.spinner-container{
+    position: absolute;
+    top: -60px;
+    left:47%
+}
