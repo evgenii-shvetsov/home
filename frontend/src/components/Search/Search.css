@@ -33,6 +33,7 @@ main{
     border-radius: 11px;
     box-shadow: inset 0 -3em 3em rgb(0 0 0 / 10%), 0 0 0 0px rgb(255 255 255), 0.3em 0.3em 1em rgb(0 0 0 / 30%);
     height: calc(100vh - 159px);
+    position: relative;
     
 }
 
@@ -62,6 +63,14 @@ main{
 
 }
 
+#no-match-text{
+    font-family: "Open Sans", "Adjusted Arial", Tahoma, Geneva, sans-serif;
+    position: absolute;
+    top:70px;
+    /* left:285px; */
+    left: 42%
+}
+
 @media only screen and (max-width: 1350px) {
    
     .search-output-map-listings{
@@ -70,6 +79,12 @@ main{
     }
     #search-type{
         margin-bottom: 40px;
+    }
+
+    #no-match-text{
+    position: absolute;
+    top:70px;
+    left:125px;
     }
 }
 
@@ -145,6 +160,12 @@ main{
         padding: 10px;
         height: 350px;
     
+    }
+
+    #no-match-text{
+        position: absolute;
+        top:85px;
+        left:42%;
     }
     
 }

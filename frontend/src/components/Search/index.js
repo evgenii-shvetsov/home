@@ -55,9 +55,30 @@ const Search = () => {
 
                 <section className='search-listings'>
                     {type === 'buy'? <h4>Real Estate & Homes for Sale</h4> : <h4>Real Estate & Homes for Rent</h4> }
-                    <div className='search-listings-cards'>
-                    {listings?.filter(listing=>listing.deal_type.includes(filter.dealType) && listing.bedroom.includes(filter.bedroom) && listing.bathroom.includes(filter.bathroom) && listing.listing_type.includes(filter.listing_type)).map((listing, idx) => (<ListingListItem listing={listing} key ={idx}/>))}
-                    </div>
+                    {/* <div className='search-listings-cards'> */}
+                    {/* {listings?.filter(listing=>listing.deal_type.includes(filter.dealType) && listing.bedroom.includes(filter.bedroom) && listing.bathroom.includes(filter.bathroom) && listing.listing_type.includes(filter.listing_type)).map((listing, idx) => (<ListingListItem listing={listing} key ={idx}/>))} */}
+
+                {listings
+                    ?.filter(listing =>
+                        listing.deal_type.includes(filter.dealType) &&
+                        listing.bedroom.includes(filter.bedroom) &&
+                        listing.bathroom.includes(filter.bathroom) &&
+                        listing.listing_type.includes(filter.listing_type)
+                    ).length > 0 ? (
+                        <div className="search-listings-cards">
+                        {listings
+                            ?.filter(listing =>
+                            listing.deal_type.includes(filter.dealType) &&
+                            listing.bedroom.includes(filter.bedroom) &&
+                            listing.bathroom.includes(filter.bathroom) &&
+                            listing.listing_type.includes(filter.listing_type)
+                            ).map((listing, idx) => <ListingListItem listing={listing} key={idx} />)
+                        }
+                        </div>
+                    ) : (
+                        <p id='no-match-text'>No matching results</p>
+                    )}
+                    {/* </div> */}
                 </section>
             </section>
         </main>
