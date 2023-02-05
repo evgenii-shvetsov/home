@@ -48,6 +48,24 @@
     
 }
 
+/* datalist{
+    width: 300px;
+    height: 200px;
+    overflow-y: scroll;
+    border: 1px solid gray;
+}
+
+datalist option {
+    padding: 10px;
+    font-size: 16px;
+    background-color: white;
+  }
+  
+datalist option:hover {
+    background-color: lightgray;
+    cursor: pointer;
+  } */
+
 .form-input::placeholder{
     color: #2A2A33;
 }
@@ -151,6 +169,15 @@
     top: -60px;
     left:47%
 }
+
+/*
+*/
+
+
+
+
+
+
 
 @media only screen and (max-width: 500px){
     .form-input{

@@ -42,7 +42,16 @@ const SearchFilterSmall = ({filter, setFilter}) => {
 
                             <input type="text" className='filter-bar-small-input'  placeholder="Enter a Home Type or ZIP code"
                              value={searchValue} 
-                             onChange={(e) => (setSearchValue(e.target.value))}/>
+                             onChange={(e) => (setSearchValue(e.target.value))}
+                             list="suggestedQueries" autoComplete='off'/>
+
+                <datalist id="suggestedQueries">
+                        <option value="apartment">apartment</option>
+                        <option value="house">house</option>
+                        <option value="94104">94104</option>
+                        <option value="94105">94105</option>
+                        <option value="94107">94107</option>
+                </datalist>
 
                              <button id='filter-bar-small-btn'>
                                <i className="fa fa-search"></i>
