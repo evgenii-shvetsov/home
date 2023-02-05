@@ -95,7 +95,7 @@ const SearchFilterSmall = ({filter, setFilter}) => {
                             <option value="10">Baths: 10</option>
                     </select>
 
-                    <select name="listing_type" id=""
+                    <select name="listing_type" id="home-type-select"
                         onChange={(e)=>{const value = e.target.value
                             setFilter({...filter, listing_type:value})}}>
                             <option value="" disabled selected>Home Type</option>

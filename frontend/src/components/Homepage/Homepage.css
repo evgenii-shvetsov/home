@@ -122,3 +122,34 @@ main .search-bar{
         background-repeat: no-repeat;
     }
 }
+
+@media only screen and (max-width: 500px){
+    main .search-bar{
+    
+        max-width: 100%;
+        height: 300px;
+        background-image: url('../../assets/homepage-background695.jpg');
+        background-size: 100% 100%;
+        /* background-size: cover; */
+        background-repeat: no-repeat;
+    }
+
+    .deal-type-card{
+        font-family: "Open Sans", "Adjusted Arial", Tahoma, Geneva, sans-serif;
+        box-sizing: border-box;
+        overflow: hidden;
+        width: 245px;
+        height: 415px;
+        padding: 20px;
+        margin: 20px;
+        background-color: #fff;
+        border: 0px solid rgb(209, 209, 213);
+        background-color: rgb(255, 255, 255);
+        border-radius: 4px;
+        /* cursor: pointer; */
+        box-shadow: rgb(0 0 0 / 30%) 0px 2px 4px 0px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+    }
+}
