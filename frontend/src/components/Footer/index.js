@@ -16,7 +16,7 @@ const Footer = () => {
             </div>
 
             <div className="social_media">
-              <a href="https://www.linkedin.com/in/evgenii-shvetsov" target="_blank" rel="noopener noreferrer">
+              <a href="https://www.linkedin.com/in/shvetsovea/" target="_blank" rel="noopener noreferrer">
                 <i className="fa-brands fa-linkedin"></i>
               </a>
               <a href="https://github.com/evgenii-shvetsov" target="_blank" rel="noopener noreferrer">
